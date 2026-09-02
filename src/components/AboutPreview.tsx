@@ -32,7 +32,7 @@ export const AboutPreview: React.FC<AboutPreviewProps> = ({ onNavigateCurriculum
                   <div className="absolute top-10 left-1/2 -translate-x-1/2 w-44 h-44 sm:w-52 sm:h-52 rounded-full border border-[#DDD6FE]/80" />
                   <div className="absolute top-12 left-1/2 -translate-x-1/2 w-40 h-40 sm:w-48 sm:h-48 rounded-full border border-[#C084FC]/35 border-dashed" />
                   <div className="absolute top-4 right-4 font-mono text-[9px] sm:text-[10px] text-[#7C3AED]/45 tracking-wider">
-                    STUDIO // MILANO
+                    STUDIO // VERONA
                   </div>
                 </div>
 
@@ -47,7 +47,7 @@ export const AboutPreview: React.FC<AboutPreviewProps> = ({ onNavigateCurriculum
                 <div className="relative z-20 m-3 sm:m-4 bg-white/95 backdrop-blur-md p-3 sm:p-3.5 rounded-xl sm:rounded-2xl shadow-lg border border-[#E9D5FF] flex items-center justify-between">
                   <div className="pr-2">
                     <span className="font-serif italic font-bold text-sm sm:text-base text-[#1A1A1A] block truncate">Alice Mariarita Mele</span>
-                    <span className="text-[10px] sm:text-[11px] text-[#7C3AED] font-semibold block truncate">Milano · Graphic & Print Design</span>
+                    <span className="text-[10px] sm:text-[11px] text-[#7C3AED] font-semibold block truncate">Verona · Graphic & Print Design</span>
                   </div>
                   <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-[#FAF5FF] flex items-center justify-center text-[#7C3AED] flex-shrink-0">
                     <Stamp className="w-3.5 h-3.5 sm:w-4 sm:h-4" />

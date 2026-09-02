@@ -168,10 +168,10 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
 
           <div className="group bg-white rounded-[28px] p-6 sm:p-8 border border-[#E9D5FF] shadow-sm hover:border-[#C084FC] hover:bg-[#FDFBFE] hover:shadow-[0_12px_32px_rgba(124,58,237,0.07)] transition-all duration-300 leading-relaxed text-[#4A4453] space-y-4">
             <p className="text-base sm:text-lg font-medium">
-              Mi piace costruire progetti grafici in cui estetica e funzionalità lavorano insieme in perfetta armonia. Credo che la grafica destinata alla stampa conservi un valore sensoriale insostituibile: il peso e la grana di una carta speciale, la brillantezza di un inchiostro Pantone calibrato, la griglia invisibile che guida l’occhio nella lettura di un testo articolato.
+              Mi piace costruire progetti grafici in cui estetica e funzionalità lavorano insieme in perfetta armonia. Credo che la grafica destinata alla stampa conservi un valore sensoriale insostituibile: il peso e la grana di una carta speciale, la brillantezza di un inchiostro calibrato, la griglia invisibile che guida l’occhio nella lettura di un testo articolato.
             </p>
             <p className="text-base text-[#6B7280]">
-              Il mio percorso unisce sensibilità visiva contemporanea, rigore tecnico nella gestione della prestampa (abbondanze, profili colore, fustellature complesse) e una costante attenzione alle esigenze dei clienti e delle istituzioni culturali.
+              Il mio percorso unisce sensibilità visiva contemporanea, rigore tecnico nella gestione della prestampa (abbondanze, profili colore) e una costante attenzione alle esigenze dei clienti e delle istituzioni culturali.
             </p>
           </div>
         </motion.section>

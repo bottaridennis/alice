@@ -104,23 +104,6 @@ export const Hero: React.FC<HeroProps> = ({
                 <span>Curriculum</span>
               </button>
             </div>
-
-            {/* Quick Graphic Specs Badges */}
-            <div className="grid grid-cols-3 gap-2 sm:gap-4 pt-6 border-t border-[#E9D5FF] w-full max-w-lg">
-              <div className="flex flex-col">
-                <span className="font-serif italic text-2xl sm:text-3xl text-[#1A1A1A]">100%</span>
-                <span className="text-[10px] sm:text-xs text-[#6B7280] font-medium leading-tight mt-0.5">Focus su Stampa & Arte</span>
-              </div>
-              <div className="flex flex-col border-l border-[#E9D5FF] pl-2.5 sm:pl-4">
-                <span className="font-serif italic text-lg sm:text-3xl text-[#7C3AED] truncate">Fedrigoni®</span>
-                <span className="text-[10px] sm:text-xs text-[#6B7280] font-medium leading-tight mt-0.5">Carte d'Autore & Pregio</span>
-              </div>
-              <div className="flex flex-col border-l border-[#E9D5FF] pl-2.5 sm:pl-4">
-                <span className="font-serif italic text-2xl sm:text-3xl text-[#1A1A1A] truncate">Pantone®</span>
-                <span className="text-[10px] sm:text-xs text-[#6B7280] font-medium leading-tight mt-0.5">Controllo Cromatico UV</span>
-              </div>
-            </div>
-
           </div>
 
           {/* Right Column: Visual Mockup Showcase with Interactive Floating Layer */}
@@ -174,25 +157,6 @@ export const Hero: React.FC<HeroProps> = ({
                 </div>
               </div>
 
-              {/* Floating Accent Card 1: Print Palette Swatch */}
-              <div
-                className="absolute -bottom-5 -left-4 sm:-bottom-6 sm:-left-8 bg-white p-3 sm:p-3.5 rounded-2xl shadow-lg border border-[#E9D5FF] hidden sm:flex items-center gap-3 transition-transform duration-500 ease-out"
-                style={{
-                  transform: `translate(${mousePos.x * -0.6}px, ${mousePos.y * -0.6}px)`
-                }}
-              >
-                <div className="flex -space-x-1.5">
-                  <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#7C3AED] ring-2 ring-white shadow-sm" title="Pantone Violet"></div>
-                  <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#A855F7] ring-2 ring-white shadow-sm" title="Lilac 500"></div>
-                  <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#DDD6FE] ring-2 ring-white shadow-sm" title="Soft Lavender"></div>
-                  <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#1A1A1A] ring-2 ring-white shadow-sm" title="Rich Ink Black"></div>
-                </div>
-                <div className="text-left">
-                  <div className="text-[10px] sm:text-[11px] font-bold text-[#1A1A1A]">Inchiostri & Tonalità</div>
-                  <div className="text-[9px] sm:text-[10px] text-[#6B7280]">Pantone® Violet C</div>
-                </div>
-              </div>
-
               {/* Floating Accent Card 2: Alice Mariarita Mele Designer Avatar Badge */}
               <div
                 onClick={() => {
@@ -218,7 +182,7 @@ export const Hero: React.FC<HeroProps> = ({
                   <span className="font-serif italic text-xs sm:text-sm font-semibold text-[#1A1A1A] block truncate max-w-[130px] sm:max-w-none">
                     Alice Mariarita Mele
                   </span>
-                  <span className="text-[9px] sm:text-[10px] text-[#6B7280]">Milano · Print & Editorial</span>
+                  <span className="text-[9px] sm:text-[10px] text-[#6B7280]">Verona · Print & Editorial</span>
                 </div>
               </div>
 
