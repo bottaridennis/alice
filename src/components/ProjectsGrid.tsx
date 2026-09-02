@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Project, FilterCategory } from '../types';
 import { Eye, ArrowUpRight, Filter, Printer, X, FileText, ExternalLink } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
@@ -12,39 +12,6 @@ export const ProjectsGrid: React.FC<ProjectsGridProps> = ({
   projects,
   onSelectProject
 }) => {
-  const [activeFilter, setActiveFilter] = useState<FilterCategory | 'all'>('all');
-
-  const filterCategories: { id: FilterCategory | 'all'; label: string }[] = [
-    { id: 'all', label: 'Tutti i Lavori' },
-    { id: 'Editorial Design', label: 'Editorial Design' },
-    { id: 'Poster Design', label: 'Poster Design' },
-    { id: 'Brand & Visual Identity', label: 'Brand & Identity' },
-    { id: 'Typography & Lettering', label: 'Tipografia & Lettering' }
-  ];
-
-  // Helper to count projects matching a category
-  const getCategoryCount = (catId: FilterCategory | 'all') => {
-    if (catId === 'all') return projects.length;
-    return projects.filter(p => p.categories && p.categories.includes(catId)).length;
-  };
-
-  // Toggle filter: clicking active filter removes it (returns to all)
-  const handleFilterClick = (catId: FilterCategory | 'all') => {
-    if (activeFilter === catId) {
-      setActiveFilter('all');
-    } else {
-      setActiveFilter(catId);
-    }
-  };
-
-  const handleClearFilter = () => {
-    setActiveFilter('all');
-  };
-
-  const filteredProjects = activeFilter === 'all'
-    ? projects
-    : projects.filter(p => p.categories && p.categories.includes(activeFilter));
-
   const handleDirectPdfOpen = (e: React.MouseEvent, pdfUrl: string) => {
     e.stopPropagation();
     window.open(pdfUrl, '_blank', 'noopener,noreferrer');
@@ -68,79 +35,7 @@ export const ProjectsGrid: React.FC<ProjectsGridProps> = ({
               Dalla locandina serigrafica al catalogo d’arte cucito a filo refe, dai pieghevoli promozionali alle identità visive materiche.
             </p>
           </div>
-
-          {/* Accessible Filter Controls */}
-          <div className="w-full lg:w-auto overflow-hidden">
-            <div
-              id="portfolio-filters"
-              className="flex items-center gap-1.5 sm:gap-2 p-1.5 bg-white rounded-2xl sm:rounded-full border border-[#E9D5FF] shadow-sm max-w-full overflow-x-auto no-scrollbar scroll-smooth whitespace-nowrap sm:flex-wrap"
-            >
-              {filterCategories.map(cat => {
-                const isSelected = activeFilter === cat.id;
-                const count = getCategoryCount(cat.id);
-
-                return (
-                  <button
-                    key={cat.id}
-                    id={`filter-btn-${cat.id.toLowerCase().replace(/\s+/g, '-')}`}
-                    onClick={() => handleFilterClick(cat.id)}
-                    aria-pressed={isSelected}
-                    className={`group relative flex items-center gap-1.5 sm:gap-2 px-3.5 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer flex-shrink-0 min-h-[40px] sm:min-h-[44px] ${
-                      isSelected
-                        ? 'bg-[#7C3AED] text-white shadow-md shadow-purple-200'
-                        : 'text-[#5B5565] hover:text-[#7C3AED] hover:bg-[#FAF5FF]'
-                    }`}
-                  >
-                    <span>{cat.label}</span>
-                    <span
-                      className={`px-1.5 py-0.5 rounded-full text-[10px] font-bold transition-colors ${
-                        isSelected
-                          ? 'bg-white/25 text-white'
-                          : 'bg-[#F3E8FF] text-[#7C3AED] group-hover:bg-[#E9D5FF]'
-                      }`}
-                    >
-                      {count}
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
-          </div>
         </div>
-
-        {/* Dynamic Filter Status Bar when a filter is applied */}
-        <AnimatePresence mode="wait">
-          {activeFilter !== 'all' && (
-            <motion.div
-              initial={{ opacity: 0, height: 0, y: -8 }}
-              animate={{ opacity: 1, height: 'auto', y: 0 }}
-              exit={{ opacity: 0, height: 0, y: -8 }}
-              transition={{ duration: 0.25 }}
-              className="mb-8 overflow-hidden"
-            >
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 px-4 sm:px-5 py-3 rounded-2xl bg-white border border-[#E9D5FF] shadow-sm">
-                <div className="flex items-center gap-2 text-xs sm:text-sm text-[#4B4554]">
-                  <Filter className="w-4 h-4 text-[#7C3AED] flex-shrink-0" />
-                  <span>
-                    Filtro attivo: <strong className="text-[#7C3AED] font-semibold">{activeFilter}</strong>
-                  </span>
-                  <span className="text-xs text-[#6B7280]">
-                    ({filteredProjects.length} {filteredProjects.length === 1 ? 'progetto' : 'progetti'})
-                  </span>
-                </div>
-
-                <button
-                  id="clear-portfolio-filter"
-                  onClick={handleClearFilter}
-                  className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FAF5FF] hover:bg-[#F3E8FF] text-[#6D28D9] text-xs font-semibold border border-[#DDD6FE] transition-colors self-start sm:self-auto min-h-[36px]"
-                >
-                  <X className="w-3.5 h-3.5" />
-                  <span>Rimuovi filtro (Mostra tutti)</span>
-                </button>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
 
         {/* Dynamic Editorial Grid with smooth animated transitions */}
         <motion.div
@@ -148,7 +43,7 @@ export const ProjectsGrid: React.FC<ProjectsGridProps> = ({
           className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10"
         >
           <AnimatePresence>
-            {filteredProjects.map((project) => {
+            {projects.map((project) => {
               let colSpan = 'md:col-span-6 lg:col-span-6';
               let aspectClass = 'aspect-[16/11]';
 
@@ -265,24 +160,6 @@ export const ProjectsGrid: React.FC<ProjectsGridProps> = ({
           </AnimatePresence>
         </motion.div>
 
-        {/* Empty state safeguard */}
-        {filteredProjects.length === 0 && (
-          <div className="py-16 text-center bg-white rounded-[32px] border border-[#E9D5FF] p-8">
-            <Printer className="w-12 h-12 text-[#C084FC] mx-auto mb-4" />
-            <h3 className="font-serif italic text-2xl text-[#1A1A1A] mb-2">
-              Nessun progetto trovato per questa categoria
-            </h3>
-            <p className="text-sm text-[#6B7280] mb-6">
-              Prova a selezionare un'altra categoria oppure mostra tutti i lavori realizzati.
-            </p>
-            <button
-              onClick={handleClearFilter}
-              className="px-6 py-2.5 rounded-full bg-[#7C3AED] hover:bg-[#6D28D9] text-white text-xs font-semibold shadow-md transition-all"
-            >
-              Mostra Tutti i Lavori
-            </button>
-          </div>
-        )}
 
       </div>
     </section>
