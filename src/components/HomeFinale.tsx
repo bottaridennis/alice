@@ -19,7 +19,7 @@ export const HomeFinale: React.FC<HomeFinaleProps> = ({ onNavigateCurriculum }) 
             <div>
               <div className="flex items-center gap-2">
                 <span className="font-serif italic font-bold text-xl sm:text-2xl text-[#1A1A1A]">
-                  Alice Mele
+                  Alice Mariarita Mele
                 </span>
                 <span className="w-2 h-2 rounded-full bg-[#7C3AED]"></span>
               </div>

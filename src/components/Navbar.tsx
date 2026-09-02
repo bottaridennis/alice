@@ -43,7 +43,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onPageChange }) => 
           <div className="flex flex-col">
             <div className="flex items-center gap-1.5 sm:gap-2">
               <span className="font-display font-bold text-base sm:text-lg text-[#1A1A1A] tracking-tight group-hover:text-[#7C3AED] transition-colors whitespace-nowrap">
-                Alice Mele
+                Alice Mariarita Mele
               </span>
               <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#7C3AED]"></span>
             </div>
@@ -92,7 +92,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onPageChange }) => 
         <div className="hidden lg:flex items-center gap-3">
           <a
             id="nav-contact-pill"
-            href="mailto:alice.mele.design@gmail.com"
+            href="mailto:alicemariaritamele@gmail.com"
             className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#FAF5FF] border border-[#DDD6FE] text-[#6D28D9] text-xs font-semibold hover:bg-[#7C3AED] hover:text-white transition-all duration-200 shadow-sm group"
           >
             <span className="relative flex h-2 w-2">

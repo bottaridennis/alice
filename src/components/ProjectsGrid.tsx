@@ -64,7 +64,7 @@ export const ProjectsGrid: React.FC<ProjectsGridProps> = ({
             <h2 className="font-serif italic text-3xl sm:text-5xl lg:text-6xl text-[#1A1A1A] tracking-tight">
               Progetti & Artefatti
             </h2>
-            <p className="text-[#645E6E] mt-2 sm:mt-3 text-sm sm:text-lg leading-relaxed font-normal">
+            <p className="text-[#645E6E] mt-2 sm:mt-3 text-base sm:text-lg leading-relaxed font-medium">
               Dalla locandina serigrafica al catalogo d’arte cucito a filo refe, dai pieghevoli promozionali alle identità visive materiche.
             </p>
           </div>
@@ -242,7 +242,7 @@ export const ProjectsGrid: React.FC<ProjectsGridProps> = ({
                       <span className="font-serif italic text-base sm:text-lg font-semibold text-[#1A1A1A] group-hover:text-[#7C3AED] transition-colors line-clamp-1">
                         {project.title}
                       </span>
-                      <p className="text-xs text-[#6B7280] font-normal line-clamp-2 mt-0.5 leading-relaxed">
+                      <p className="text-xs text-[#6B7280] font-medium line-clamp-2 mt-0.5 leading-relaxed">
                         {project.description}
                       </p>
                       {project.tags && project.tags.length > 0 && (

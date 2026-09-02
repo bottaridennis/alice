@@ -30,7 +30,7 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
   };
 
   const handlePrint = () => {
-    window.print();
+    window.open('./CV_Mele.pdf', '_blank');
   };
 
   const sectionAnim = {
@@ -101,7 +101,7 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
               </div>
 
               <h1 className="font-serif italic text-4xl sm:text-6xl lg:text-7xl text-[#1A1A1A] tracking-tight mb-2">
-                Alice Mele
+                Alice Mariarita Mele
               </h1>
               <div className="flex items-center justify-center md:justify-start gap-3 mb-4 sm:mb-5">
                 <div className="w-8 sm:w-10 h-[1.5px] bg-[#7C3AED]"></div>
@@ -110,7 +110,7 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
                 </h2>
               </div>
 
-              <p className="text-[#4B5563] text-sm sm:text-lg leading-relaxed mb-5 sm:mb-6 font-normal">
+              <p className="text-[#4B5563] text-base sm:text-lg leading-relaxed mb-5 sm:mb-6 font-medium">
                 Specializzata nella progettazione per la stampa, grafica editoriale d’arte e costruzione di identità visive coerenti. Coniugo rigore metodologico, sensibilità materica per i supporti cartacei e precisione tipografica in ogni fase del lavoro.
               </p>
 
@@ -137,12 +137,12 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
                 <div className="absolute top-2 w-28 h-28 rounded-full border border-[#DDD6FE]/60 pointer-events-none" />
                 <img
                   src="./Alice_photo.png"
-                  alt="Alice Mele — Graphic Designer"
+                  alt="Alice Mariarita Mele — Graphic Designer"
                   className="relative z-10 w-full h-[90%] object-contain object-bottom drop-shadow-[0_8px_16px_rgba(76,29,149,0.18)]"
                 />
               </div>
               <span className="mt-2 text-[10px] font-mono text-[#7C3AED] font-semibold uppercase tracking-wider">
-                Alice Mele
+                Alice Mariarita Mele
               </span>
             </div>
           </div>
@@ -167,7 +167,7 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
           </div>
 
           <div className="group bg-white rounded-[28px] p-6 sm:p-8 border border-[#E9D5FF] shadow-sm hover:border-[#C084FC] hover:bg-[#FDFBFE] hover:shadow-[0_12px_32px_rgba(124,58,237,0.07)] transition-all duration-300 leading-relaxed text-[#4A4453] space-y-4">
-            <p className="text-base sm:text-lg font-normal">
+            <p className="text-base sm:text-lg font-medium">
               Mi piace costruire progetti grafici in cui estetica e funzionalità lavorano insieme in perfetta armonia. Credo che la grafica destinata alla stampa conservi un valore sensoriale insostituibile: il peso e la grana di una carta speciale, la brillantezza di un inchiostro Pantone calibrato, la griglia invisibile che guida l’occhio nella lettura di un testo articolato.
             </p>
             <p className="text-base text-[#6B7280]">
@@ -193,7 +193,7 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
               <h3 className="font-serif italic text-2xl sm:text-3xl text-[#1A1A1A]">
                 Esperienze Lavorative
               </h3>
-              <p className="text-xs text-[#6B7280]">Percorso professionale e progetti svolti in agenzie e tipografie</p>
+              <p className="text-sm text-[#4B5563]">Percorso professionale e progetti svolti in agenzie e tipografie</p>
             </div>
           </div>
 
@@ -219,10 +219,10 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
                   </div>
 
                   <div className="text-xs sm:text-sm font-semibold text-[#6D28D9] mb-2 sm:mb-3">
-                    {exp.company} <span className="text-[#9CA3AF] font-normal">· {exp.location}</span>
+                    {exp.company} <span className="text-[#9CA3AF] font-medium">· {exp.location}</span>
                   </div>
 
-                  <p className="text-xs sm:text-base text-[#4B5563] leading-relaxed mb-3.5 sm:mb-4 font-normal">
+                  <p className="text-sm sm:text-base text-[#4B5563] leading-relaxed mb-3.5 sm:mb-4 font-medium">
                     {exp.description}
                   </p>
 
@@ -275,7 +275,7 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
               <h3 className="font-serif italic text-2xl sm:text-3xl text-[#1A1A1A]">
                 Formazione & Studi
               </h3>
-              <p className="text-xs text-[#6B7280]">Percorso accademico e master di specializzazione</p>
+              <p className="text-sm text-[#4B5563]">Percorso accademico e master di specializzazione</p>
             </div>
           </div>
 
@@ -296,7 +296,7 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
                     {edu.school} — {edu.location}
                   </div>
                   {edu.specialization && (
-                    <p className="text-xs text-[#4B5563] mb-3 leading-relaxed">
+                    <p className="text-sm text-[#374151] font-medium mb-3 leading-relaxed">
                       <strong>Specializzazione:</strong> {edu.specialization}
                     </p>
                   )}
@@ -328,7 +328,7 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
               <h3 className="font-serif italic text-2xl sm:text-3xl text-[#1A1A1A]">
                 Competenze
               </h3>
-              <p className="text-xs text-[#6B7280]">Aree di specializzazione e metodologie progettuali</p>
+              <p className="text-sm text-[#4B5563]">Aree di specializzazione e metodologie progettuali</p>
             </div>
           </div>
 
@@ -344,7 +344,7 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
                     {cat.title}
                   </h4>
                 </div>
-                <p className="text-xs text-[#6B7280] mb-4">
+                <p className="text-sm text-[#4B5563] mb-4">
                   {cat.description}
                 </p>
 
@@ -381,7 +381,7 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
               <h3 className="font-serif italic text-2xl sm:text-3xl text-[#1A1A1A]">
                 Software & Strumenti
               </h3>
-              <p className="text-xs text-[#6B7280]">Applicazioni e tool di lavoro per layout, vettori e prestampa</p>
+              <p className="text-sm text-[#4B5563]">Applicazioni e tool di lavoro per layout, vettori e prestampa</p>
             </div>
           </div>
 
@@ -427,7 +427,7 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
               <h3 className="font-serif italic text-2xl sm:text-3xl text-[#1A1A1A]">
                 Lingue
               </h3>
-              <p className="text-xs text-[#6B7280]">Competenze linguistiche per collaborazioni nazionali e internazionali</p>
+              <p className="text-sm text-[#4B5563]">Competenze linguistiche per collaborazioni nazionali e internazionali</p>
             </div>
           </div>
 
@@ -446,7 +446,7 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
                   </span>
                 </div>
 
-                <p className="text-xs text-[#6B7280] mb-4">
+                <p className="text-sm text-[#4B5563] mb-4">
                   {lang.note}
                 </p>
 
@@ -473,13 +473,13 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
           <h3 className="font-serif italic text-2xl sm:text-3xl lg:text-4xl mb-3">
             Hai un progetto grafico o editoriale da realizzare?
           </h3>
-          <p className="text-[#E9D5FF] text-xs sm:text-base max-w-xl mx-auto mb-6 font-normal">
+          <p className="text-[#E9D5FF] text-sm sm:text-base max-w-xl mx-auto mb-6 font-medium">
             Dalla scelta della carta alla consegna dei file esecutivi in tipografia, sono disponibile per collaborazioni, consulenze e nuove identità visive.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto">
             <a
               id="cv-cta-contact-email"
-              href="mailto:alice.mele.design@gmail.com"
+              href="mailto:alicemariaritamele@gmail.com"
               className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 sm:py-4 rounded-full bg-white text-[#581C87] font-medium text-xs sm:text-sm hover:bg-[#FAF5FF] shadow-lg hover:scale-105 transition-all min-h-[44px]"
             >
               Scrivimi via Email

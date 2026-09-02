@@ -36,17 +36,17 @@ export const AboutPreview: React.FC<AboutPreviewProps> = ({ onNavigateCurriculum
                   </div>
                 </div>
 
-                {/* Alice Mele Transparent Cutout Portrait */}
+                {/* Alice Mariarita Mele Transparent Cutout Portrait */}
                 <img
                   src="./Alice_photo.png"
-                  alt="Alice Mele — Graphic Designer"
+                  alt="Alice Mariarita Mele — Graphic Designer"
                   className="relative z-10 w-full h-[88%] sm:h-[90%] object-contain object-bottom drop-shadow-[0_14px_28px_rgba(76,29,149,0.18)] transition-transform duration-500 hover:scale-[1.02]"
                 />
                 
                 {/* Floating pill badge */}
                 <div className="relative z-20 m-3 sm:m-4 bg-white/95 backdrop-blur-md p-3 sm:p-3.5 rounded-xl sm:rounded-2xl shadow-lg border border-[#E9D5FF] flex items-center justify-between">
                   <div className="pr-2">
-                    <span className="font-serif italic font-bold text-sm sm:text-base text-[#1A1A1A] block truncate">Alice Mele</span>
+                    <span className="font-serif italic font-bold text-sm sm:text-base text-[#1A1A1A] block truncate">Alice Mariarita Mele</span>
                     <span className="text-[10px] sm:text-[11px] text-[#7C3AED] font-semibold block truncate">Milano · Graphic & Print Design</span>
                   </div>
                   <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-[#FAF5FF] flex items-center justify-center text-[#7C3AED] flex-shrink-0">
@@ -74,7 +74,7 @@ export const AboutPreview: React.FC<AboutPreviewProps> = ({ onNavigateCurriculum
                 "Mi piace costruire progetti grafici in cui estetica e funzionalità lavorano insieme."
               </h3>
 
-              <p className="text-sm sm:text-lg text-[#524B5D] leading-relaxed font-normal">
+              <p className="text-base sm:text-lg text-[#374151] leading-relaxed font-medium">
                 Dalla prima idea alla composizione finale, curo ogni dettaglio cercando di creare soluzioni visive semplici, riconoscibili e coerenti. Credo nella forza tattile della stampa, nel rigore della gabbia grafica e nel valore della tipografia come voce visiva.
               </p>
 

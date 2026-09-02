@@ -8,152 +8,122 @@ import { ALL_PROJECTS } from '../projects';
 export const PROJECTS_DATA: Project[] = ALL_PROJECTS;
 
 export const RESUME_DATA = {
-  name: 'Alice Mele',
+  name: 'Alice Mariarita Mele',
   title: 'Graphic Designer',
-  subtitle: 'Specializzata in Stampa, Grafica Editoriale e Sistemi di Comunicazione Visiva',
-  bio: 'Progetto identità visive e materiali grafici capaci di trasformare idee, informazioni e contenuti in esperienze visive chiare, riconoscibili e coinvolgenti. Con una profonda passione per la cultura della carta, la precisione tipografica e le tecniche di stampa, affianco brand, istituzioni culturali e studi creativi dalla prima intuizione al controllo esecutivo in tipografia.',
-  location: 'Milano, Italia (Disponibile per progetti in loco e da remoto)',
-  email: 'alice.mele.design@gmail.com',
-  portfolioUrl: 'alicemele.design',
-  profileText: `Mi piace costruire progetti grafici in cui estetica e funzionalità lavorano insieme in perfetta armonia. Credo che la grafica destinata alla stampa conservi un valore sensoriale insostituibile: il peso di una carta speciale, la brillantezza di un Pantone calibrato, la griglia invisibile che guida l’occhio nella lettura di un testo complesso.
-  
-Il mio approccio unisce sensibilità visiva contemporanea, rigore tecnico nella prestampa e ascolto meticoloso degli obiettivi comunicativi del committente.`,
-
+  subtitle: 'Grafica e Comunicazione',
+  bio: "Sono una giovane professionista di 20 anni, che ha maturato solide competenze in ambito grafico e della comunicazione, grazie all'esperienza lavorativa svolta in progetti e contesti digitali.",
+  location: '',
+  phone: '347 8468996',
+  email: 'alicemariaritamele@gmail.com',
+  portfolioUrl: '',
+  profileText: `Sono una giovane professionista di 20 anni, che ha maturato solide competenze in ambito grafico e della comunicazione, grazie all'esperienza lavorativa svolta in progetti e contesti digitali.\n\nCaratteristiche che mi contraddistinguono sono la curiosità, l'attenzione ai dettagli, l'approccio analitico, il problem solving e una spiccata propensione all'apprendimento. Connotata da buone doti relazionali, di ascolto e di comunicazione, sviluppate grazie all'esperienza di animatrice di un gruppo adolescenti che mi ha permesso di potenziare la capacità di gestione del gruppo, l'attitudine al dialogo, capacità che intendo valorizzare in ambito formativo.`,
   experiences: [
     {
       id: 'exp-1',
-      period: '2023 — Presente',
-      company: 'Studio Grafico Radice & Partner',
-      role: 'Senior Graphic & Editorial Designer',
-      location: 'Milano',
-      description: 'Responsabile della direzione visiva e dell’esecutivizzazione di progetti di stampa editoriali e commerciali di grande scala per clienti nel settore del design, moda e cultura.',
+      period: '08/2023 — Oggi',
+      company: 'Edulife S.p.A Impresa Sociale',
+      role: 'Graphic Designer',
+      location: '',
+      description: '',
       keyActivities: [
-        'Ideazione e impaginazione di cataloghi d’arte, brochure istituzionali e riviste periodiche',
-        'Supervisione delle prove colore (Cromalin, prove contrattuali) e avviamento stampa in tipografia',
-        'Sviluppo di sistemi di identità visiva scalabili e linee guida di brand',
-        'Coordinamento di un team junior e gestione della relazione tecnica con cartiere e centri stampa'
+        'Progettazione e realizzazione di contenuti digitali ed e-learning, dalla stesura dello storyboard allo sviluppo dei materiali multimediali e interattivi.',
+        'Creazione e adattamento di asset visivi, registrazione, montaggio video e produzione di contenuti attraverso soluzioni di Intelligenza Artificiale come ChatGPT, Gemini, Copilot, Higgsfield, ElevenLabs e Gamma.',
+        'Confronto con il cliente per recepire esigenze, feedback e revisioni.'
       ],
-      tags: ['InDesign', 'Prestampa', 'Cataloghi', 'Art Direction', 'Fedrigoni']
+      tags: ['E-learning', 'AI', 'Video', 'Content Creation']
     },
     {
       id: 'exp-2',
-      period: '2021 — 2023',
-      company: 'Officina Tipografica & Comunicazione Nova',
-      role: 'Graphic Designer & Print Specialist',
-      location: 'Torino / Milano',
-      description: 'Progettazione grafica a stretto contatto con il reparto produttivo di legatoria e stampa offset/serigrafica.',
+      period: '09/2022 — 05/2023',
+      company: 'Withub S.p.A',
+      role: 'Stage',
+      location: '',
+      description: '',
       keyActivities: [
-        'Progettazione di locandine, manifesti d’affissione, pieghevoli e flyer promozionali',
-        'Creazione di fustelle personalizzate per packaging e prodotti cartotecnici complessi',
-        'Controllo file esecutivi (abbondanze, profili colore CMYK, risoluzione raster, gestione inchiostri speciali)',
-        'Supporto ai clienti nella selezione di carte materiche e nobilitazioni a caldo'
+        'Progettazione e impaginazione di materiali grafici per la comunicazione offline: volantini, contenuti di enigmistica, quotidiani e magazine.'
       ],
-      tags: ['Offset', 'Serigrafia', 'Fustellatura', 'Packaging', 'Poster']
+      tags: ['Offline', 'Editoria', 'Impaginazione']
     },
     {
       id: 'exp-3',
-      period: '2019 — 2021',
-      company: 'Atelier Visuale & Indipendente',
-      role: 'Junior Graphic Designer',
-      location: 'Milano',
-      description: 'Collaborazione alla realizzazione di identità visive per festival musicali, rassegne cinematografiche ed editoria indipendente.',
+      period: '02/2022 — 04/2022',
+      company: 'Sgaravato srl',
+      role: 'Stage',
+      location: '',
+      description: '',
       keyActivities: [
-        'Composizione tipografica per locandine, programmi di sala e materiali promozionali per eventi',
-        'Preparazione mockup realistici per presentazioni al cliente',
-        'Adattamento dei formati per stampa e declinazioni per canali digitali'
+        'Sviluppo di identità visive, progettazione di loghi e definizione di naming coerenti con le esigenze e gli obiettivi della commessa.'
       ],
-      tags: ['Illustrator', 'Photoshop', 'Tipografia', 'Locandine']
+      tags: ['Brand Identity', 'Naming', 'Loghi']
     }
   ] as Experience[],
-
   education: [
     {
       id: 'edu-1',
-      period: '2020 — 2021',
-      school: 'CFP Bauer — Centro di Formazione Professionale',
-      degree: 'Master di Specializzazione in Tipografia & Editorial Design',
-      specialization: 'Microtipografia, griglie complesse e produzione del libro d’arte',
-      location: 'Milano',
-      details: 'Studio approfondito della cultura del carattere, composizione editoriale svizzera e gestione avanzata della prestampa.'
+      period: '2023 — 2025',
+      school: 'Istituto Salesiano San Zeno',
+      degree: 'Diploma di maturità in grafica e comunicazione',
+      specialization: '',
+      location: '',
+      details: ''
     },
     {
       id: 'edu-2',
-      period: '2016 — 2019',
-      school: 'NABA — Nuova Accademia di Belle Arti',
-      degree: 'Laurea Triennale in Graphic Design & Art Direction',
-      specialization: 'Comunicazione Visiva, Brand Identity & Tecnologie Grafiche',
-      location: 'Milano',
-      details: 'Votazione finale: 110/110 con Lode. Tesi di laurea sulla rivalutazione della stampa d’arte nell’era digitale.'
-    },
-    {
-      id: 'edu-3',
-      period: '2022',
-      school: 'Associazione Tecnici Grafici Italiani (TAGA)',
-      degree: 'Certificazione di Qualità in Gestione del Colore e Prestampa',
-      specialization: 'Standard ISO 12647 e profili colore Fogra/Esko',
-      location: 'Bologna'
+      period: '2020 — 2023',
+      school: 'Istituto Salesiano San Zeno',
+      degree: 'Qualifica professionale in grafica e comunicazione',
+      specialization: '',
+      location: '',
+      details: ''
     }
   ] as Education[],
-
   skillCategories: [
     {
-      title: 'Print & Editorial Design',
-      description: 'Padronanza completa del ciclo di vita del prodotto stampato.',
+      title: 'Competenze Trasversali',
+      description: 'Capacità organizzative e relazionali sviluppate sul campo.',
       items: [
-        'Impaginazione di cataloghi e monografie',
-        'Progettazione di brochure, pieghevoli e flyer',
-        'Poster e locandine d’affissione',
-        'Packaging e cartotecnica fustellata',
-        'Materiali coordinati e stationery aziendale'
+        'Problem solving e approccio analitico',
+        'Propensione all\'apprendimento continuo',
+        'Gestione di gruppo e team working',
+        'Attitudine al dialogo e all\'ascolto attivo',
+        'Curiosità e attenzione ai dettagli'
       ]
     },
     {
-      title: 'Visual Identity & Branding',
-      description: 'Costruzione di sistemi visivi coerenti e memorabili.',
+      title: 'Digital & AI Tools',
+      description: 'Integrazione di strumenti innovativi nel flusso di lavoro.',
       items: [
-        'Marchi tipografici e logotipi vettoriali',
-        'Palette cromatiche e codifica Pantone®',
-        'Brand guidelines e manuali d’uso',
-        'Applicazioni fisiche e packaging identity',
-        'Art direction fotografica'
+        'Prompting e Generative AI (ChatGPT, Gemini, Copilot)',
+        'Video e Audio AI (Higgsfield, ElevenLabs, Gamma)',
+        'Progettazione e-learning e storyboard',
+        'Registrazione e montaggio video',
+        'Sviluppo materiali multimediali interattivi'
       ]
     },
     {
-      title: 'Tipografia & Layout',
-      description: 'Cura rigorosa del ritmo, della gerarchia e del micro-spazio.',
+      title: 'Grafica e Visual Identity',
+      description: 'Ideazione e sviluppo di progetti per la comunicazione offline e online.',
       items: [
-        'Griglie asimmetriche e sistemi modulari',
-        'Microtipografia (interlinea, crenatura, allineamento)',
-        'Accoppiamenti tipografici (serif/sans/display)',
-        'Sviluppo di poster a prevalenza tipografica',
-        'Leggibilità e accessibilità visiva'
-      ]
-    },
-    {
-      title: 'Tecnologia di Stampa & Prestampa',
-      description: 'Competenza esecutiva per garantire zero difetti in macchina.',
-      items: [
-        'Controllo file esecutivi e trapping',
-        'Gestione profili colore CMYK e tinte piatte',
-        'Conoscenza approfondita delle cartiere (Fedrigoni, Favini, Arjowiggins)',
-        'Nobilitazioni: lamina a caldo, rilievo a secco, serigrafia UV',
-        'Avviamento macchina e verifica fogli stesi'
+        'Sviluppo di identità visive e progettazione di loghi',
+        'Definizione di naming e concept',
+        'Impaginazione per comunicazione offline (volantini, magazine, quotidiani)',
+        'Confronto e gestione del cliente (feedback e revisioni)'
       ]
     }
   ] as SkillCategory[],
-
   softwareTools: [
-    { name: 'Adobe InDesign', category: 'Layout & Print', level: 'Esperta / Quotidiano', badge: 'Core' },
-    { name: 'Adobe Illustrator', category: 'Adobe Creative Cloud', level: 'Esperta / Quotidiano', badge: 'Core' },
-    { name: 'Adobe Photoshop', category: 'Adobe Creative Cloud', level: 'Avanzato / Quotidiano', badge: 'Core' },
-    { name: 'Adobe Acrobat Pro (Preflight)', category: 'Layout & Print', level: 'Esperta / Prestampa', badge: 'Tecnico' },
-    { name: 'Figma', category: 'Digital & Web', level: 'Avanzato / Layout & Presentazioni', badge: 'Digital' },
-    { name: 'Generative AI & Firefly', category: 'Generative AI', level: 'Intermedio / Ricerca Moodboard', badge: 'Workflow' }
+    { name: 'Adobe Illustrator', category: 'Design', level: 'Avanzato', badge: 'Core' },
+    { name: 'Adobe InDesign', category: 'Design', level: 'Avanzato', badge: 'Core' },
+    { name: 'Adobe Photoshop', category: 'Design', level: 'Avanzato', badge: 'Core' },
+    { name: 'Adobe XD', category: 'UI/UX', level: 'Intermedio', badge: 'Digital' },
+    { name: 'Adobe Premiere', category: 'Video', level: 'Intermedio', badge: 'Video' },
+    { name: 'Adobe Character Animator', category: 'Animation', level: 'Base', badge: 'Animation' },
+    { name: 'Articulate 360', category: 'E-learning', level: 'Intermedio', badge: 'E-learning' },
+    { name: 'Camtasia', category: 'Video', level: 'Intermedio', badge: 'Video' },
+    { name: 'Pacchetto Office', category: 'Productivity', level: 'Avanzato', badge: 'Office' }
   ] as SoftwareTool[],
-
   languages: [
-    { name: 'Italiano', level: 'Madrelingua', percentage: 100, note: 'Comunicazione professionale impeccabile' },
-    { name: 'Inglese', level: 'Fluente (C1)', percentage: 90, note: 'Capacità di condurre meeting e briefing internazionali' },
-    { name: 'Francese', level: 'Intermedio (B1)', percentage: 65, note: 'Comprensione e conversazione di settore' }
+    { name: 'Italiano', level: 'Madrelingua', percentage: 100, note: '' },
+    { name: 'Inglese', level: 'B1 - Intermedio', percentage: 60, note: '' }
   ] as Language[]
 };

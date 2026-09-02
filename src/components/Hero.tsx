@@ -70,7 +70,7 @@ export const Hero: React.FC<HeroProps> = ({
 
             {/* Main Name & Title with Editorial Serif Italic */}
             <h1 className="font-serif italic text-5xl sm:text-7xl md:text-8xl lg:text-[5.5rem] tracking-tight leading-[0.94] text-[#1A1A1A] mb-3">
-              Alice Mele
+              Alice Mariarita Mele
             </h1>
             <div className="flex items-center gap-3 mb-5 sm:mb-6">
               <div className="w-8 sm:w-10 h-[1.5px] bg-[#7C3AED]"></div>
@@ -80,7 +80,7 @@ export const Hero: React.FC<HeroProps> = ({
             </div>
 
             {/* Introduction paragraph */}
-            <p className="text-base sm:text-xl text-[#524B5D] max-w-xl font-normal leading-relaxed mb-6 sm:mb-8">
+            <p className="text-base sm:text-xl text-[#374151] max-w-xl font-medium leading-relaxed mb-6 sm:mb-8">
               Progetto identità visive e materiali grafici capaci di trasformare idee, informazioni e contenuti in esperienze visive chiare, riconoscibili e coinvolgenti.
             </p>
 
@@ -193,7 +193,7 @@ export const Hero: React.FC<HeroProps> = ({
                 </div>
               </div>
 
-              {/* Floating Accent Card 2: Alice Mele Designer Avatar Badge */}
+              {/* Floating Accent Card 2: Alice Mariarita Mele Designer Avatar Badge */}
               <div
                 onClick={() => {
                   const el = document.getElementById('about-preview-section');
@@ -207,7 +207,7 @@ export const Hero: React.FC<HeroProps> = ({
                 <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full overflow-hidden bg-gradient-to-b from-[#FAF8FE] via-[#F4EEFF] to-[#E9DDFD] border border-[#C084FC]/50 flex items-end justify-center flex-shrink-0 shadow-sm">
                   <img
                     src="./Alice_photo.png"
-                    alt="Alice Mele"
+                    alt="Alice Mariarita Mele"
                     className="w-full h-full object-contain object-bottom drop-shadow-[0_2px_4px_rgba(76,29,149,0.18)]"
                   />
                 </div>
@@ -216,7 +216,7 @@ export const Hero: React.FC<HeroProps> = ({
                     Graphic Designer
                   </span>
                   <span className="font-serif italic text-xs sm:text-sm font-semibold text-[#1A1A1A] block truncate max-w-[130px] sm:max-w-none">
-                    Alice Mele
+                    Alice Mariarita Mele
                   </span>
                   <span className="text-[9px] sm:text-[10px] text-[#6B7280]">Milano · Print & Editorial</span>
                 </div>

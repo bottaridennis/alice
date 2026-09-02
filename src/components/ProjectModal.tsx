@@ -202,7 +202,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
             </div>
 
             {project.summary && (
-              <div className="p-4 sm:p-5 rounded-2xl bg-[#FAF5FF]/70 border border-[#E9D5FF] text-[#373043] leading-relaxed font-normal">
+              <div className="p-4 sm:p-5 rounded-2xl bg-[#FAF5FF]/70 border border-[#E9D5FF] text-[#373043] leading-relaxed font-medium">
                 <p className="font-bold text-[#7C3AED] mb-1.5 text-xs uppercase tracking-wider">
                   Sintesi del Concept
                 </p>
@@ -225,7 +225,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
         {/* Modal Bottom Footer */}
         <div className="px-4 sm:px-6 py-3 sm:py-4 bg-[#FAF9FC] border-t border-[#F3E8FF] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0">
           <span className="text-[11px] sm:text-xs text-[#6B7280]">
-            Alice Mele · Progetto Reale di Portfolio
+            Alice Mariarita Mele · Progetto Reale di Portfolio
           </span>
           {project.pdf && (
             <a
