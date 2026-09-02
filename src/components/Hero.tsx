@@ -28,7 +28,7 @@ export const Hero: React.FC<HeroProps> = ({
   }, []);
 
   return (
-    <section id="hero-section" className="relative min-h-[90vh] pt-24 sm:pt-28 pb-12 sm:pb-16 flex items-center overflow-hidden">
+    <section id="hero-section" className="relative min-h-[90vh] pt-40 sm:pt-28 pb-12 sm:pb-16 flex items-center overflow-hidden">
       {/* Soft organic purple ambient glowing diffusions */}
       <div
         className="absolute top-12 -left-20 w-72 sm:w-96 h-72 sm:h-96 rounded-full bg-[#EDE9FE] blur-[90px] sm:blur-[120px] opacity-60 pointer-events-none transition-transform duration-700 ease-out"
@@ -147,7 +147,7 @@ export const Hero: React.FC<HeroProps> = ({
                       Festival di Cinema Africano
                     </h3>
                     <div className="flex items-center justify-between pt-2 border-t border-white/20">
-                      <span className="text-[11px] sm:text-xs text-white/80">Identità Visiva & Cancelleria</span>
+                      <span className="text-[11px] sm:text-xs text-white/80">Identità Visiva</span>
                       <span className="inline-flex items-center gap-1 text-[11px] sm:text-xs font-semibold text-[#DDD6FE] group-hover:text-white transition-colors">
                         <Eye className="w-3.5 h-3.5" />
                         <span>Dettagli & PDF</span>

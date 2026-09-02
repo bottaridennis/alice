@@ -15,7 +15,7 @@ export const userProjects: Project[] = [
     category: 'Brand Identity / Corporate Identity / Visual System',
     categories: ['Brand & Visual Identity'],
     categorySlug: 'brand-identity',
-    tags: ['Brand Identity', 'Corporate Identity', 'Visual System', 'Materiali Coordinati', 'Cancelleria'],
+    tags: ['Brand Identity', 'Corporate Identity', 'Visual System', 'Materiali Coordinati'],
     description: "Progetto di corporate identity sviluppato per il Festival di Cinema Africano di Verona, con la definizione di un sistema visivo riconoscibile e applicabile su differenti supporti. L'identità combina logo, palette cromatica, tipografia ed elementi grafici modulari, declinati su materiali coordinati come carta intestata, buste e supporti di comunicazione istituzionale.",
     summary: 'Corporate identity e sistema visivo coordinato con declinazione su materiali cartacei e istituzionali.',
     cover: './projects/festival-cinema-africano/cover.jpg',
