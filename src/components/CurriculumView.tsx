@@ -136,7 +136,7 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
               <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-44 md:h-44 rounded-full bg-gradient-to-b from-[#FAF8FE] via-[#F4EEFF] to-[#E9DDFD] border-2 border-white shadow-[0_12px_32px_rgba(124,58,237,0.14)] overflow-hidden flex items-end justify-center">
                 <div className="absolute top-2 w-28 h-28 rounded-full border border-[#DDD6FE]/60 pointer-events-none" />
                 <img
-                  src="/Alice_photo.png"
+                  src="./Alice_photo.png"
                   alt="Alice Mele — Graphic Designer"
                   className="relative z-10 w-full h-[90%] object-contain object-bottom drop-shadow-[0_8px_16px_rgba(76,29,149,0.18)]"
                 />

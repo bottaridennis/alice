@@ -139,7 +139,7 @@ export const Hero: React.FC<HeroProps> = ({
                 {/* Poster Mockup Preview Frame */}
                 <div className="relative aspect-[4/5] rounded-[22px] sm:rounded-[28px] overflow-hidden bg-[#F3E8FF]">
                   <img
-                    src="/projects/festival-cinema-africano/cover.jpg"
+                    src="./projects/festival-cinema-africano/cover.jpg"
                     alt="Festival di Cinema Africano di Verona - Corporate Identity"
                     className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                   />
@@ -206,7 +206,7 @@ export const Hero: React.FC<HeroProps> = ({
               >
                 <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full overflow-hidden bg-gradient-to-b from-[#FAF8FE] via-[#F4EEFF] to-[#E9DDFD] border border-[#C084FC]/50 flex items-end justify-center flex-shrink-0 shadow-sm">
                   <img
-                    src="/Alice_photo.png"
+                    src="./Alice_photo.png"
                     alt="Alice Mele"
                     className="w-full h-full object-contain object-bottom drop-shadow-[0_2px_4px_rgba(76,29,149,0.18)]"
                   />

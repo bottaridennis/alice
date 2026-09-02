@@ -38,7 +38,7 @@ export const AboutPreview: React.FC<AboutPreviewProps> = ({ onNavigateCurriculum
 
                 {/* Alice Mele Transparent Cutout Portrait */}
                 <img
-                  src="/Alice_photo.png"
+                  src="./Alice_photo.png"
                   alt="Alice Mele — Graphic Designer"
                   className="relative z-10 w-full h-[88%] sm:h-[90%] object-contain object-bottom drop-shadow-[0_14px_28px_rgba(76,29,149,0.18)] transition-transform duration-500 hover:scale-[1.02]"
                 />
