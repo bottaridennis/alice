@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { ArrowRight, Compass, Sparkles, Layers, BookOpen, Stamp } from 'lucide-react';
 
 interface AboutPreviewProps {
@@ -7,7 +8,14 @@ interface AboutPreviewProps {
 
 export const AboutPreview: React.FC<AboutPreviewProps> = ({ onNavigateCurriculum }) => {
   return (
-    <section id="about-preview-section" className="py-20 relative overflow-hidden">
+    <motion.section
+      id="about-preview-section"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className="py-20 relative overflow-hidden"
+    >
       {/* Background Soft Blobs */}
       <div className="absolute top-1/2 left-10 -translate-y-1/2 w-80 h-80 rounded-full bg-[#EDE9FE] blur-[120px] opacity-60 pointer-events-none" />
       <div className="absolute -bottom-10 right-20 w-96 h-96 rounded-full bg-[#DDD6FE] blur-[100px] opacity-40 pointer-events-none" />
@@ -96,6 +104,6 @@ export const AboutPreview: React.FC<AboutPreviewProps> = ({ onNavigateCurriculum
 
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowDown, FileText, Sparkles, Layers, Palette, Eye } from 'lucide-react';
 import { PageType } from '../types';
+import { motion } from 'motion/react';
 
 interface HeroProps {
   onNavigateProjects: () => void;
@@ -44,44 +45,56 @@ export const Hero: React.FC<HeroProps> = ({
       />
       <div className="absolute bottom-4 left-1/3 w-60 sm:w-80 h-60 sm:h-80 rounded-full bg-[#FAF5FF] blur-[70px] sm:blur-[90px] opacity-60 pointer-events-none" />
 
-      {/* Decorative Print Marks (registration crosses, crop marks) */}
-      <div className="absolute top-24 left-8 hidden md:flex items-center gap-2 text-[#7C3AED]/30 select-none pointer-events-none text-xs font-mono">
-        <span className="inline-block w-3 h-3 border-t border-l border-[#7C3AED]/50"></span>
-        <span>REG_01 // 300 DPI</span>
-      </div>
-      <div className="absolute top-24 right-8 hidden md:flex items-center gap-2 text-[#7C3AED]/30 select-none pointer-events-none text-xs font-mono">
-        <span>CMYK [0/0/0/100]</span>
-        <span className="inline-block w-3 h-3 border-t border-r border-[#7C3AED]/50"></span>
-      </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           
           {/* Left Column: Asymmetric Typography & Intro */}
-          <div className="lg:col-span-7 flex flex-col items-start">
-            
-            {/* Subtitle / Role Tag */}
-            <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-white border border-[#E9D5FF] text-[#7C3AED] mb-5 sm:mb-6 shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-[#7C3AED] animate-pulse"></span>
-              <span className="text-[11px] sm:text-[12px] font-bold uppercase tracking-wider sm:tracking-widest">
-                Stampa · Editoria · Visual Identity
-              </span>
-            </div>
-
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7 flex flex-col items-start"
+          >
             {/* Main Name & Title with Editorial Serif Italic */}
-            <h1 className="font-serif italic text-5xl sm:text-7xl md:text-8xl lg:text-[5.5rem] tracking-tight leading-[0.94] text-[#1A1A1A] mb-3">
+            <h1 className="relative inline-block font-serif italic text-5xl sm:text-7xl md:text-8xl lg:text-[5.5rem] tracking-tight leading-[0.94] text-[#1A1A1A] mb-3">
               Alice Mariarita Mele
+              <motion.div 
+                animate={{ rotate: 360 }}
+                transition={{ repeat: Infinity, duration: 12, ease: "linear" }}
+                className="absolute -top-4 sm:-top-8 -right-6 sm:-right-12 text-[#C084FC] opacity-40 hidden sm:block"
+              >
+                <Sparkles size={40} strokeWidth={1.5} />
+              </motion.div>
             </h1>
+            
             <div className="flex items-center gap-3 mb-5 sm:mb-6">
-              <div className="w-8 sm:w-10 h-[1.5px] bg-[#7C3AED]"></div>
-              <span className="text-xl sm:text-3xl font-serif italic text-[#7C3AED]">
+              <motion.div 
+                initial={{ scaleX: 0 }} 
+                animate={{ scaleX: 1 }} 
+                transition={{ delay: 0.5, duration: 0.6, ease: "easeOut" }}
+                style={{ originX: 0 }}
+                className="w-8 sm:w-10 h-[1.5px] bg-[#7C3AED]"
+              ></motion.div>
+              <motion.span 
+                initial={{ opacity: 0, filter: 'blur(10px)', x: -20 }} 
+                animate={{ opacity: 1, filter: 'blur(0px)', x: 0 }} 
+                transition={{ delay: 0.7, duration: 0.8, ease: "easeOut" }}
+                className="text-xl sm:text-3xl font-serif italic text-[#7C3AED]"
+              >
                 Graphic Designer
-              </span>
+              </motion.span>
             </div>
-
+            
             {/* Introduction paragraph */}
             <p className="text-base sm:text-xl text-[#374151] max-w-xl font-medium leading-relaxed mb-6 sm:mb-8">
-              Progetto identità visive e materiali grafici capaci di trasformare idee, informazioni e contenuti in esperienze visive chiare, riconoscibili e coinvolgenti.
+              Progetto identità visive e materiali grafici capaci di trasformare idee, informazioni e contenuti in{' '}
+              <motion.span 
+                animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
+                transition={{ repeat: Infinity, duration: 5, ease: "linear" }}
+                className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#7C3AED] via-[#C084FC] to-[#7C3AED] bg-[length:200%_auto]"
+              >
+                esperienze visive chiare, riconoscibili e coinvolgenti.
+              </motion.span>
             </p>
 
             {/* CTAs */}
@@ -94,7 +107,7 @@ export const Hero: React.FC<HeroProps> = ({
                 <span>Scopri i miei progetti</span>
                 <ArrowDown className="w-4 h-4 group-hover:translate-y-1 transition-transform duration-200" />
               </button>
-
+              
               <button
                 id="hero-cta-curriculum"
                 onClick={onNavigateCurriculum}
@@ -104,10 +117,15 @@ export const Hero: React.FC<HeroProps> = ({
                 <span>Curriculum</span>
               </button>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column: Visual Mockup Showcase with Interactive Floating Layer */}
-          <div className="lg:col-span-5 relative">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+            className="lg:col-span-5 relative"
+          >
             <div
               className="relative mx-auto max-w-sm sm:max-w-md lg:max-w-none transition-transform duration-300 ease-out"
               style={{
@@ -127,17 +145,17 @@ export const Hero: React.FC<HeroProps> = ({
                     className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#15121B]/85 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
-
+                  
                   {/* Print Crop Guides overlay */}
                   <div className="absolute top-3 left-3 sm:top-3.5 sm:left-3.5 flex items-center gap-1.5 bg-white/95 backdrop-blur-sm px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-[11px] font-bold text-[#6D28D9] shadow-sm">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#7C3AED]"></span>
                     <span>In Evidenza</span>
                   </div>
-
+                  
                   <div className="absolute top-3 right-3 sm:top-3.5 sm:right-3.5 bg-[#1A1A1A]/80 backdrop-blur-sm px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-[11px] font-semibold text-white/95">
                     Visual System
                   </div>
-
+                  
                   {/* Card bottom info */}
                   <div className="absolute bottom-4 left-4 right-4 sm:bottom-5 sm:left-5 sm:right-5 text-white">
                     <span className="text-[10px] sm:text-xs uppercase tracking-widest text-[#DDD6FE] font-medium block mb-1">
@@ -168,13 +186,17 @@ export const Hero: React.FC<HeroProps> = ({
                   transform: `translate(${mousePos.x * 0.7}px, ${mousePos.y * 0.7}px)`
                 }}
               >
-                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full overflow-hidden bg-gradient-to-b from-[#FAF8FE] via-[#F4EEFF] to-[#E9DDFD] border border-[#C084FC]/50 flex items-end justify-center flex-shrink-0 shadow-sm">
+                <motion.div 
+                  animate={{ y: [-2, 2, -2] }}
+                  transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+                  className="w-10 h-10 sm:w-11 sm:h-11 rounded-full overflow-hidden bg-gradient-to-b from-[#FAF8FE] via-[#F4EEFF] to-[#E9DDFD] border border-[#C084FC]/50 flex items-end justify-center flex-shrink-0 shadow-sm"
+                >
                   <img
                     src="./Alice_photo.png"
                     alt="Alice Mariarita Mele"
                     className="w-full h-full object-contain object-bottom drop-shadow-[0_2px_4px_rgba(76,29,149,0.18)]"
                   />
-                </div>
+                </motion.div>
                 <div className="text-left pr-1 sm:pr-2">
                   <span className="text-[9px] sm:text-[10px] uppercase font-bold text-[#7C3AED] tracking-wider block">
                     Graphic Designer
@@ -185,10 +207,8 @@ export const Hero: React.FC<HeroProps> = ({
                   <span className="text-[9px] sm:text-[10px] text-[#6B7280]">Verona · Print & Editorial</span>
                 </div>
               </div>
-
             </div>
-          </div>
-
+          </motion.div>
         </div>
       </div>
     </section>
