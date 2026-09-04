@@ -8,6 +8,25 @@ interface ProjectsGridProps {
   onSelectProject: (project: Project) => void;
 }
 
+
+const ProjectCardImage = ({ src, alt, className }: { src: string, alt: string, className: string }) => {
+  const [loaded, setLoaded] = useState(false);
+  return (
+    <>
+      {!loaded && (
+        <div className="absolute inset-0 bg-[#E9D5FF]/30 animate-pulse" />
+      )}
+      <img
+        src={src}
+        alt={alt}
+        className={`${className} ${loaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500`}
+        loading="lazy"
+        onLoad={() => setLoaded(true)}
+      />
+    </>
+  );
+};
+
 export const ProjectsGrid: React.FC<ProjectsGridProps> = ({
   projects,
   onSelectProject
@@ -127,7 +146,7 @@ export const ProjectsGrid: React.FC<ProjectsGridProps> = ({
           className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 grid-flow-row-dense"
         >
           <AnimatePresence>
-            {projects.map((project) => {
+            {projects.map((project, index) => {
               let colSpan = 'md:col-span-6 lg:col-span-6';
               let aspectClass = 'aspect-[16/11]';
 
@@ -150,22 +169,17 @@ export const ProjectsGrid: React.FC<ProjectsGridProps> = ({
                   layout
                   key={project.id}
                   id={`project-card-${project.id}`}
-                  initial={{ opacity: 0, scale: 0.96 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.96 }}
-                  transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                  initial={{ opacity: 0, y: 40, scale: 0.96 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
                   onClick={() => onSelectProject(project)}
                   className={`${colSpan} group cursor-pointer flex flex-col`}
                 >
                   {/* Visual Card Container */}
                   <div className={`relative ${aspectClass} rounded-[24px] sm:rounded-[32px] overflow-hidden bg-white border border-[#E9D5FF] shadow-[0_6px_30px_rgba(124,58,237,0.06)] group-hover:shadow-[0_20px_50px_rgba(124,58,237,0.16)] transition-all duration-400 ease-out group-hover:-translate-y-1.5`}>
                     {/* First Page PDF Preview / Mockup */}
-                    <img
-                      src={project.cover || project.coverImage}
-                      alt={project.title}
-                      className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
-                      loading="lazy"
-                    />
+                    <ProjectCardImage src={project.cover || project.coverImage || ""} alt={project.title} className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105" />
 
                     {/* Gradient & Overlay for high readability */}
                     <div className="absolute inset-0 bg-gradient-to-t from-[#15121B]/90 via-[#15121B]/25 to-transparent opacity-75 group-hover:opacity-85 transition-opacity duration-300" />

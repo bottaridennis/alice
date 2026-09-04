@@ -62,7 +62,8 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF9FD] text-[#1A1721] flex flex-col font-sans selection:bg-[#E9D5FF] selection:text-[#581C87]">
+    <>
+            <div className="min-h-screen bg-[#FAF9FD] text-[#1A1721] flex flex-col font-sans selection:bg-[#E9D5FF] selection:text-[#581C87]">
       {/* Elegant Reading Progress Bar */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#E9D5FF] via-[#C084FC] to-[#7C3AED] origin-left z-[100]"
@@ -150,5 +151,6 @@ export default function App() {
       {/* Clean, Minimal Footer */}
       <Footer />
     </div>
+    </>
   );
 }

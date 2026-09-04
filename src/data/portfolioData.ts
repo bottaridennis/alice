@@ -30,7 +30,7 @@ export const RESUME_DATA = {
         'Creazione e adattamento di asset visivi, registrazione, montaggio video e produzione di contenuti attraverso soluzioni di Intelligenza Artificiale come ChatGPT, Gemini, Copilot, Higgsfield, ElevenLabs e Gamma.',
         'Confronto con il cliente per recepire esigenze, feedback e revisioni.'
       ],
-      tags: ['E-learning', 'AI', 'Video', 'Content Creation']
+      tags: ['E-learning', 'AI', 'Video']
     },
     {
       id: 'exp-2',
