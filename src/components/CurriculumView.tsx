@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { RESUME_DATA } from '../data/portfolioData';
-import {
+import { Layout,   
   Briefcase,
   GraduationCap,
   Sparkles,
@@ -13,12 +13,66 @@ import {
   Check,
   Globe,
   Award
-} from 'lucide-react';
+, PenTool , LayoutTemplate , Image as ImageIcon , Film , Smile , MonitorPlay , FileText , Box } from 'lucide-react';
 import { motion } from 'motion/react';
 
 interface CurriculumViewProps {
   onBackToPortfolio: () => void;
 }
+
+
+const getSoftwareIcon = (name: string) => {
+  if (name.includes('Illustrator')) return (
+    <div className="w-6 h-6 rounded-[4px] flex items-center justify-center font-bold text-[12px] bg-[#330000] text-[#FF9A00] tracking-tighter">
+      Ai
+    </div>
+  );
+  if (name.includes('InDesign')) return (
+    <div className="w-6 h-6 rounded-[4px] flex items-center justify-center font-bold text-[12px] bg-[#49021F] text-[#FF3366] tracking-tighter">
+      Id
+    </div>
+  );
+  if (name.includes('Photoshop')) return (
+    <div className="w-6 h-6 rounded-[4px] flex items-center justify-center font-bold text-[12px] bg-[#001E36] text-[#31A8FF] tracking-tighter">
+      Ps
+    </div>
+  );
+  if (name.includes('XD')) return (
+    <div className="w-6 h-6 rounded-[4px] flex items-center justify-center font-bold text-[12px] bg-[#470137] text-[#FF61C6] tracking-tighter">
+      Xd
+    </div>
+  );
+  if (name.includes('Premiere')) return (
+    <div className="w-6 h-6 rounded-[4px] flex items-center justify-center font-bold text-[12px] bg-[#00005C] text-[#EA77FF] tracking-tighter">
+      Pr
+    </div>
+  );
+  if (name.includes('Character')) return (
+    <div className="w-6 h-6 rounded-[4px] flex items-center justify-center font-bold text-[12px] bg-[#14003C] text-[#DCA2FF] tracking-tighter">
+      Ch
+    </div>
+  );
+  if (name.includes('Articulate')) return (
+    <div className="w-6 h-6 rounded-full flex items-center justify-center font-bold text-[14px] bg-[#00A5D9] text-white">
+      a
+    </div>
+  );
+  if (name.includes('Camtasia')) return (
+    <div className="w-6 h-6 rounded-full flex items-center justify-center font-bold text-[14px] bg-[#087754] text-white">
+      C
+    </div>
+  );
+  if (name.includes('Office')) return (
+    <div className="w-6 h-6 grid grid-cols-2 gap-[1.5px] p-[2.5px]">
+      <div className="bg-[#F25022] rounded-sm"></div>
+      <div className="bg-[#7FBA00] rounded-sm"></div>
+      <div className="bg-[#00A4EF] rounded-sm"></div>
+      <div className="bg-[#FFB900] rounded-sm"></div>
+    </div>
+  );
+  
+  return <div className="w-6 h-6 bg-gray-200 rounded flex items-center justify-center font-bold text-[12px] text-gray-500">{name.charAt(0)}</div>;
+};
 
 export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfolio }) => {
   const [copied, setCopied] = useState(false);
@@ -389,7 +443,14 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
                   className="group/tool p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-[#FAF9FC] border border-[#E9D5FF] hover:border-[#C084FC] hover:bg-white hover:shadow-[0_8px_24px_rgba(124,58,237,0.08)] hover:-translate-y-0.5 transition-all duration-200 cursor-default"
                 >
                   <div className="flex items-center justify-between mb-1.5">
-                    <span className="font-bold text-sm text-[#1A1A1A] group-hover/tool:text-[#7C3AED] transition-colors">{tool.name}</span>
+                    
+                    <div className="flex items-center gap-2">
+                      <div className="p-1.5 rounded-lg bg-white border border-[#F3E8FF] group-hover/tool:border-[#E9D5FF] group-hover/tool:shadow-sm transition-all">
+                        {getSoftwareIcon(tool.name)}
+                      </div>
+                      <span className="font-bold text-sm text-[#1A1A1A] group-hover/tool:text-[#7C3AED] transition-colors">{tool.name}</span>
+                    </div>
+
                     <span className="px-2 py-0.5 rounded-md bg-[#FAF5FF] text-[#7C3AED] group-hover/tool:bg-[#7C3AED] group-hover/tool:text-white text-[10px] font-bold border border-[#DDD6FE] transition-colors duration-200">
                       {tool.badge}
                     </span>
