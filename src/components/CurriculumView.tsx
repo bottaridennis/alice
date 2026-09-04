@@ -41,7 +41,7 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
   };
 
   return (
-    <div id="curriculum-page" className="pt-28 pb-20 relative">
+    <div id="curriculum-page" className="pt-40 sm:pt-32 pb-20 relative">
       {/* Background Accent Shapes */}
       <div className="absolute top-24 -left-20 w-80 h-80 rounded-full bg-[#EDE9FE] blur-[120px] opacity-60 pointer-events-none" />
       <div className="absolute top-1/2 -right-20 w-96 h-96 rounded-full bg-[#DDD6FE] blur-[100px] opacity-40 pointer-events-none" />
@@ -49,16 +49,7 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Navigation Breadcrumb / Return */}
-        <div className="mb-6 sm:mb-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-4">
-          <button
-            id="cv-back-to-portfolio"
-            onClick={onBackToPortfolio}
-            className="group inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-white border border-[#E9D5FF] text-xs sm:text-sm font-medium text-[#6D28D9] hover:bg-[#FAF5FF] hover:border-[#C084FC] hover:shadow-[0_4px_16px_rgba(124,58,237,0.08)] transition-all duration-200 shadow-sm min-h-[42px]"
-          >
-            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-            <span>Torna al Portfolio</span>
-          </button>
-
+        <div className="mb-6 sm:mb-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-end gap-3 sm:gap-4">
           <div className="flex items-center gap-2 sm:gap-3">
             <button
               id="cv-copy-email-btn"
@@ -124,10 +115,15 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
                   <span className="truncate max-w-[200px] sm:max-w-none">{RESUME_DATA.email}</span>
                 </a>
 
-                <span className="flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-full bg-[#FAF9FC] text-[#4B5563] border border-[#E9D5FF] hover:border-[#DDD6FE] transition-colors min-h-[38px]">
+                <a 
+                  href="https://amale.eu" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-full bg-[#FAF9FC] text-[#4B5563] border border-[#E9D5FF] hover:border-[#DDD6FE] hover:text-[#7C3AED] transition-all min-h-[38px]"
+                >
                   <Globe className="w-3.5 h-3.5 text-[#7C3AED] flex-shrink-0" />
-                  <span>{RESUME_DATA.location}</span>
-                </span>
+                  <span>amale.eu</span>
+                </a>
               </div>
             </div>
 
@@ -461,38 +457,6 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
             ))}
           </div>
         </motion.section>
-
-        {/* Bottom CTA on Curriculum Page */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.98 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="p-6 sm:p-10 lg:p-12 rounded-[24px] sm:rounded-[36px] bg-gradient-to-br from-[#7C3AED] to-[#581C87] text-white text-center shadow-xl shadow-purple-200"
-        >
-          <h3 className="font-serif italic text-2xl sm:text-3xl lg:text-4xl mb-3">
-            Hai un progetto grafico o editoriale da realizzare?
-          </h3>
-          <p className="text-[#E9D5FF] text-sm sm:text-base max-w-xl mx-auto mb-6 font-medium">
-            Dalla scelta della carta alla consegna dei file esecutivi in tipografia, sono disponibile per collaborazioni, consulenze e nuove identità visive.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto">
-            <a
-              id="cv-cta-contact-email"
-              href="mailto:alicemariaritamele@gmail.com"
-              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 sm:py-4 rounded-full bg-white text-[#581C87] font-medium text-xs sm:text-sm hover:bg-[#FAF5FF] shadow-lg hover:scale-105 transition-all min-h-[44px]"
-            >
-              Scrivimi via Email
-            </a>
-            <button
-              id="cv-cta-back-projects"
-              onClick={onBackToPortfolio}
-              className="w-full sm:w-auto inline-flex items-center justify-center px-7 py-3.5 sm:py-4 rounded-full bg-white/10 hover:bg-white/20 text-white font-medium text-xs sm:text-sm border border-white/30 backdrop-blur-sm hover:scale-105 transition-all min-h-[44px]"
-            >
-              Guarda i Progetti Stampati
-            </button>
-          </div>
-        </motion.div>
 
       </div>
     </div>

@@ -113,7 +113,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
           
           {/* Main Showcase Image Area: Click opens full PDF */}
           <div className="space-y-3 sm:space-y-4">
-            <div className="relative group w-full rounded-xl sm:rounded-2xl overflow-hidden bg-[#FAF5FF] border border-[#E9D5FF] shadow-inner max-h-[60vh] flex items-center justify-center">
+            <div className="relative group w-full rounded-xl sm:rounded-2xl overflow-hidden bg-[#FAF5FF] border border-[#E9D5FF] shadow-inner flex items-center justify-center">
               {project.pdf ? (
                 <a
                   href={project.pdf}
@@ -125,7 +125,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                   <img
                     src={currentImage}
                     alt={project.title}
-                    className="w-full max-h-[58vh] object-contain mx-auto transition-transform duration-500 group-hover:scale-[1.01]"
+                    className="w-full h-auto object-contain mx-auto transition-transform duration-500 group-hover:scale-[1.01]"
                   />
                   {/* Subtle hover overlay indicating click opens PDF */}
                   <div className="absolute inset-0 bg-[#7C3AED]/10 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
@@ -140,7 +140,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                 <img
                   src={currentImage}
                   alt={project.title}
-                  className="w-full max-h-[58vh] object-contain mx-auto"
+                  className="w-full h-auto object-contain mx-auto"
                 />
               )}
             </div>

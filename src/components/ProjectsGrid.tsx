@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Project, FilterCategory } from '../types';
 import { Eye, ArrowUpRight, Filter, Printer, X, FileText, ExternalLink } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence, useScroll, useTransform } from 'motion/react';
 
 interface ProjectsGridProps {
   projects: Project[];
@@ -13,6 +13,16 @@ export const ProjectsGrid: React.FC<ProjectsGridProps> = ({
   onSelectProject
 }) => {
   const [isLoading, setIsLoading] = useState(true);
+  const containerRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+  
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, -150]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [0, 200]);
+  const y3 = useTransform(scrollYProgress, [0, 1], [0, -80]);
+
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -28,6 +38,7 @@ export const ProjectsGrid: React.FC<ProjectsGridProps> = ({
 
   return (
     <motion.section
+      ref={containerRef}
       id="progetti"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -35,7 +46,23 @@ export const ProjectsGrid: React.FC<ProjectsGridProps> = ({
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="py-20 relative"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Parallax Background Blobs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div 
+          style={{ y: y1 }}
+          className="absolute top-[10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-[#D8B4FE] blur-[120px] opacity-40"
+        />
+        <motion.div 
+          style={{ y: y2 }}
+          className="absolute top-[40%] right-[-15%] w-[600px] h-[600px] rounded-full bg-[#E9D5FF] blur-[140px] opacity-50"
+        />
+        <motion.div 
+          style={{ y: y3 }}
+          className="absolute bottom-[-10%] left-[20%] w-[400px] h-[400px] rounded-full bg-[#C084FC] blur-[100px] opacity-30"
+        />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         
         {/* Section Header */}
