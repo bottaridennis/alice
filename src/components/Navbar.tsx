@@ -40,17 +40,6 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onPageChange }) => 
           <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-2xl bg-gradient-to-tr from-[#7C3AED] to-[#A855F7] flex items-center justify-center text-white shadow-md shadow-[#7C3AED]/20 group-hover:scale-105 transition-transform duration-200 flex-shrink-0">
             <span className="font-display font-bold text-xs sm:text-sm tracking-tight">AM</span>
           </div>
-          <div className="flex flex-col">
-            <div className="flex items-center gap-1.5 sm:gap-2">
-              <span className="font-display font-bold text-base sm:text-lg text-[#1A1A1A] tracking-tight group-hover:text-[#7C3AED] transition-colors whitespace-nowrap">
-                Alice Mariarita Mele
-              </span>
-              <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#7C3AED]"></span>
-            </div>
-            <span className="hidden sm:block text-[11px] font-medium tracking-wide uppercase text-[#6B7280]">
-              Graphic & Print Designer
-            </span>
-          </div>
         </button>
 
         {/* Navigation Tabs */}

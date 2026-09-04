@@ -7,11 +7,17 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer id="main-footer" className="border-t border-[#E9D5FF] bg-[#FDFCFE] py-8">
+    <footer id="main-footer" className="border-t border-[#E9D5FF] bg-[#FDFCFE] py-8 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#6B7280] text-center sm:text-left">
         
         <div className="flex flex-wrap items-center justify-center gap-2">
+          
           <span className="font-serif italic font-bold text-sm text-[#1A1A1A]">Alice Mariarita Mele</span>
+          <span className="hidden sm:inline">·</span>
+          <a href="https://hits.sh/alicemariaritamele-portfolio.run.app/" target="_blank" rel="noreferrer" className="flex items-center" title="Contatore visitatori unici (privacy-friendly)">
+            <img alt="Hits" src="https://hits.sh/alicemariaritamele-portfolio.run.app.svg?view=today-total&style=flat-square&color=7C3AED&label=Visitatori" className="h-5" />
+          </a>
+
           <span>© {new Date().getFullYear()}</span>
           <span>·</span>
           <span>Tutti i diritti riservati</span>

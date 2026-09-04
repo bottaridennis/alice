@@ -58,13 +58,6 @@ export const Hero: React.FC<HeroProps> = ({
             {/* Main Name & Title with Editorial Serif Italic */}
             <h1 className="relative inline-block font-serif italic text-5xl sm:text-7xl md:text-8xl lg:text-[5.5rem] tracking-tight leading-[0.94] text-[#1A1A1A] mb-3">
               Alice Mariarita Mele
-              <motion.div 
-                animate={{ rotate: 360 }}
-                transition={{ repeat: Infinity, duration: 12, ease: "linear" }}
-                className="absolute -top-4 sm:-top-8 -right-6 sm:-right-12 text-[#C084FC] opacity-40 hidden sm:block"
-              >
-                <Sparkles size={40} strokeWidth={1.5} />
-              </motion.div>
             </h1>
             
             <div className="flex items-center gap-3 mb-5 sm:mb-6">
