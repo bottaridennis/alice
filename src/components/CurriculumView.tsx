@@ -23,44 +23,28 @@ interface CurriculumViewProps {
 
 const getSoftwareIcon = (name: string) => {
   if (name.includes('Illustrator')) return (
-    <div className="w-6 h-6 rounded-[4px] flex items-center justify-center font-bold text-[12px] bg-[#330000] text-[#FF9A00] tracking-tighter">
-      Ai
-    </div>
+    <div className="w-6 h-6 rounded-[4px] flex items-center justify-center font-bold text-[12px] bg-[#330000] text-[#FF9A00] tracking-tighter"><span>Ai</span></div>
   );
   if (name.includes('InDesign')) return (
-    <div className="w-6 h-6 rounded-[4px] flex items-center justify-center font-bold text-[12px] bg-[#49021F] text-[#FF3366] tracking-tighter">
-      Id
-    </div>
+    <div className="w-6 h-6 rounded-[4px] flex items-center justify-center font-bold text-[12px] bg-[#49021F] text-[#FF3366] tracking-tighter"><span>Id</span></div>
   );
   if (name.includes('Photoshop')) return (
-    <div className="w-6 h-6 rounded-[4px] flex items-center justify-center font-bold text-[12px] bg-[#001E36] text-[#31A8FF] tracking-tighter">
-      Ps
-    </div>
+    <div className="w-6 h-6 rounded-[4px] flex items-center justify-center font-bold text-[12px] bg-[#001E36] text-[#31A8FF] tracking-tighter"><span>Ps</span></div>
   );
   if (name.includes('XD')) return (
-    <div className="w-6 h-6 rounded-[4px] flex items-center justify-center font-bold text-[12px] bg-[#470137] text-[#FF61C6] tracking-tighter">
-      Xd
-    </div>
+    <div className="w-6 h-6 rounded-[4px] flex items-center justify-center font-bold text-[12px] bg-[#470137] text-[#FF61C6] tracking-tighter"><span>Xd</span></div>
   );
   if (name.includes('Premiere')) return (
-    <div className="w-6 h-6 rounded-[4px] flex items-center justify-center font-bold text-[12px] bg-[#00005C] text-[#EA77FF] tracking-tighter">
-      Pr
-    </div>
+    <div className="w-6 h-6 rounded-[4px] flex items-center justify-center font-bold text-[12px] bg-[#00005C] text-[#EA77FF] tracking-tighter"><span>Pr</span></div>
   );
   if (name.includes('Character')) return (
-    <div className="w-6 h-6 rounded-[4px] flex items-center justify-center font-bold text-[12px] bg-[#14003C] text-[#DCA2FF] tracking-tighter">
-      Ch
-    </div>
+    <div className="w-6 h-6 rounded-[4px] flex items-center justify-center font-bold text-[12px] bg-[#14003C] text-[#DCA2FF] tracking-tighter"><span>Ch</span></div>
   );
   if (name.includes('Articulate')) return (
-    <div className="w-6 h-6 rounded-full flex items-center justify-center font-bold text-[14px] bg-[#00A5D9] text-white">
-      a
-    </div>
+    <div className="w-6 h-6 rounded-full flex items-center justify-center font-bold text-[14px] bg-[#00A5D9] text-white"><span>a</span></div>
   );
   if (name.includes('Camtasia')) return (
-    <div className="w-6 h-6 rounded-full flex items-center justify-center font-bold text-[14px] bg-[#087754] text-white">
-      C
-    </div>
+    <div className="w-6 h-6 rounded-full flex items-center justify-center font-bold text-[14px] bg-[#087754] text-white"><span>C</span></div>
   );
   if (name.includes('Office')) return (
     <div className="w-6 h-6 grid grid-cols-2 gap-[1.5px] p-[2.5px]">
@@ -71,7 +55,7 @@ const getSoftwareIcon = (name: string) => {
     </div>
   );
   
-  return <div className="w-6 h-6 bg-gray-200 rounded flex items-center justify-center font-bold text-[12px] text-gray-500">{name.charAt(0)}</div>;
+  return <div className="w-6 h-6 bg-gray-200 rounded flex items-center justify-center font-bold text-[12px] text-gray-500"><span>{name.charAt(0)}</span></div>;
 };
 
 export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfolio }) => {
@@ -135,7 +119,7 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
           {/* Subtle print mark in background */}
           <div className="absolute top-6 right-8 hidden md:block text-right">
             <span className="font-mono text-[10px] text-[#7C3AED]/40 block">DOC_ID // CV-2026</span>
-            <span className="font-mono text-[10px] text-[#6B7280]/40 block">FORMAT: WEB EDITORIAL</span>
+            <span className="font-mono text-[10px] text-[#374151]/40 block">FORMAT: WEB EDITORIAL</span>
           </div>
 
           <div className="flex flex-col-reverse md:flex-row items-center md:items-start justify-between gap-6 md:gap-10">
@@ -155,7 +139,7 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
                 </h2>
               </div>
 
-              <p className="text-[#4B5563] text-base sm:text-lg leading-relaxed mb-5 sm:mb-6 font-medium">
+              <p className="text-[#1F2937] text-base sm:text-lg leading-relaxed mb-5 sm:mb-6 font-medium">
                 Specializzata nella progettazione per la stampa, grafica editoriale d’arte e costruzione di identità visive coerenti. Coniugo rigore metodologico, sensibilità materica per i supporti cartacei e precisione tipografica in ogni fase del lavoro.
               </p>
 
@@ -173,7 +157,7 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
                   href="https://amale.eu" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-full bg-[#FAF9FC] text-[#4B5563] border border-[#E9D5FF] hover:border-[#DDD6FE] hover:text-[#7C3AED] transition-all min-h-[38px]"
+                  className="flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-full bg-[#FAF9FC] text-[#1F2937] border border-[#E9D5FF] hover:border-[#DDD6FE] hover:text-[#7C3AED] transition-all min-h-[38px]"
                 >
                   <Globe className="w-3.5 h-3.5 text-[#7C3AED] flex-shrink-0" />
                   <span>amale.eu</span>
@@ -199,13 +183,7 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
         </motion.div>
 
         {/* Section 1: Profilo */}
-        <motion.section
-          id="cv-profile"
-          initial={sectionAnim.initial}
-          whileInView={sectionAnim.whileInView}
-          viewport={sectionAnim.viewport}
-          transition={sectionAnim.transition}
-          className="mb-14"
+        <section className="mb-14"
         >
           <div className="flex items-center gap-3 mb-6">
             <div className="w-9 h-9 rounded-2xl bg-[#F3E8FF] flex items-center justify-center text-[#7C3AED]">
@@ -220,20 +198,14 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
             <p className="text-base sm:text-lg font-medium">
               Mi piace costruire progetti grafici in cui estetica e funzionalità lavorano insieme in perfetta armonia. Credo che la grafica destinata alla stampa conservi un valore sensoriale insostituibile: il peso e la grana di una carta speciale, la brillantezza di un inchiostro calibrato, la griglia invisibile che guida l’occhio nella lettura di un testo articolato.
             </p>
-            <p className="text-base text-[#6B7280]">
+            <p className="text-base text-[#374151]">
               Il mio percorso unisce sensibilità visiva contemporanea, rigore tecnico nella gestione della prestampa (abbondanze, profili colore) e una costante attenzione alle esigenze dei clienti e delle istituzioni culturali.
             </p>
           </div>
-        </motion.section>
+        </section>
 
         {/* Section 2: Esperienze Lavorative */}
-        <motion.section
-          id="cv-experiences"
-          initial={sectionAnim.initial}
-          whileInView={sectionAnim.whileInView}
-          viewport={sectionAnim.viewport}
-          transition={sectionAnim.transition}
-          className="mb-14"
+        <section className="mb-14"
         >
           <div className="flex items-center gap-3 mb-8">
             <div className="w-9 h-9 rounded-2xl bg-[#F3E8FF] flex items-center justify-center text-[#7C3AED]">
@@ -243,12 +215,12 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
               <h3 className="font-serif italic text-2xl sm:text-3xl text-[#1A1A1A]">
                 Esperienze Lavorative
               </h3>
-              <p className="text-sm text-[#4B5563]">Percorso professionale e progetti svolti in agenzie e tipografie</p>
+              <p className="text-sm text-[#1F2937]">Percorso professionale e progetti svolti in agenzie e tipografie</p>
             </div>
           </div>
 
           {/* Vertical Editorial Timeline */}
-          <div className="relative pl-4 sm:pl-8 space-y-6 sm:space-y-8 before:absolute before:left-2 sm:before:left-3.5 before:top-3 before:bottom-3 before:w-0.5 before:bg-[#E9D5FF]">
+          <div className="relative pl-4 sm:pl-8 space-y-10 sm:space-y-12 before:absolute before:left-2 sm:before:left-3.5 before:top-3 before:bottom-3 before:w-0.5 before:bg-[#E9D5FF]">
             {RESUME_DATA.experiences.map((exp) => (
               <div key={exp.id} className="relative group/exp">
                 {/* Timeline node with glowing micro-interaction */}
@@ -259,7 +231,7 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
                   {/* Period & Company Bar */}
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-2 mb-2 sm:mb-3">
                     <div className="flex items-baseline gap-2">
-                      <h4 className="font-serif italic font-bold text-lg sm:text-2xl text-[#1A1A1A] group-hover/exp:text-[#7C3AED] transition-colors duration-200">
+                      <h4 className="font-serif italic font-extrabold text-xl sm:text-2xl text-[#000000] group-hover/exp:text-[#7C3AED] transition-colors duration-200">
                         {exp.role}
                       </h4>
                     </div>
@@ -272,12 +244,12 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
                     {exp.company} <span className="text-[#9CA3AF] font-medium">· {exp.location}</span>
                   </div>
 
-                  <p className="text-sm sm:text-base text-[#4B5563] leading-relaxed mb-3.5 sm:mb-4 font-medium">
+                  <p className="text-sm sm:text-base text-[#1F2937] leading-relaxed mb-4 sm:mb-5 font-medium">
                     {exp.description}
                   </p>
 
                   {/* Main Activities */}
-                  <div className="space-y-2 mb-3.5 sm:mb-4 bg-[#FAF9FD] p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-[#F3E8FF] group-hover/exp:bg-white group-hover/exp:border-[#E9D5FF] transition-colors duration-200">
+                  <div className="space-y-2 mb-4 sm:mb-5 bg-[#FAF9FD] p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-[#F3E8FF] group-hover/exp:bg-white group-hover/exp:border-[#E9D5FF] transition-colors duration-200">
                     <span className="text-[11px] sm:text-xs font-bold text-[#6D28D9] uppercase tracking-wider block mb-1">
                       Principali Attività & Responsabilità:
                     </span>
@@ -306,16 +278,10 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
               </div>
             ))}
           </div>
-        </motion.section>
+        </section>
 
         {/* Section 3: Formazione */}
-        <motion.section
-          id="cv-education"
-          initial={sectionAnim.initial}
-          whileInView={sectionAnim.whileInView}
-          viewport={sectionAnim.viewport}
-          transition={sectionAnim.transition}
-          className="mb-14"
+        <section className="mb-14"
         >
           <div className="flex items-center gap-3 mb-8">
             <div className="w-9 h-9 rounded-2xl bg-[#F3E8FF] flex items-center justify-center text-[#7C3AED]">
@@ -325,7 +291,7 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
               <h3 className="font-serif italic text-2xl sm:text-3xl text-[#1A1A1A]">
                 Formazione & Studi
               </h3>
-              <p className="text-sm text-[#4B5563]">Percorso accademico e master di specializzazione</p>
+              <p className="text-sm text-[#1F2937]">Percorso accademico e master di specializzazione</p>
             </div>
           </div>
 
@@ -339,7 +305,7 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
                   <span className="inline-block px-3 py-1 rounded-full bg-[#FAF5FF] text-[#7C3AED] text-xs font-bold mb-3 border border-[#DDD6FE] group-hover/edu:bg-[#7C3AED] group-hover/edu:text-white transition-colors duration-200">
                     {edu.period}
                   </span>
-                  <h4 className="font-serif italic font-bold text-base sm:text-lg text-[#1A1A1A] group-hover/edu:text-[#7C3AED] transition-colors duration-200 mb-1">
+                  <h4 className="font-serif italic font-extrabold text-lg sm:text-xl text-[#000000] group-hover/edu:text-[#7C3AED] transition-colors duration-200 mb-1">
                     {edu.degree}
                   </h4>
                   <div className="text-xs font-semibold text-[#6D28D9] mb-2">
@@ -352,23 +318,17 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
                   )}
                 </div>
                 {edu.details && (
-                  <p className="text-[11px] text-[#6B7280] pt-3 border-t border-[#F3E8FF] mt-2 italic">
+                  <p className="text-[11px] text-[#374151] pt-3 border-t border-[#F3E8FF] mt-2 italic">
                     {edu.details}
                   </p>
                 )}
               </div>
             ))}
           </div>
-        </motion.section>
+        </section>
 
         {/* Section 4: Competenze (Categorizzate visivamente) */}
-        <motion.section
-          id="cv-skills"
-          initial={sectionAnim.initial}
-          whileInView={sectionAnim.whileInView}
-          viewport={sectionAnim.viewport}
-          transition={sectionAnim.transition}
-          className="mb-14"
+        <section className="mb-14"
         >
           <div className="flex items-center gap-3 mb-8">
             <div className="w-9 h-9 rounded-2xl bg-[#F3E8FF] flex items-center justify-center text-[#7C3AED]">
@@ -378,7 +338,7 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
               <h3 className="font-serif italic text-2xl sm:text-3xl text-[#1A1A1A]">
                 Competenze
               </h3>
-              <p className="text-sm text-[#4B5563]">Aree di specializzazione e metodologie progettuali</p>
+              <p className="text-sm text-[#1F2937]">Aree di specializzazione e metodologie progettuali</p>
             </div>
           </div>
 
@@ -390,11 +350,11 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
               >
                 <div className="flex items-center gap-2 mb-2">
                   <span className="w-2 h-2 rounded-full bg-[#7C3AED] group-hover/cat:scale-125 transition-transform duration-200"></span>
-                  <h4 className="font-serif italic font-bold text-base sm:text-lg text-[#1A1A1A] group-hover/cat:text-[#7C3AED] transition-colors duration-200">
+                  <h4 className="font-serif italic font-extrabold text-lg sm:text-xl text-[#000000] group-hover/cat:text-[#7C3AED] transition-colors duration-200">
                     {cat.title}
                   </h4>
                 </div>
-                <p className="text-sm text-[#4B5563] mb-4">
+                <p className="text-sm text-[#1F2937] mb-4">
                   {cat.description}
                 </p>
 
@@ -412,16 +372,10 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
               </div>
             ))}
           </div>
-        </motion.section>
+        </section>
 
         {/* Section 5: Software & Strumenti (Pill & Badge grafici) */}
-        <motion.section
-          id="cv-software"
-          initial={sectionAnim.initial}
-          whileInView={sectionAnim.whileInView}
-          viewport={sectionAnim.viewport}
-          transition={sectionAnim.transition}
-          className="mb-14"
+        <section className="mb-14"
         >
           <div className="flex items-center gap-3 mb-8">
             <div className="w-9 h-9 rounded-2xl bg-[#F3E8FF] flex items-center justify-center text-[#7C3AED]">
@@ -431,7 +385,7 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
               <h3 className="font-serif italic text-2xl sm:text-3xl text-[#1A1A1A]">
                 Software & Strumenti
               </h3>
-              <p className="text-sm text-[#4B5563]">Applicazioni e tool di lavoro per layout, vettori e prestampa</p>
+              <p className="text-sm text-[#1F2937]">Applicazioni e tool di lavoro per layout, vettori e prestampa</p>
             </div>
           </div>
 
@@ -458,23 +412,17 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
                   <span className="text-xs text-[#6D28D9] font-medium block">
                     {tool.level}
                   </span>
-                  <span className="text-[11px] text-[#6B7280]">
+                  <span className="text-[11px] text-[#374151]">
                     {tool.category}
                   </span>
                 </div>
               ))}
             </div>
           </div>
-        </motion.section>
+        </section>
 
         {/* Section 6: Lingue */}
-        <motion.section
-          id="cv-languages"
-          initial={sectionAnim.initial}
-          whileInView={sectionAnim.whileInView}
-          viewport={sectionAnim.viewport}
-          transition={sectionAnim.transition}
-          className="mb-12"
+        <section className="mb-12"
         >
           <div className="flex items-center gap-3 mb-8">
             <div className="w-9 h-9 rounded-2xl bg-[#F3E8FF] flex items-center justify-center text-[#7C3AED]">
@@ -484,7 +432,7 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
               <h3 className="font-serif italic text-2xl sm:text-3xl text-[#1A1A1A]">
                 Lingue
               </h3>
-              <p className="text-sm text-[#4B5563]">Competenze linguistiche per collaborazioni nazionali e internazionali</p>
+              <p className="text-sm text-[#1F2937]">Competenze linguistiche per collaborazioni nazionali e internazionali</p>
             </div>
           </div>
 
@@ -495,7 +443,7 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
                 className="group/lang bg-white rounded-[20px] sm:rounded-[28px] p-5 sm:p-6 border border-[#E9D5FF] shadow-sm hover:border-[#C084FC] hover:bg-[#FDFBFE] hover:shadow-[0_12px_30px_rgba(124,58,237,0.08)] hover:-translate-y-0.5 transition-all duration-300"
               >
                 <div className="flex items-baseline justify-between mb-1">
-                  <h4 className="font-serif italic font-bold text-base sm:text-lg text-[#1A1A1A] group-hover/lang:text-[#7C3AED] transition-colors duration-200">
+                  <h4 className="font-serif italic font-extrabold text-lg sm:text-xl text-[#000000] group-hover/lang:text-[#7C3AED] transition-colors duration-200">
                     {lang.name}
                   </h4>
                   <span className="text-xs font-bold text-[#7C3AED]">
@@ -503,7 +451,7 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
                   </span>
                 </div>
 
-                <p className="text-sm text-[#4B5563] mb-4">
+                <p className="text-sm text-[#1F2937] mb-4">
                   {lang.note}
                 </p>
 
@@ -517,7 +465,7 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
               </div>
             ))}
           </div>
-        </motion.section>
+        </section>
 
       </div>
     </div>

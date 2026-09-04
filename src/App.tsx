@@ -97,13 +97,13 @@ export default function App() {
 
       {/* Main Content Area */}
       <main className="flex-grow relative z-10">
-        <AnimatePresence mode="wait">
+        
           {currentPage === 'portfolio' ? (
             <motion.div
               key="portfolio"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
+              
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
             >
               {/* Hero Section */}
@@ -129,7 +129,7 @@ export default function App() {
               key="curriculum"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
+              
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
             >
               <CurriculumView
@@ -137,7 +137,7 @@ export default function App() {
               />
             </motion.div>
           )}
-        </AnimatePresence>
+        
       </main>
 
       {/* Dynamic Project Modal / Fullscreen Overlay */}
