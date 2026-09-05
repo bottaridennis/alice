@@ -1,29 +1,36 @@
-import React from 'react';
-import { Project } from '../types';
-import { Eye, ArrowUpRight, Printer, FileText, ExternalLink } from 'lucide-react';
-import { motion } from 'motion/react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Project, FilterCategory } from '../types';
+import { Eye, ArrowUpRight, Filter, Printer, X, FileText, ExternalLink } from 'lucide-react';
+import { motion, AnimatePresence, useScroll, useTransform } from 'motion/react';
 
 interface ProjectsGridProps {
   projects: Project[];
   onSelectProject: (project: Project) => void;
 }
 
-const ProjectCardImage = ({ src, alt, className }: { src: string, alt: string, className: string }) => {
-  return (
-    <img
-      src={src}
-      alt={alt}
-      className={className}
-      loading="lazy"
-      decoding="async"
-    />
-  );
-};
-
 export const ProjectsGrid: React.FC<ProjectsGridProps> = ({
   projects,
   onSelectProject
 }) => {
+  const [isLoading, setIsLoading] = useState(true);
+  const containerRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+  
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, -150]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [0, 200]);
+  const y3 = useTransform(scrollYProgress, [0, 1], [0, -80]);
+
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1500); // 1.5s visual loading
+    return () => clearTimeout(timer);
+  }, []);
+
   const handleDirectPdfOpen = (e: React.MouseEvent, pdfUrl: string) => {
     e.stopPropagation();
     window.open(pdfUrl, '_blank', 'noopener,noreferrer');
@@ -31,28 +38,74 @@ export const ProjectsGrid: React.FC<ProjectsGridProps> = ({
 
   return (
     <motion.section
+      ref={containerRef}
       id="progetti"
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "50px" }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
       className="py-20 relative"
     >
-      {/* Ambient Background Blobs */}
+      {/* Parallax Background Blobs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div 
-          className="absolute top-[10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-[#D8B4FE]/25 blur-[120px] will-change-transform transform-gpu"
+        <motion.div 
+          style={{ y: y1 }}
+          className="absolute top-[10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-[#D8B4FE] blur-[120px] opacity-40"
         />
-        <div 
-          className="absolute top-[40%] right-[-15%] w-[600px] h-[600px] rounded-full bg-[#E9D5FF]/35 blur-[140px] will-change-transform transform-gpu"
+        <motion.div 
+          style={{ y: y2 }}
+          className="absolute top-[40%] right-[-15%] w-[600px] h-[600px] rounded-full bg-[#E9D5FF] blur-[140px] opacity-50"
         />
-        <div 
-          className="absolute bottom-[-10%] left-[20%] w-[400px] h-[400px] rounded-full bg-[#C084FC]/20 blur-[100px] will-change-transform transform-gpu"
+        <motion.div 
+          style={{ y: y3 }}
+          className="absolute bottom-[-10%] left-[20%] w-[400px] h-[400px] rounded-full bg-[#C084FC] blur-[100px] opacity-30"
         />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        
         {/* Section Header */}
+        {isLoading ? (
+          <div className="flex flex-col items-center justify-center py-40 sm:py-60 space-y-12 min-h-[50vh]">
+            {/* CMYK overlapping spinner loader */}
+            <div className="relative w-20 h-20 flex items-center justify-center mix-blend-multiply">
+              <motion.div
+                animate={{ x: [-15, 15, -15], y: [-15, 15, -15], scale: [1, 1.2, 1] }}
+                transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
+                className="absolute w-10 h-10 rounded-full bg-[#00FFFF] opacity-80 mix-blend-multiply"
+              />
+              <motion.div
+                animate={{ x: [15, -15, 15], y: [-15, 15, -15], scale: [1.2, 1, 1.2] }}
+                transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut", delay: 0.3 }}
+                className="absolute w-10 h-10 rounded-full bg-[#FF00FF] opacity-80 mix-blend-multiply"
+              />
+              <motion.div
+                animate={{ y: [15, -15, 15], scale: [1, 1.2, 1] }}
+                transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut", delay: 0.6 }}
+                className="absolute w-10 h-10 rounded-full bg-[#FFFF00] opacity-80 mix-blend-multiply"
+              />
+            </div>
+            
+            <div className="flex flex-col items-center gap-2">
+              <motion.p 
+                animate={{ opacity: [0.3, 1, 0.3] }}
+                transition={{ repeat: Infinity, duration: 1.5 }}
+                className="font-serif italic text-xl sm:text-2xl text-[#1A1A1A] tracking-wide"
+              >
+                Stampa in corso...
+              </motion.p>
+              <div className="flex gap-1.5">
+                <motion.div className="w-1.5 h-1.5 rounded-full bg-[#00FFFF]" animate={{ opacity: [0.3, 1, 0.3] }} transition={{ repeat: Infinity, duration: 1, delay: 0 }} />
+                <motion.div className="w-1.5 h-1.5 rounded-full bg-[#FF00FF]" animate={{ opacity: [0.3, 1, 0.3] }} transition={{ repeat: Infinity, duration: 1, delay: 0.2 }} />
+                <motion.div className="w-1.5 h-1.5 rounded-full bg-[#FFFF00]" animate={{ opacity: [0.3, 1, 0.3] }} transition={{ repeat: Infinity, duration: 1, delay: 0.4 }} />
+                <motion.div className="w-1.5 h-1.5 rounded-full bg-[#1A1A1A]" animate={{ opacity: [0.3, 1, 0.3] }} transition={{ repeat: Infinity, duration: 1, delay: 0.6 }} />
+              </div>
+            </div>
+          </div>
+        ) : (
+          <>
+            {/* Section Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-white border border-[#E9D5FF] text-[#7C3AED] text-[11px] sm:text-[12px] font-bold uppercase tracking-wider sm:tracking-widest mb-3 shadow-sm">
@@ -68,41 +121,51 @@ export const ProjectsGrid: React.FC<ProjectsGridProps> = ({
           </div>
         </div>
 
-        {/* Dynamic Editorial Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 grid-flow-row-dense">
-          {projects.map((project) => {
-            let colSpan = 'md:col-span-6 lg:col-span-6';
-            let aspectClass = 'aspect-[16/11]';
+        {/* Dynamic Editorial Grid with smooth animated transitions */}
+        <motion.div
+          layout
+          className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 grid-flow-row-dense"
+        >
+          <AnimatePresence>
+            {projects.map((project) => {
+              let colSpan = 'md:col-span-6 lg:col-span-6';
+              let aspectClass = 'aspect-[16/11]';
 
-            if (project.sizeSpan === 'large') {
-              colSpan = 'md:col-span-12 lg:col-span-8';
-              aspectClass = 'aspect-[16/10] sm:aspect-[16/9]';
-            } else if (project.sizeSpan === 'tall') {
-              colSpan = 'md:col-span-6 lg:col-span-4';
-              aspectClass = 'aspect-[3/4]';
-            } else if (project.sizeSpan === 'wide') {
-              colSpan = 'md:col-span-12 lg:col-span-7';
-              aspectClass = 'aspect-[16/10]';
-            } else {
-              colSpan = 'md:col-span-6 lg:col-span-5';
-              aspectClass = 'aspect-[4/3]';
-            }
+              if (project.sizeSpan === 'large') {
+                colSpan = 'md:col-span-12 lg:col-span-8';
+                aspectClass = 'aspect-[16/10] sm:aspect-[16/9]';
+              } else if (project.sizeSpan === 'tall') {
+                colSpan = 'md:col-span-6 lg:col-span-4';
+                aspectClass = 'aspect-[3/4]';
+              } else if (project.sizeSpan === 'wide') {
+                colSpan = 'md:col-span-12 lg:col-span-7';
+                aspectClass = 'aspect-[16/10]';
+              } else {
+                colSpan = 'md:col-span-6 lg:col-span-5';
+                aspectClass = 'aspect-[4/3]';
+              }
 
-            return (
-              <motion.div
-                key={project.id}
-                id={`project-card-${project.id}`}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "60px" }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
-                onClick={() => onSelectProject(project)}
-                className={`${colSpan} group cursor-pointer flex flex-col`}
-              >
+              return (
+                <motion.div
+                  layout
+                  key={project.id}
+                  id={`project-card-${project.id}`}
+                  initial={{ opacity: 0, scale: 0.96 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.96 }}
+                  transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                  onClick={() => onSelectProject(project)}
+                  className={`${colSpan} group cursor-pointer flex flex-col`}
+                >
                   {/* Visual Card Container */}
                   <div className={`relative ${aspectClass} rounded-[24px] sm:rounded-[32px] overflow-hidden bg-white border border-[#E9D5FF] shadow-[0_6px_30px_rgba(124,58,237,0.06)] group-hover:shadow-[0_20px_50px_rgba(124,58,237,0.16)] transition-all duration-400 ease-out group-hover:-translate-y-1.5`}>
                     {/* First Page PDF Preview / Mockup */}
-                    <ProjectCardImage src={project.cover || project.coverImage || ""} alt={project.title} className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105" />
+                    <img
+                      src={project.cover || project.coverImage}
+                      alt={project.title}
+                      className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+                      loading="lazy"
+                    />
 
                     {/* Gradient & Overlay for high readability */}
                     <div className="absolute inset-0 bg-gradient-to-t from-[#15121B]/90 via-[#15121B]/25 to-transparent opacity-75 group-hover:opacity-85 transition-opacity duration-300" />
@@ -178,7 +241,12 @@ export const ProjectsGrid: React.FC<ProjectsGridProps> = ({
                 </motion.div>
               );
             })}
-        </div>
+          </AnimatePresence>
+        </motion.div>
+
+
+                </>
+        )}
       </div>
     </motion.section>
   );

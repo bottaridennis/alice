@@ -17,20 +17,11 @@ export const Hero: React.FC<HeroProps> = ({
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    if (typeof window === 'undefined' || !window.matchMedia('(pointer: fine)').matches) return;
-
-    let ticking = false;
     const handleMouseMove = (e: MouseEvent) => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const { innerWidth, innerHeight } = window;
-          const x = (e.clientX / innerWidth - 0.5) * 20;
-          const y = (e.clientY / innerHeight - 0.5) * 20;
-          setMousePos({ x, y });
-          ticking = false;
-        });
-        ticking = true;
-      }
+      const { innerWidth, innerHeight } = window;
+      const x = (e.clientX / innerWidth - 0.5) * 20;
+      const y = (e.clientY / innerHeight - 0.5) * 20;
+      setMousePos({ x, y });
     };
 
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
@@ -144,8 +135,6 @@ export const Hero: React.FC<HeroProps> = ({
                   <img
                     src="./projects/festival-cinema-africano/cover.jpg"
                     alt="Festival di Cinema Africano di Verona - Corporate Identity"
-                    loading="eager"
-                    decoding="async"
                     className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#15121B]/85 via-transparent to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
