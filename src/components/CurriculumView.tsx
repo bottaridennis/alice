@@ -183,92 +183,92 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
         </motion.div>
 
         {/* Section 1: Profilo */}
-        <section className="mb-14"
-        >
+        <section className="mb-16 sm:mb-20">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-9 h-9 rounded-2xl bg-[#F3E8FF] flex items-center justify-center text-[#7C3AED]">
-              <Sparkles className="w-4 h-4" />
+            <div className="w-10 h-10 rounded-2xl bg-[#F3E8FF] flex items-center justify-center text-[#7C3AED] shadow-sm">
+              <Sparkles className="w-5 h-5" />
             </div>
-            <h3 className="font-serif italic text-2xl sm:text-3xl text-[#1A1A1A]">
+            <h3 className="font-serif italic font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#0A0A0A]">
               Profilo Professionale
             </h3>
           </div>
 
-          <div className="group bg-white rounded-[28px] p-6 sm:p-8 border border-[#E9D5FF] shadow-sm hover:border-[#C084FC] hover:bg-[#FDFBFE] hover:shadow-[0_12px_32px_rgba(124,58,237,0.07)] transition-all duration-300 leading-relaxed text-[#4A4453] space-y-4">
-            <p className="text-base sm:text-lg font-medium">
+          <div className="group bg-white rounded-[28px] p-6 sm:p-8 md:p-10 border border-[#E9D5FF] shadow-sm hover:border-[#C084FC] hover:bg-[#FDFBFE] hover:shadow-[0_12px_32px_rgba(124,58,237,0.07)] transition-all duration-300 leading-relaxed text-[#111827] space-y-4">
+            <p className="text-base sm:text-lg font-medium text-[#111827] leading-relaxed">
               Mi piace costruire progetti grafici in cui estetica e funzionalità lavorano insieme in perfetta armonia. Credo che la grafica destinata alla stampa conservi un valore sensoriale insostituibile: il peso e la grana di una carta speciale, la brillantezza di un inchiostro calibrato, la griglia invisibile che guida l’occhio nella lettura di un testo articolato.
             </p>
-            <p className="text-base text-[#374151]">
+            <p className="text-base sm:text-lg font-medium text-[#1F2937] leading-relaxed">
               Il mio percorso unisce sensibilità visiva contemporanea, rigore tecnico nella gestione della prestampa (abbondanze, profili colore) e una costante attenzione alle esigenze dei clienti e delle istituzioni culturali.
             </p>
           </div>
         </section>
 
         {/* Section 2: Esperienze Lavorative */}
-        <section className="mb-14"
-        >
+        <section className="mb-16 sm:mb-20">
           <div className="flex items-center gap-3 mb-8">
-            <div className="w-9 h-9 rounded-2xl bg-[#F3E8FF] flex items-center justify-center text-[#7C3AED]">
-              <Briefcase className="w-4 h-4" />
+            <div className="w-10 h-10 rounded-2xl bg-[#F3E8FF] flex items-center justify-center text-[#7C3AED] shadow-sm">
+              <Briefcase className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="font-serif italic text-2xl sm:text-3xl text-[#1A1A1A]">
+              <h3 className="font-serif italic font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#0A0A0A]">
                 Esperienze Lavorative
               </h3>
-              <p className="text-sm text-[#1F2937]">Percorso professionale e progetti svolti in agenzie e tipografie</p>
+              <p className="text-sm sm:text-base text-[#374151] font-medium">Percorso professionale e progetti svolti in agenzie e tipografie</p>
             </div>
           </div>
 
-          {/* Vertical Editorial Timeline */}
-          <div className="relative pl-4 sm:pl-8 space-y-10 sm:space-y-12 before:absolute before:left-2 sm:before:left-3.5 before:top-3 before:bottom-3 before:w-0.5 before:bg-[#E9D5FF]">
+          {/* Vertical Editorial Timeline with generous vertical spacing */}
+          <div className="relative pl-4 sm:pl-8 space-y-12 sm:space-y-16 before:absolute before:left-2 sm:before:left-3.5 before:top-3 before:bottom-3 before:w-0.5 before:bg-[#DDD6FE]">
             {RESUME_DATA.experiences.map((exp) => (
               <div key={exp.id} className="relative group/exp">
                 {/* Timeline node with glowing micro-interaction */}
-                <div className="absolute -left-[22px] sm:-left-[35px] top-2.5 w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-white border-3 sm:border-4 border-[#7C3AED] shadow-sm group-hover/exp:scale-125 group-hover/exp:border-[#6D28D9] group-hover/exp:ring-4 group-hover/exp:ring-[#EDE9FE] transition-all duration-300" />
+                <div className="absolute -left-[22px] sm:-left-[35px] top-3.5 w-4 h-4 sm:w-4 sm:h-4 rounded-full bg-white border-3 sm:border-4 border-[#7C3AED] shadow-md group-hover/exp:scale-125 group-hover/exp:border-[#6D28D9] group-hover/exp:ring-4 group-hover/exp:ring-[#EDE9FE] transition-all duration-300" />
 
                 {/* Experience Card with delicate hover color shift and elevation */}
-                <div className="bg-white rounded-[22px] sm:rounded-[28px] p-4 sm:p-7 sm:p-8 border border-[#E9D5FF] shadow-sm group-hover/exp:border-[#C084FC] group-hover/exp:bg-[#FDFBFE] group-hover/exp:shadow-[0_14px_36px_rgba(124,58,237,0.08)] group-hover/exp:-translate-y-0.5 transition-all duration-300">
+                <div className="bg-white rounded-[24px] sm:rounded-[30px] p-5 sm:p-8 md:p-9 border border-[#E9D5FF] shadow-sm group-hover/exp:border-[#C084FC] group-hover/exp:bg-[#FDFBFE] group-hover/exp:shadow-[0_16px_40px_rgba(124,58,237,0.09)] group-hover/exp:-translate-y-0.5 transition-all duration-300">
                   {/* Period & Company Bar */}
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-2 mb-2 sm:mb-3">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-3 mb-2 sm:mb-3">
                     <div className="flex items-baseline gap-2">
-                      <h4 className="font-serif italic font-extrabold text-xl sm:text-2xl text-[#000000] group-hover/exp:text-[#7C3AED] transition-colors duration-200">
+                      <h4 className="font-serif italic font-black text-2xl sm:text-3xl text-[#0A0A0A] tracking-tight group-hover/exp:text-[#7C3AED] transition-colors duration-200">
                         {exp.role}
                       </h4>
                     </div>
-                    <span className="inline-block px-2.5 sm:px-3 py-1 rounded-full bg-[#FAF5FF] border border-[#DDD6FE] text-[#7C3AED] font-semibold text-[11px] sm:text-xs self-start sm:self-auto group-hover/exp:bg-[#7C3AED] group-hover/exp:text-white transition-colors duration-200">
+                    <span className="inline-block px-3 sm:px-3.5 py-1.5 rounded-full bg-[#FAF5FF] border border-[#DDD6FE] text-[#6D28D9] font-bold text-xs self-start sm:self-auto group-hover/exp:bg-[#7C3AED] group-hover/exp:text-white group-hover/exp:border-[#7C3AED] transition-colors duration-200 shadow-xs">
                       {exp.period}
                     </span>
                   </div>
 
-                  <div className="text-xs sm:text-sm font-semibold text-[#6D28D9] mb-2 sm:mb-3">
-                    {exp.company} <span className="text-[#9CA3AF] font-medium">· {exp.location}</span>
+                  <div className="text-sm sm:text-base font-bold text-[#6D28D9] mb-3 sm:mb-4">
+                    {exp.company} <span className="text-[#4B5563] font-semibold">· {exp.location || 'Verona'}</span>
                   </div>
 
-                  <p className="text-sm sm:text-base text-[#1F2937] leading-relaxed mb-4 sm:mb-5 font-medium">
-                    {exp.description}
-                  </p>
+                  {exp.description && (
+                    <p className="text-sm sm:text-base text-[#111827] leading-relaxed mb-4 sm:mb-5 font-medium">
+                      {exp.description}
+                    </p>
+                  )}
 
                   {/* Main Activities */}
-                  <div className="space-y-2 mb-4 sm:mb-5 bg-[#FAF9FD] p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-[#F3E8FF] group-hover/exp:bg-white group-hover/exp:border-[#E9D5FF] transition-colors duration-200">
-                    <span className="text-[11px] sm:text-xs font-bold text-[#6D28D9] uppercase tracking-wider block mb-1">
+                  <div className="space-y-2.5 mb-5 sm:mb-6 bg-[#FAF9FD] p-4 sm:p-5 rounded-2xl border border-[#F3E8FF] group-hover/exp:bg-white group-hover/exp:border-[#E9D5FF] transition-colors duration-200">
+                    <span className="text-xs sm:text-sm font-bold text-[#6D28D9] uppercase tracking-wider block mb-1.5">
                       Principali Attività & Responsabilità:
                     </span>
-                    <ul className="space-y-1.5 text-xs sm:text-sm text-[#374151]">
+                    <ul className="space-y-2 text-xs sm:text-sm text-[#111827] font-medium leading-relaxed">
                       {exp.keyActivities.map((act, i) => (
-                        <li key={i} className="flex items-start gap-2 group/act py-0.5 rounded-lg hover:text-[#581C87] transition-colors">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#7C3AED] mt-1.5 flex-shrink-0 group-hover/act:scale-125 transition-transform" />
-                          <span>{act}</span>
+                        <li key={i} className="flex items-start gap-2.5 group/act py-0.5 rounded-lg hover:text-[#581C87] transition-colors">
+                          <span className="w-2 h-2 rounded-full bg-[#7C3AED] mt-1.5 flex-shrink-0 group-hover/act:scale-125 transition-transform" />
+                          <span className="text-[#111827] font-medium">{act}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
                   {/* Tags with micro-interactions */}
-                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                  <div className="flex flex-wrap gap-2">
                     {exp.tags.map((tag, i) => (
                       <span
                         key={i}
-                        className="px-2.5 py-1 rounded-lg bg-[#FAF5FF] text-[#6D28D9] text-[11px] sm:text-xs font-medium border border-[#E9D5FF] hover:border-[#C084FC] hover:bg-[#F3E8FF] hover:text-[#581C87] hover:shadow-xs transition-all duration-200 cursor-default"
+                        className="px-3 py-1.5 rounded-lg bg-[#FAF5FF] text-[#581C87] text-xs font-bold border border-[#DDD6FE] hover:border-[#C084FC] hover:bg-[#F3E8FF] hover:text-[#4C1D95] hover:shadow-xs transition-all duration-200 cursor-default"
                       >
                         #{tag}
                       </span>
@@ -281,44 +281,43 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
         </section>
 
         {/* Section 3: Formazione */}
-        <section className="mb-14"
-        >
+        <section className="mb-16 sm:mb-20">
           <div className="flex items-center gap-3 mb-8">
-            <div className="w-9 h-9 rounded-2xl bg-[#F3E8FF] flex items-center justify-center text-[#7C3AED]">
-              <GraduationCap className="w-4 h-4" />
+            <div className="w-10 h-10 rounded-2xl bg-[#F3E8FF] flex items-center justify-center text-[#7C3AED] shadow-sm">
+              <GraduationCap className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="font-serif italic text-2xl sm:text-3xl text-[#1A1A1A]">
+              <h3 className="font-serif italic font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#0A0A0A]">
                 Formazione & Studi
               </h3>
-              <p className="text-sm text-[#1F2937]">Percorso accademico e master di specializzazione</p>
+              <p className="text-sm sm:text-base text-[#374151] font-medium">Percorso accademico e master di specializzazione</p>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
             {RESUME_DATA.education.map((edu) => (
               <div
                 key={edu.id}
-                className="group/edu bg-white rounded-[20px] sm:rounded-[28px] p-5 sm:p-6 border border-[#E9D5FF] shadow-sm flex flex-col justify-between hover:border-[#C084FC] hover:bg-[#FDFBFE] hover:shadow-[0_12px_32px_rgba(124,58,237,0.08)] hover:-translate-y-1 transition-all duration-300"
+                className="group/edu bg-white rounded-[22px] sm:rounded-[28px] p-6 sm:p-7 border border-[#E9D5FF] shadow-sm flex flex-col justify-between hover:border-[#C084FC] hover:bg-[#FDFBFE] hover:shadow-[0_14px_36px_rgba(124,58,237,0.08)] hover:-translate-y-1 transition-all duration-300"
               >
                 <div>
-                  <span className="inline-block px-3 py-1 rounded-full bg-[#FAF5FF] text-[#7C3AED] text-xs font-bold mb-3 border border-[#DDD6FE] group-hover/edu:bg-[#7C3AED] group-hover/edu:text-white transition-colors duration-200">
+                  <span className="inline-block px-3.5 py-1.5 rounded-full bg-[#FAF5FF] text-[#6D28D9] text-xs font-bold mb-3.5 border border-[#DDD6FE] group-hover/edu:bg-[#7C3AED] group-hover/edu:text-white transition-colors duration-200">
                     {edu.period}
                   </span>
-                  <h4 className="font-serif italic font-extrabold text-lg sm:text-xl text-[#000000] group-hover/edu:text-[#7C3AED] transition-colors duration-200 mb-1">
+                  <h4 className="font-serif italic font-black text-xl sm:text-2xl text-[#0A0A0A] group-hover/edu:text-[#7C3AED] transition-colors duration-200 mb-1.5">
                     {edu.degree}
                   </h4>
-                  <div className="text-xs font-semibold text-[#6D28D9] mb-2">
-                    {edu.school} — {edu.location}
+                  <div className="text-sm font-bold text-[#6D28D9] mb-2">
+                    {edu.school} {edu.location ? `— ${edu.location}` : ''}
                   </div>
                   {edu.specialization && (
-                    <p className="text-sm text-[#374151] font-medium mb-3 leading-relaxed">
-                      <strong>Specializzazione:</strong> {edu.specialization}
+                    <p className="text-sm text-[#111827] font-medium mb-3 leading-relaxed">
+                      <strong className="font-bold text-[#0A0A0A]">Specializzazione:</strong> {edu.specialization}
                     </p>
                   )}
                 </div>
                 {edu.details && (
-                  <p className="text-[11px] text-[#374151] pt-3 border-t border-[#F3E8FF] mt-2 italic">
+                  <p className="text-xs text-[#374151] font-medium pt-3.5 border-t border-[#F3E8FF] mt-2 italic">
                     {edu.details}
                   </p>
                 )}
@@ -328,43 +327,42 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
         </section>
 
         {/* Section 4: Competenze (Categorizzate visivamente) */}
-        <section className="mb-14"
-        >
+        <section className="mb-16 sm:mb-20">
           <div className="flex items-center gap-3 mb-8">
-            <div className="w-9 h-9 rounded-2xl bg-[#F3E8FF] flex items-center justify-center text-[#7C3AED]">
-              <Layers className="w-4 h-4" />
+            <div className="w-10 h-10 rounded-2xl bg-[#F3E8FF] flex items-center justify-center text-[#7C3AED] shadow-sm">
+              <Layers className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="font-serif italic text-2xl sm:text-3xl text-[#1A1A1A]">
+              <h3 className="font-serif italic font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#0A0A0A]">
                 Competenze
               </h3>
-              <p className="text-sm text-[#1F2937]">Aree di specializzazione e metodologie progettuali</p>
+              <p className="text-sm sm:text-base text-[#374151] font-medium">Aree di specializzazione e metodologie progettuali</p>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {RESUME_DATA.skillCategories.map((cat, idx) => (
               <div
                 key={idx}
-                className="group/cat bg-white rounded-[20px] sm:rounded-[28px] p-5 sm:p-7 border border-[#E9D5FF] shadow-sm hover:border-[#C084FC] hover:bg-[#FDFBFE] hover:shadow-[0_12px_32px_rgba(124,58,237,0.08)] hover:-translate-y-0.5 transition-all duration-300"
+                className="group/cat bg-white rounded-[22px] sm:rounded-[28px] p-6 sm:p-7 border border-[#E9D5FF] shadow-sm hover:border-[#C084FC] hover:bg-[#FDFBFE] hover:shadow-[0_14px_36px_rgba(124,58,237,0.08)] hover:-translate-y-0.5 transition-all duration-300"
               >
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="w-2 h-2 rounded-full bg-[#7C3AED] group-hover/cat:scale-125 transition-transform duration-200"></span>
-                  <h4 className="font-serif italic font-extrabold text-lg sm:text-xl text-[#000000] group-hover/cat:text-[#7C3AED] transition-colors duration-200">
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#7C3AED] group-hover/cat:scale-125 transition-transform duration-200"></span>
+                  <h4 className="font-serif italic font-black text-xl sm:text-2xl text-[#0A0A0A] group-hover/cat:text-[#7C3AED] transition-colors duration-200">
                     {cat.title}
                   </h4>
                 </div>
-                <p className="text-sm text-[#1F2937] mb-4">
+                <p className="text-sm text-[#1F2937] font-medium mb-4">
                   {cat.description}
                 </p>
 
-                <div className="space-y-2">
+                <div className="space-y-2.5">
                   {cat.items.map((item, i) => (
                     <div
                       key={i}
-                      className="group/item flex items-center gap-2.5 p-2.5 rounded-xl bg-[#FAF9FD] text-xs font-medium text-[#374151] border border-[#F3E8FF] hover:border-[#DDD6FE] hover:bg-[#F5EEFF] hover:text-[#581C87] hover:shadow-[0_2px_8px_rgba(124,58,237,0.06)] hover:translate-x-1 transition-all duration-200 cursor-default"
+                      className="group/item flex items-center gap-2.5 p-2.5 rounded-xl bg-[#FAF9FD] text-xs sm:text-sm font-semibold text-[#111827] border border-[#F3E8FF] hover:border-[#DDD6FE] hover:bg-[#F5EEFF] hover:text-[#581C87] hover:shadow-[0_2px_8px_rgba(124,58,237,0.06)] hover:translate-x-1 transition-all duration-200 cursor-default"
                     >
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#7C3AED] group-hover/item:text-[#6D28D9] group-hover/item:scale-110 flex-shrink-0 transition-transform duration-200" />
+                      <CheckCircle2 className="w-4 h-4 text-[#7C3AED] group-hover/item:text-[#6D28D9] group-hover/item:scale-110 flex-shrink-0 transition-transform duration-200" />
                       <span>{item}</span>
                     </div>
                   ))}
@@ -375,46 +373,47 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
         </section>
 
         {/* Section 5: Software & Strumenti (Pill & Badge grafici) */}
-        <section className="mb-14"
-        >
+        <section className="mb-16 sm:mb-20">
           <div className="flex items-center gap-3 mb-8">
-            <div className="w-9 h-9 rounded-2xl bg-[#F3E8FF] flex items-center justify-center text-[#7C3AED]">
-              <Award className="w-4 h-4" />
+            <div className="w-10 h-10 rounded-2xl bg-[#F3E8FF] flex items-center justify-center text-[#7C3AED] shadow-sm">
+              <Award className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="font-serif italic text-2xl sm:text-3xl text-[#1A1A1A]">
+              <h3 className="font-serif italic font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#0A0A0A]">
                 Software & Strumenti
               </h3>
-              <p className="text-sm text-[#1F2937]">Applicazioni e tool di lavoro per layout, vettori e prestampa</p>
+              <p className="text-sm sm:text-base text-[#374151] font-medium">Applicazioni e tool di lavoro per layout, vettori e prestampa</p>
             </div>
           </div>
 
-          <div className="bg-white rounded-[22px] sm:rounded-[28px] p-4 sm:p-8 border border-[#E9D5FF] shadow-sm">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+          <div className="bg-white rounded-[24px] sm:rounded-[30px] p-5 sm:p-8 border border-[#E9D5FF] shadow-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4">
               {RESUME_DATA.softwareTools.map((tool, idx) => (
                 <div
                   key={idx}
-                  className="group/tool p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-[#FAF9FC] border border-[#E9D5FF] hover:border-[#C084FC] hover:bg-white hover:shadow-[0_8px_24px_rgba(124,58,237,0.08)] hover:-translate-y-0.5 transition-all duration-200 cursor-default"
+                  className="group/tool p-4 rounded-xl sm:rounded-2xl bg-[#FAF9FC] border border-[#E9D5FF] hover:border-[#C084FC] hover:bg-white hover:shadow-[0_8px_24px_rgba(124,58,237,0.08)] hover:-translate-y-0.5 transition-all duration-200 cursor-default"
                 >
-                  <div className="flex items-center justify-between mb-1.5">
+                  <div className="flex items-center justify-between mb-2">
                     
-                    <div className="flex items-center gap-2">
-                      <div className="p-1.5 rounded-lg bg-white border border-[#F3E8FF] group-hover/tool:border-[#E9D5FF] group-hover/tool:shadow-sm transition-all">
+                    <div className="flex items-center gap-2.5">
+                      <div className="p-1.5 rounded-lg bg-white border border-[#F3E8FF] group-hover/tool:border-[#E9D5FF] group-hover/tool:shadow-sm transition-all flex-shrink-0">
                         {getSoftwareIcon(tool.name)}
                       </div>
-                      <span className="font-bold text-sm text-[#1A1A1A] group-hover/tool:text-[#7C3AED] transition-colors">{tool.name}</span>
+                      <span className="font-bold text-sm sm:text-base text-[#0A0A0A] group-hover/tool:text-[#7C3AED] transition-colors">{tool.name}</span>
                     </div>
 
-                    <span className="px-2 py-0.5 rounded-md bg-[#FAF5FF] text-[#7C3AED] group-hover/tool:bg-[#7C3AED] group-hover/tool:text-white text-[10px] font-bold border border-[#DDD6FE] transition-colors duration-200">
+                    <span className="px-2 py-0.5 rounded-md bg-[#FAF5FF] text-[#6D28D9] group-hover/tool:bg-[#7C3AED] group-hover/tool:text-white text-[11px] font-bold border border-[#DDD6FE] transition-colors duration-200">
                       {tool.badge}
                     </span>
                   </div>
-                  <span className="text-xs text-[#6D28D9] font-medium block">
-                    {tool.level}
-                  </span>
-                  <span className="text-[11px] text-[#374151]">
-                    {tool.category}
-                  </span>
+                  <div className="flex items-center justify-between mt-1 pt-1 border-t border-[#F3E8FF]/80">
+                    <span className="text-xs text-[#6D28D9] font-bold block">
+                      {tool.level}
+                    </span>
+                    <span className="text-xs text-[#4B5563] font-medium">
+                      {tool.category}
+                    </span>
+                  </div>
                 </div>
               ))}
             </div>
@@ -422,41 +421,40 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
         </section>
 
         {/* Section 6: Lingue */}
-        <section className="mb-12"
-        >
+        <section className="mb-16 sm:mb-20">
           <div className="flex items-center gap-3 mb-8">
-            <div className="w-9 h-9 rounded-2xl bg-[#F3E8FF] flex items-center justify-center text-[#7C3AED]">
-              <Globe className="w-4 h-4" />
+            <div className="w-10 h-10 rounded-2xl bg-[#F3E8FF] flex items-center justify-center text-[#7C3AED] shadow-sm">
+              <Globe className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="font-serif italic text-2xl sm:text-3xl text-[#1A1A1A]">
+              <h3 className="font-serif italic font-extrabold text-2xl sm:text-3xl lg:text-4xl text-[#0A0A0A]">
                 Lingue
               </h3>
-              <p className="text-sm text-[#1F2937]">Competenze linguistiche per collaborazioni nazionali e internazionali</p>
+              <p className="text-sm sm:text-base text-[#374151] font-medium">Competenze linguistiche per collaborazioni nazionali e internazionali</p>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
             {RESUME_DATA.languages.map((lang, idx) => (
               <div
                 key={idx}
-                className="group/lang bg-white rounded-[20px] sm:rounded-[28px] p-5 sm:p-6 border border-[#E9D5FF] shadow-sm hover:border-[#C084FC] hover:bg-[#FDFBFE] hover:shadow-[0_12px_30px_rgba(124,58,237,0.08)] hover:-translate-y-0.5 transition-all duration-300"
+                className="group/lang bg-white rounded-[22px] sm:rounded-[28px] p-5 sm:p-6 border border-[#E9D5FF] shadow-sm hover:border-[#C084FC] hover:bg-[#FDFBFE] hover:shadow-[0_14px_32px_rgba(124,58,237,0.08)] hover:-translate-y-0.5 transition-all duration-300"
               >
-                <div className="flex items-baseline justify-between mb-1">
-                  <h4 className="font-serif italic font-extrabold text-lg sm:text-xl text-[#000000] group-hover/lang:text-[#7C3AED] transition-colors duration-200">
+                <div className="flex items-baseline justify-between mb-1.5">
+                  <h4 className="font-serif italic font-black text-xl sm:text-2xl text-[#0A0A0A] group-hover/lang:text-[#7C3AED] transition-colors duration-200">
                     {lang.name}
                   </h4>
-                  <span className="text-xs font-bold text-[#7C3AED]">
+                  <span className="text-xs sm:text-sm font-bold text-[#7C3AED]">
                     {lang.level}
                   </span>
                 </div>
 
-                <p className="text-sm text-[#1F2937] mb-4">
+                <p className="text-sm text-[#111827] font-medium mb-4">
                   {lang.note}
                 </p>
 
                 {/* Visual Progress Bar */}
-                <div className="w-full bg-[#F3E8FF] h-2 rounded-full overflow-hidden">
+                <div className="w-full bg-[#F3E8FF] h-2.5 rounded-full overflow-hidden">
                   <div
                     className="bg-gradient-to-r from-[#7C3AED] to-[#A855F7] h-full rounded-full group-hover/lang:from-[#6D28D9] group-hover/lang:to-[#C084FC] transition-all duration-700"
                     style={{ width: `${lang.percentage}%` }}

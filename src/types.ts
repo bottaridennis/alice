@@ -59,7 +59,7 @@ export interface SkillCategory {
 
 export interface SoftwareTool {
   name: string;
-  category: 'Adobe Creative Cloud' | 'Layout & Print' | 'Digital & Web' | 'Generative AI';
+  category: string;
   level: string;
   badge: string;
 }

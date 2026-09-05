@@ -8,11 +8,22 @@
 
 html, body, button, input, select, textarea {
   font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   background-color: #FDFCFE;
-  color: #1A1A1A;
+  color: #111827;
+  font-weight: 450;
+}
+
+/* Ensure mobile text has crisp contrast and readability */
+@media (max-width: 640px) {
+  body {
+    font-weight: 500;
+  }
 }
 
 .font-serif {
