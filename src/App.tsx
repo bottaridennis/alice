@@ -12,7 +12,7 @@ import { Footer } from './components/Footer';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<PageType>('portfolio');
-  const { scrollYProgress, scrollY } = useScroll();
+  const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
@@ -66,26 +66,17 @@ export default function App() {
       <div className="min-h-screen bg-[#FAF9FD] text-[#1A1721] flex flex-col font-sans selection:bg-[#E9D5FF] selection:text-[#581C87] w-full max-w-full overflow-x-hidden">
       {/* Elegant Reading Progress Bar */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#E9D5FF] via-[#C084FC] to-[#7C3AED] origin-left z-[100]"
+        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#E9D5FF] via-[#C084FC] to-[#7C3AED] origin-left z-[100] pointer-events-none"
         style={{ scaleX }}
       />
       
-      {/* Global Parallax Background Texture/Shapes */}
+      {/* Global Ambient Background Texture/Shapes - optimized for smooth 60fps scrolling */}
       <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-        <motion.div 
-          className="absolute top-0 left-0 w-full h-[150vh] opacity-[0.02]"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-            y: useTransform(scrollY, [0, 2000], [0, -100])
-          }}
+        <div 
+          className="absolute top-0 -left-[10vw] w-[40vw] h-[40vw] rounded-full bg-[#E9D5FF]/30 blur-[100px] will-change-transform transform-gpu"
         />
-        <motion.div 
-          className="absolute top-0 -left-[10vw] w-[40vw] h-[40vw] rounded-full bg-[#E9D5FF] opacity-30 blur-[120px]"
-          style={{ y: useTransform(scrollYProgress, [0, 1], ['0%', '150%']) }}
-        />
-        <motion.div 
-          className="absolute top-[40vh] -right-[10vw] w-[45vw] h-[45vw] rounded-full bg-[#DDD6FE] opacity-20 blur-[120px]"
-          style={{ y: useTransform(scrollYProgress, [0, 1], ['0%', '-100%']) }}
+        <div 
+          className="absolute top-[40vh] -right-[10vw] w-[45vw] h-[45vw] rounded-full bg-[#DDD6FE]/25 blur-[100px] will-change-transform transform-gpu"
         />
       </div>
       

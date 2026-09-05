@@ -1,29 +1,22 @@
-import React, { useState, useRef } from 'react';
+import React from 'react';
 import { Project } from '../types';
 import { Eye, ArrowUpRight, Printer, FileText, ExternalLink } from 'lucide-react';
-import { motion, AnimatePresence, useScroll, useTransform } from 'motion/react';
+import { motion } from 'motion/react';
 
 interface ProjectsGridProps {
   projects: Project[];
   onSelectProject: (project: Project) => void;
 }
 
-
 const ProjectCardImage = ({ src, alt, className }: { src: string, alt: string, className: string }) => {
-  const [loaded, setLoaded] = useState(false);
   return (
-    <>
-      {!loaded && (
-        <div className="absolute inset-0 bg-[#E9D5FF]/30 animate-pulse" />
-      )}
-      <img
-        src={src}
-        alt={alt}
-        className={`${className} ${loaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500`}
-        loading="lazy"
-        onLoad={() => setLoaded(true)}
-      />
-    </>
+    <img
+      src={src}
+      alt={alt}
+      className={className}
+      loading="lazy"
+      decoding="async"
+    />
   );
 };
 
@@ -31,16 +24,6 @@ export const ProjectsGrid: React.FC<ProjectsGridProps> = ({
   projects,
   onSelectProject
 }) => {
-  const containerRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
-  
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, -150]);
-  const y2 = useTransform(scrollYProgress, [0, 1], [0, 200]);
-  const y3 = useTransform(scrollYProgress, [0, 1], [0, -80]);
-
   const handleDirectPdfOpen = (e: React.MouseEvent, pdfUrl: string) => {
     e.stopPropagation();
     window.open(pdfUrl, '_blank', 'noopener,noreferrer');
@@ -48,27 +31,23 @@ export const ProjectsGrid: React.FC<ProjectsGridProps> = ({
 
   return (
     <motion.section
-      ref={containerRef}
       id="progetti"
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      viewport={{ once: true, margin: "50px" }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
       className="py-20 relative"
     >
-      {/* Parallax Background Blobs */}
+      {/* Ambient Background Blobs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div 
-          style={{ y: y1 }}
-          className="absolute top-[10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-[#D8B4FE] blur-[120px] opacity-40"
+        <div 
+          className="absolute top-[10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-[#D8B4FE]/25 blur-[120px] will-change-transform transform-gpu"
         />
-        <motion.div 
-          style={{ y: y2 }}
-          className="absolute top-[40%] right-[-15%] w-[600px] h-[600px] rounded-full bg-[#E9D5FF] blur-[140px] opacity-50"
+        <div 
+          className="absolute top-[40%] right-[-15%] w-[600px] h-[600px] rounded-full bg-[#E9D5FF]/35 blur-[140px] will-change-transform transform-gpu"
         />
-        <motion.div 
-          style={{ y: y3 }}
-          className="absolute bottom-[-10%] left-[20%] w-[400px] h-[400px] rounded-full bg-[#C084FC] blur-[100px] opacity-30"
+        <div 
+          className="absolute bottom-[-10%] left-[20%] w-[400px] h-[400px] rounded-full bg-[#C084FC]/20 blur-[100px] will-change-transform transform-gpu"
         />
       </div>
 
@@ -89,42 +68,37 @@ export const ProjectsGrid: React.FC<ProjectsGridProps> = ({
           </div>
         </div>
 
-        {/* Dynamic Editorial Grid with smooth animated transitions */}
-        <motion.div
-          layout
-          className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 grid-flow-row-dense"
-        >
-          <AnimatePresence>
-            {projects.map((project, index) => {
-              let colSpan = 'md:col-span-6 lg:col-span-6';
-              let aspectClass = 'aspect-[16/11]';
+        {/* Dynamic Editorial Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 grid-flow-row-dense">
+          {projects.map((project) => {
+            let colSpan = 'md:col-span-6 lg:col-span-6';
+            let aspectClass = 'aspect-[16/11]';
 
-              if (project.sizeSpan === 'large') {
-                colSpan = 'md:col-span-12 lg:col-span-8';
-                aspectClass = 'aspect-[16/10] sm:aspect-[16/9]';
-              } else if (project.sizeSpan === 'tall') {
-                colSpan = 'md:col-span-6 lg:col-span-4';
-                aspectClass = 'aspect-[3/4]';
-              } else if (project.sizeSpan === 'wide') {
-                colSpan = 'md:col-span-12 lg:col-span-7';
-                aspectClass = 'aspect-[16/10]';
-              } else {
-                colSpan = 'md:col-span-6 lg:col-span-5';
-                aspectClass = 'aspect-[4/3]';
-              }
+            if (project.sizeSpan === 'large') {
+              colSpan = 'md:col-span-12 lg:col-span-8';
+              aspectClass = 'aspect-[16/10] sm:aspect-[16/9]';
+            } else if (project.sizeSpan === 'tall') {
+              colSpan = 'md:col-span-6 lg:col-span-4';
+              aspectClass = 'aspect-[3/4]';
+            } else if (project.sizeSpan === 'wide') {
+              colSpan = 'md:col-span-12 lg:col-span-7';
+              aspectClass = 'aspect-[16/10]';
+            } else {
+              colSpan = 'md:col-span-6 lg:col-span-5';
+              aspectClass = 'aspect-[4/3]';
+            }
 
-              return (
-                <motion.div
-                  layout
-                  key={project.id}
-                  id={`project-card-${project.id}`}
-                  initial={{ opacity: 0, y: 40, scale: 0.96 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.5, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                  onClick={() => onSelectProject(project)}
-                  className={`${colSpan} group cursor-pointer flex flex-col`}
-                >
+            return (
+              <motion.div
+                key={project.id}
+                id={`project-card-${project.id}`}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "60px" }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                onClick={() => onSelectProject(project)}
+                className={`${colSpan} group cursor-pointer flex flex-col`}
+              >
                   {/* Visual Card Container */}
                   <div className={`relative ${aspectClass} rounded-[24px] sm:rounded-[32px] overflow-hidden bg-white border border-[#E9D5FF] shadow-[0_6px_30px_rgba(124,58,237,0.06)] group-hover:shadow-[0_20px_50px_rgba(124,58,237,0.16)] transition-all duration-400 ease-out group-hover:-translate-y-1.5`}>
                     {/* First Page PDF Preview / Mockup */}
@@ -204,8 +178,7 @@ export const ProjectsGrid: React.FC<ProjectsGridProps> = ({
                 </motion.div>
               );
             })}
-          </AnimatePresence>
-        </motion.div>
+        </div>
       </div>
     </motion.section>
   );
