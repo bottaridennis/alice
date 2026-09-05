@@ -79,32 +79,34 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
   };
 
   return (
-    <div id="curriculum-page" className="pt-40 sm:pt-32 pb-20 relative">
-      {/* Background Accent Shapes */}
-      <div className="absolute top-24 -left-20 w-80 h-80 rounded-full bg-[#EDE9FE] blur-[120px] opacity-60 pointer-events-none" />
-      <div className="absolute top-1/2 -right-20 w-96 h-96 rounded-full bg-[#DDD6FE] blur-[100px] opacity-40 pointer-events-none" />
+    <div id="curriculum-page" className="pt-36 sm:pt-32 pb-20 relative w-full max-w-full overflow-x-clip">
+      {/* Background Accent Shapes isolated in overflow-hidden container to prevent horizontal scroll */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-24 -left-20 w-80 h-80 rounded-full bg-[#EDE9FE] blur-[120px] opacity-60" />
+        <div className="absolute top-1/2 -right-20 w-96 h-96 rounded-full bg-[#DDD6FE] blur-[100px] opacity-40" />
+      </div>
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-5xl mx-auto px-3.5 sm:px-6 lg:px-8 relative z-10 w-full">
         
         {/* Navigation Breadcrumb / Return */}
         <div className="mb-6 sm:mb-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-end gap-3 sm:gap-4">
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto">
             <button
               id="cv-copy-email-btn"
               onClick={handleCopyEmail}
-              className="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3.5 sm:px-4 py-2.5 rounded-full bg-white border border-[#E9D5FF] text-[11px] sm:text-xs font-semibold text-[#4C1D95] hover:bg-[#FAF5FF] hover:border-[#C084FC] transition-all shadow-sm min-h-[42px]"
+              className="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3.5 sm:px-4 py-2.5 rounded-full bg-white border border-[#E9D5FF] text-[11px] sm:text-xs font-semibold text-[#4C1D95] hover:bg-[#FAF5FF] hover:border-[#C084FC] transition-all shadow-sm min-h-[42px] min-w-0"
             >
-              {copied ? <Check className="w-3.5 h-3.5 text-green-600" /> : <Copy className="w-3.5 h-3.5" />}
-              <span>{copied ? 'Email Copiata!' : 'Copia Email'}</span>
+              {copied ? <Check className="w-3.5 h-3.5 text-green-600 flex-shrink-0" /> : <Copy className="w-3.5 h-3.5 flex-shrink-0" />}
+              <span className="truncate">{copied ? 'Email Copiata!' : 'Copia Email'}</span>
             </button>
 
             <button
               id="cv-print-btn"
               onClick={handlePrint}
-              className="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 sm:gap-2 px-4 sm:px-5 py-2.5 rounded-full bg-[#7C3AED] hover:bg-[#6D28D9] text-white text-[11px] sm:text-xs font-semibold shadow-md shadow-purple-200 transition-all hover:scale-105 min-h-[42px]"
+              className="flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 sm:gap-2 px-4 sm:px-5 py-2.5 rounded-full bg-[#7C3AED] hover:bg-[#6D28D9] text-white text-[11px] sm:text-xs font-semibold shadow-md shadow-purple-200 transition-all hover:scale-105 min-h-[42px] min-w-0"
             >
-              <Printer className="w-3.5 h-3.5" />
-              <span>Stampa / PDF</span>
+              <Printer className="w-3.5 h-3.5 flex-shrink-0" />
+              <span className="truncate">Stampa / PDF</span>
             </button>
           </div>
         </div>
@@ -114,7 +116,7 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="bg-white rounded-[24px] sm:rounded-[36px] p-6 sm:p-10 lg:p-12 border border-[#E9D5FF] shadow-[0_10px_36px_rgba(124,58,237,0.06)] hover:border-[#C084FC]/60 hover:shadow-[0_14px_40px_rgba(124,58,237,0.09)] transition-all duration-300 mb-8 sm:mb-12 relative overflow-hidden"
+          className="bg-white rounded-[24px] sm:rounded-[36px] p-5 sm:p-10 lg:p-12 border border-[#E9D5FF] shadow-[0_10px_36px_rgba(124,58,237,0.06)] hover:border-[#C084FC]/60 hover:shadow-[0_14px_40px_rgba(124,58,237,0.09)] transition-all duration-300 mb-8 sm:mb-12 relative overflow-hidden"
         >
           {/* Subtle print mark in background */}
           <div className="absolute top-6 right-8 hidden md:block text-right">
@@ -123,13 +125,13 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
           </div>
 
           <div className="flex flex-col-reverse md:flex-row items-center md:items-start justify-between gap-6 md:gap-10">
-            <div className="flex-1 max-w-2xl text-center md:text-left">
+            <div className="flex-1 max-w-2xl text-center md:text-left min-w-0 w-full">
               <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-white border border-[#E9D5FF] text-[#7C3AED] text-[11px] sm:text-[12px] font-bold uppercase tracking-wider sm:tracking-widest mb-3 sm:mb-4 shadow-sm">
                 <span className="w-2 h-2 rounded-full bg-[#7C3AED]"></span>
                 <span>Curriculum Vitae</span>
               </div>
 
-              <h1 className="font-serif italic text-4xl sm:text-6xl lg:text-7xl text-[#1A1A1A] tracking-tight mb-2">
+              <h1 className="font-serif italic text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-[#1A1A1A] tracking-tight mb-2 break-words hyphens-auto">
                 Alice Mariarita Mele
               </h1>
               <div className="flex items-center justify-center md:justify-start gap-3 mb-4 sm:mb-5">
@@ -147,10 +149,10 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
               <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 sm:gap-3 text-xs sm:text-sm">
                 <a
                   href={`mailto:${RESUME_DATA.email}`}
-                  className="flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-full bg-[#FAF5FF] text-[#6D28D9] border border-[#DDD6FE] hover:bg-[#7C3AED] hover:text-white hover:border-[#7C3AED] hover:shadow-sm transition-all duration-200 min-h-[38px]"
+                  className="flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-full bg-[#FAF5FF] text-[#6D28D9] border border-[#DDD6FE] hover:bg-[#7C3AED] hover:text-white hover:border-[#7C3AED] hover:shadow-sm transition-all duration-200 min-h-[38px] max-w-full"
                 >
                   <Mail className="w-3.5 h-3.5 flex-shrink-0" />
-                  <span className="truncate max-w-[200px] sm:max-w-none">{RESUME_DATA.email}</span>
+                  <span className="truncate max-w-[210px] sm:max-w-none">{RESUME_DATA.email}</span>
                 </a>
 
                 <a 
@@ -217,23 +219,23 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
             </div>
           </div>
 
-          {/* Vertical Editorial Timeline with generous vertical spacing */}
-          <div className="relative pl-4 sm:pl-8 space-y-12 sm:space-y-16 before:absolute before:left-2 sm:before:left-3.5 before:top-3 before:bottom-3 before:w-0.5 before:bg-[#DDD6FE]">
+          {/* Vertical Editorial Timeline with generous vertical spacing and precise mobile containment */}
+          <div className="relative pl-6 sm:pl-8 space-y-12 sm:space-y-16 before:absolute before:left-[11px] sm:before:left-[15px] before:top-3 before:bottom-3 before:w-0.5 before:bg-[#DDD6FE]">
             {RESUME_DATA.experiences.map((exp) => (
               <div key={exp.id} className="relative group/exp">
-                {/* Timeline node with glowing micro-interaction */}
-                <div className="absolute -left-[22px] sm:-left-[35px] top-3.5 w-4 h-4 sm:w-4 sm:h-4 rounded-full bg-white border-3 sm:border-4 border-[#7C3AED] shadow-md group-hover/exp:scale-125 group-hover/exp:border-[#6D28D9] group-hover/exp:ring-4 group-hover/exp:ring-[#EDE9FE] transition-all duration-300" />
+                {/* Timeline node perfectly centered on line and contained within padding */}
+                <div className="absolute -left-[19px] sm:-left-[24px] top-3.5 w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-white border-3 sm:border-4 border-[#7C3AED] shadow-md group-hover/exp:scale-125 group-hover/exp:border-[#6D28D9] group-hover/exp:ring-4 group-hover/exp:ring-[#EDE9FE] transition-all duration-300" />
 
                 {/* Experience Card with delicate hover color shift and elevation */}
-                <div className="bg-white rounded-[24px] sm:rounded-[30px] p-5 sm:p-8 md:p-9 border border-[#E9D5FF] shadow-sm group-hover/exp:border-[#C084FC] group-hover/exp:bg-[#FDFBFE] group-hover/exp:shadow-[0_16px_40px_rgba(124,58,237,0.09)] group-hover/exp:-translate-y-0.5 transition-all duration-300">
+                <div className="bg-white rounded-[22px] sm:rounded-[30px] p-4 sm:p-8 md:p-9 border border-[#E9D5FF] shadow-sm group-hover/exp:border-[#C084FC] group-hover/exp:bg-[#FDFBFE] group-hover/exp:shadow-[0_16px_40px_rgba(124,58,237,0.09)] group-hover/exp:-translate-y-0.5 transition-all duration-300">
                   {/* Period & Company Bar */}
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-3 mb-2 sm:mb-3">
-                    <div className="flex items-baseline gap-2">
-                      <h4 className="font-serif italic font-black text-2xl sm:text-3xl text-[#0A0A0A] tracking-tight group-hover/exp:text-[#7C3AED] transition-colors duration-200">
+                    <div className="flex items-baseline gap-2 min-w-0">
+                      <h4 className="font-serif italic font-black text-2xl sm:text-3xl text-[#0A0A0A] tracking-tight group-hover/exp:text-[#7C3AED] transition-colors duration-200 break-words">
                         {exp.role}
                       </h4>
                     </div>
-                    <span className="inline-block px-3 sm:px-3.5 py-1.5 rounded-full bg-[#FAF5FF] border border-[#DDD6FE] text-[#6D28D9] font-bold text-xs self-start sm:self-auto group-hover/exp:bg-[#7C3AED] group-hover/exp:text-white group-hover/exp:border-[#7C3AED] transition-colors duration-200 shadow-xs">
+                    <span className="inline-block px-3 sm:px-3.5 py-1.5 rounded-full bg-[#FAF5FF] border border-[#DDD6FE] text-[#6D28D9] font-bold text-xs self-start sm:self-auto group-hover/exp:bg-[#7C3AED] group-hover/exp:text-white group-hover/exp:border-[#7C3AED] transition-colors duration-200 shadow-xs flex-shrink-0">
                       {exp.period}
                     </span>
                   </div>
@@ -249,7 +251,7 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
                   )}
 
                   {/* Main Activities */}
-                  <div className="space-y-2.5 mb-5 sm:mb-6 bg-[#FAF9FD] p-4 sm:p-5 rounded-2xl border border-[#F3E8FF] group-hover/exp:bg-white group-hover/exp:border-[#E9D5FF] transition-colors duration-200">
+                  <div className="space-y-2.5 mb-5 sm:mb-6 bg-[#FAF9FD] p-3.5 sm:p-5 rounded-2xl border border-[#F3E8FF] group-hover/exp:bg-white group-hover/exp:border-[#E9D5FF] transition-colors duration-200">
                     <span className="text-xs sm:text-sm font-bold text-[#6D28D9] uppercase tracking-wider block mb-1.5">
                       Principali Attività & Responsabilità:
                     </span>
@@ -264,11 +266,11 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
                   </div>
 
                   {/* Tags with micro-interactions */}
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
                     {exp.tags.map((tag, i) => (
                       <span
                         key={i}
-                        className="px-3 py-1.5 rounded-lg bg-[#FAF5FF] text-[#581C87] text-xs font-bold border border-[#DDD6FE] hover:border-[#C084FC] hover:bg-[#F3E8FF] hover:text-[#4C1D95] hover:shadow-xs transition-all duration-200 cursor-default"
+                        className="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-[#FAF5FF] text-[#581C87] text-xs font-bold border border-[#DDD6FE] hover:border-[#C084FC] hover:bg-[#F3E8FF] hover:text-[#4C1D95] hover:shadow-xs transition-all duration-200 cursor-default break-words"
                       >
                         #{tag}
                       </span>
@@ -386,23 +388,23 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
             </div>
           </div>
 
-          <div className="bg-white rounded-[24px] sm:rounded-[30px] p-5 sm:p-8 border border-[#E9D5FF] shadow-sm">
+          <div className="bg-white rounded-[24px] sm:rounded-[30px] p-4 sm:p-8 border border-[#E9D5FF] shadow-sm">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4">
               {RESUME_DATA.softwareTools.map((tool, idx) => (
                 <div
                   key={idx}
-                  className="group/tool p-4 rounded-xl sm:rounded-2xl bg-[#FAF9FC] border border-[#E9D5FF] hover:border-[#C084FC] hover:bg-white hover:shadow-[0_8px_24px_rgba(124,58,237,0.08)] hover:-translate-y-0.5 transition-all duration-200 cursor-default"
+                  className="group/tool p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-[#FAF9FC] border border-[#E9D5FF] hover:border-[#C084FC] hover:bg-white hover:shadow-[0_8px_24px_rgba(124,58,237,0.08)] hover:-translate-y-0.5 transition-all duration-200 cursor-default"
                 >
-                  <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center justify-between gap-2 mb-2">
                     
-                    <div className="flex items-center gap-2.5">
+                    <div className="flex items-center gap-2.5 min-w-0">
                       <div className="p-1.5 rounded-lg bg-white border border-[#F3E8FF] group-hover/tool:border-[#E9D5FF] group-hover/tool:shadow-sm transition-all flex-shrink-0">
                         {getSoftwareIcon(tool.name)}
                       </div>
-                      <span className="font-bold text-sm sm:text-base text-[#0A0A0A] group-hover/tool:text-[#7C3AED] transition-colors">{tool.name}</span>
+                      <span className="font-bold text-sm sm:text-base text-[#0A0A0A] group-hover/tool:text-[#7C3AED] transition-colors truncate">{tool.name}</span>
                     </div>
 
-                    <span className="px-2 py-0.5 rounded-md bg-[#FAF5FF] text-[#6D28D9] group-hover/tool:bg-[#7C3AED] group-hover/tool:text-white text-[11px] font-bold border border-[#DDD6FE] transition-colors duration-200">
+                    <span className="px-2 py-0.5 rounded-md bg-[#FAF5FF] text-[#6D28D9] group-hover/tool:bg-[#7C3AED] group-hover/tool:text-white text-[11px] font-bold border border-[#DDD6FE] transition-colors duration-200 flex-shrink-0">
                       {tool.badge}
                     </span>
                   </div>

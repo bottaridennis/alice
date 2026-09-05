@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Project, FilterCategory } from '../types';
-import { Eye, ArrowUpRight, Filter, Printer, X, FileText, ExternalLink } from 'lucide-react';
+import React, { useState, useRef } from 'react';
+import { Project } from '../types';
+import { Eye, ArrowUpRight, Printer, FileText, ExternalLink } from 'lucide-react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'motion/react';
 
 interface ProjectsGridProps {
@@ -31,7 +31,6 @@ export const ProjectsGrid: React.FC<ProjectsGridProps> = ({
   projects,
   onSelectProject
 }) => {
-  const [isLoading, setIsLoading] = useState(true);
   const containerRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -41,14 +40,6 @@ export const ProjectsGrid: React.FC<ProjectsGridProps> = ({
   const y1 = useTransform(scrollYProgress, [0, 1], [0, -150]);
   const y2 = useTransform(scrollYProgress, [0, 1], [0, 200]);
   const y3 = useTransform(scrollYProgress, [0, 1], [0, -80]);
-
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1500); // 1.5s visual loading
-    return () => clearTimeout(timer);
-  }, []);
 
   const handleDirectPdfOpen = (e: React.MouseEvent, pdfUrl: string) => {
     e.stopPropagation();
@@ -82,49 +73,7 @@ export const ProjectsGrid: React.FC<ProjectsGridProps> = ({
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        
         {/* Section Header */}
-        {isLoading ? (
-          <div className="flex flex-col items-center justify-center py-40 sm:py-60 space-y-12 min-h-[50vh]">
-            {/* CMYK overlapping spinner loader */}
-            <div className="relative w-20 h-20 flex items-center justify-center mix-blend-multiply">
-              <motion.div
-                animate={{ x: [-15, 15, -15], y: [-15, 15, -15], scale: [1, 1.2, 1] }}
-                transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
-                className="absolute w-10 h-10 rounded-full bg-[#00FFFF] opacity-80 mix-blend-multiply"
-              />
-              <motion.div
-                animate={{ x: [15, -15, 15], y: [-15, 15, -15], scale: [1.2, 1, 1.2] }}
-                transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut", delay: 0.3 }}
-                className="absolute w-10 h-10 rounded-full bg-[#FF00FF] opacity-80 mix-blend-multiply"
-              />
-              <motion.div
-                animate={{ y: [15, -15, 15], scale: [1, 1.2, 1] }}
-                transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut", delay: 0.6 }}
-                className="absolute w-10 h-10 rounded-full bg-[#FFFF00] opacity-80 mix-blend-multiply"
-              />
-            </div>
-            
-            <div className="flex flex-col items-center gap-2">
-              <motion.p 
-                animate={{ opacity: [0.3, 1, 0.3] }}
-                transition={{ repeat: Infinity, duration: 1.5 }}
-                className="font-serif italic text-xl sm:text-2xl text-[#1A1A1A] tracking-wide"
-              >
-                Stampa in corso...
-              </motion.p>
-              <div className="flex gap-1.5">
-                <motion.div className="w-1.5 h-1.5 rounded-full bg-[#00FFFF]" animate={{ opacity: [0.3, 1, 0.3] }} transition={{ repeat: Infinity, duration: 1, delay: 0 }} />
-                <motion.div className="w-1.5 h-1.5 rounded-full bg-[#FF00FF]" animate={{ opacity: [0.3, 1, 0.3] }} transition={{ repeat: Infinity, duration: 1, delay: 0.2 }} />
-                <motion.div className="w-1.5 h-1.5 rounded-full bg-[#FFFF00]" animate={{ opacity: [0.3, 1, 0.3] }} transition={{ repeat: Infinity, duration: 1, delay: 0.4 }} />
-                <motion.div className="w-1.5 h-1.5 rounded-full bg-[#1A1A1A]" animate={{ opacity: [0.3, 1, 0.3] }} transition={{ repeat: Infinity, duration: 1, delay: 0.6 }} />
-              </div>
-            </div>
-          </div>
-        ) : (
-          <>
-            {/* Section Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-white border border-[#E9D5FF] text-[#7C3AED] text-[11px] sm:text-[12px] font-bold uppercase tracking-wider sm:tracking-widest mb-3 shadow-sm">
@@ -257,10 +206,6 @@ export const ProjectsGrid: React.FC<ProjectsGridProps> = ({
             })}
           </AnimatePresence>
         </motion.div>
-
-
-                </>
-        )}
       </div>
     </motion.section>
   );

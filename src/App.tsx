@@ -63,7 +63,7 @@ export default function App() {
 
   return (
     <>
-            <div className="min-h-screen bg-[#FAF9FD] text-[#1A1721] flex flex-col font-sans selection:bg-[#E9D5FF] selection:text-[#581C87]">
+      <div className="min-h-screen bg-[#FAF9FD] text-[#1A1721] flex flex-col font-sans selection:bg-[#E9D5FF] selection:text-[#581C87] w-full max-w-full overflow-x-hidden">
       {/* Elegant Reading Progress Bar */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#E9D5FF] via-[#C084FC] to-[#7C3AED] origin-left z-[100]"
@@ -96,14 +96,14 @@ export default function App() {
       />
 
       {/* Main Content Area */}
-      <main className="flex-grow relative z-10">
+      <main className="flex-grow relative z-10 w-full max-w-full overflow-x-hidden">
         
           {currentPage === 'portfolio' ? (
             <motion.div
               key="portfolio"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              
+              className="w-full max-w-full"
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
             >
               {/* Hero Section */}
@@ -129,7 +129,7 @@ export default function App() {
               key="curriculum"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              
+              className="w-full max-w-full"
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
             >
               <CurriculumView
