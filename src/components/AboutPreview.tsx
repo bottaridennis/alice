@@ -1,109 +1,145 @@
-import React from 'react';
-import { motion } from 'motion/react';
-import { ArrowRight, Compass, Sparkles, Layers, BookOpen, Stamp } from 'lucide-react';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'motion/react';
+import { ArrowRight } from 'lucide-react';
+import { RESUME_DATA, PROJECTS_DATA } from '../data/portfolioData';
+import { ScrollWords } from './fx/ScrollWords';
+import { Counter } from './fx/Counter';
+import { CircleText } from './fx/CircleText';
+import { CropMarks } from './fx/CropMarks';
+import { Magnetic } from './fx/Magnetic';
 
 interface AboutPreviewProps {
   onNavigateCurriculum: () => void;
 }
 
 export const AboutPreview: React.FC<AboutPreviewProps> = ({ onNavigateCurriculum }) => {
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
+  const portraitY = useTransform(scrollYProgress, [0, 1], ['8%', '-8%']);
+  const circleY = useTransform(scrollYProgress, [0, 1], ['-20%', '30%']);
+  const circleScale = useTransform(scrollYProgress, [0, 0.5], [0.6, 1]);
+
+  const disciplines = new Set(PROJECTS_DATA.flatMap((p) => p.categories)).size;
+  const stats = [
+    { n: PROJECTS_DATA.length, label: 'Progetti in portfolio' },
+    { n: disciplines, label: 'Discipline' },
+    { n: RESUME_DATA.experiences.length, label: 'Esperienze professionali' },
+    { n: RESUME_DATA.softwareTools.length, label: 'Software' },
+  ];
+
   return (
-    <motion.section
-      id="about-preview-section"
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      className="py-20 relative overflow-hidden"
-    >
-      {/* Background Soft Blobs */}
-      <div className="absolute top-1/2 left-10 -translate-y-1/2 w-80 h-80 rounded-full bg-[#EDE9FE] blur-[120px] opacity-60 pointer-events-none" />
-      <div className="absolute -bottom-10 right-20 w-96 h-96 rounded-full bg-[#DDD6FE] blur-[100px] opacity-40 pointer-events-none" />
+    <section ref={ref} id="about-preview-section" className="relative py-24 sm:py-32 overflow-hidden">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-8">
+        <div className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] mb-12 sm:mb-16">
+          <span className="text-mag">02</span>
+          <span className="w-8 h-px bg-ink" />
+          <span>Profilo · Approccio progettuale</span>
+        </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="bg-white rounded-[28px] sm:rounded-[40px] p-5 sm:p-10 lg:p-16 border border-[#E9D5FF] shadow-[0_12px_40px_rgba(124,58,237,0.06)] relative overflow-hidden">
-          
-          {/* Subtle print grid watermark in background */}
-          <div className="absolute right-0 bottom-0 w-96 h-96 opacity-5 pointer-events-none">
-            <div className="w-full h-full border-l-2 border-t-2 border-[#7C3AED] rounded-tl-full" />
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            
-            {/* Left: Designer Portrait / Editorial Visual */}
-            <div className="lg:col-span-5 relative w-full max-w-sm sm:max-w-md mx-auto lg:max-w-none">
-              <div className="relative aspect-[4/5] rounded-[24px] sm:rounded-[32px] overflow-hidden bg-gradient-to-b from-[#FAF8FE] via-[#F4EEFF] to-[#EBE0FD] border-2 border-white shadow-[0_20px_50px_rgba(124,58,237,0.12)] flex flex-col justify-end">
-                
-                {/* Refined editorial geometric backdrop accents */}
-                <div className="absolute inset-0 pointer-events-none">
-                  <div className="absolute top-10 left-1/2 -translate-x-1/2 w-48 h-48 sm:w-60 sm:h-60 rounded-full bg-gradient-to-tr from-[#DDD6FE]/70 to-[#FAF5FF] blur-2xl" />
-                  <div className="absolute top-10 left-1/2 -translate-x-1/2 w-44 h-44 sm:w-52 sm:h-52 rounded-full border border-[#DDD6FE]/80" />
-                  <div className="absolute top-12 left-1/2 -translate-x-1/2 w-40 h-40 sm:w-48 sm:h-48 rounded-full border border-[#C084FC]/35 border-dashed" />
-                  <div className="absolute top-4 right-4 font-mono text-[9px] sm:text-[10px] text-[#7C3AED]/45 tracking-wider">
-                    STUDIO // VERONA
-                  </div>
-                </div>
-
-                {/* Alice Mariarita Mele Transparent Cutout Portrait */}
-                <img
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-16 items-start">
+          {/* Ritratto */}
+          <div className="lg:col-span-5 relative max-w-md mx-auto w-full lg:max-w-none">
+            <motion.div
+              aria-hidden
+              style={{ y: circleY, scale: circleScale }}
+              className="absolute -top-8 -left-8 w-2/3 aspect-square rounded-full bg-yel"
+            />
+            <motion.div
+              aria-hidden
+              style={{ y: portraitY }}
+              className="halftone absolute -bottom-6 -right-6 w-1/2 h-1/2 text-cy opacity-70"
+            />
+            <motion.div
+              className="relative aspect-[4/5] bg-paper-2 overflow-visible"
+              initial={{ clipPath: 'inset(0 0 100% 0)' }}
+              whileInView={{ clipPath: 'inset(0 0 0% 0)' }}
+              viewport={{ once: true, margin: '-15% 0px' }}
+              transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
+            >
+              <div className="absolute inset-0 overflow-hidden">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,#fff_0%,transparent_60%)]" />
+                <motion.img
+                  style={{ y: portraitY }}
                   src="./Alice_photo.png"
                   alt="Alice Mariarita Mele — Graphic Designer"
-                  className="relative z-10 w-full h-[88%] sm:h-[90%] object-contain object-bottom drop-shadow-[0_14px_28px_rgba(76,29,149,0.18)] transition-transform duration-500 hover:scale-[1.02]"
+                  className="relative w-full h-[96%] mt-[4%] object-contain object-bottom grayscale-[0.15] contrast-[1.05]"
                 />
-                
-                {/* Floating pill badge */}
-                <div className="relative z-20 m-3 sm:m-4 bg-white/95 backdrop-blur-md p-3 sm:p-3.5 rounded-xl sm:rounded-2xl shadow-lg border border-[#E9D5FF] flex items-center justify-between">
-                  <div className="pr-2">
-                    <span className="font-serif italic font-bold text-sm sm:text-base text-[#1A1A1A] block truncate">Alice Mariarita Mele</span>
-                    <span className="text-[10px] sm:text-[11px] text-[#7C3AED] font-semibold block truncate">Verona · Graphic & Print Design</span>
-                  </div>
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-[#FAF5FF] flex items-center justify-center text-[#7C3AED] flex-shrink-0">
-                    <Stamp className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                  </div>
-                </div>
               </div>
-
-              {/* Decorative mini card */}
-              <div className="absolute -top-3 -left-3 bg-white px-3.5 py-1.5 rounded-full border border-[#E9D5FF] shadow-md hidden sm:flex items-center gap-2 text-xs font-semibold text-[#6D28D9] z-30">
-                <span className="w-2 h-2 rounded-full bg-[#7C3AED]"></span>
-                <span>Graphic & Editorial Designer</span>
+              <div className="absolute left-0 bottom-0 bg-ink text-paper px-4 py-3">
+                <span className="block font-serif italic text-lg leading-none">Alice Mariarita Mele</span>
+                <span className="block mt-1 font-mono text-[10px] uppercase tracking-[0.16em] text-paper/70">
+                  Verona · Graphic & Print
+                </span>
               </div>
+            </motion.div>
+            <div className="absolute inset-0 pointer-events-none">
+              <CropMarks className="text-ink/60" offset={14} />
             </div>
+            <div className="absolute -top-10 -right-4 sm:-right-10 text-ink bg-paper rounded-full">
+              <CircleText text="Graphic Designer • Print & Editorial • " size={128} />
+              <span className="absolute inset-0 grid place-items-center font-serif italic text-2xl text-mag">✶</span>
+            </div>
+          </div>
 
-            {/* Right: Short about statement with CTA */}
-            <div className="lg:col-span-7 flex flex-col items-start space-y-4 sm:space-y-6">
-              
-              <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-white border border-[#E9D5FF] text-[#7C3AED] text-[11px] sm:text-[12px] font-bold uppercase tracking-wider sm:tracking-widest shadow-sm">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>Approccio Progettuale</span>
-              </div>
+          {/* Testo */}
+          <div className="lg:col-span-7">
+            <blockquote className="font-serif font-light text-[clamp(1.9rem,4vw,3.6rem)] leading-[1.08] tracking-[-0.02em]">
+              <span className="text-mag font-normal">“</span>
+              <ScrollWords
+                className="inline"
+                text="Mi piace costruire progetti grafici in cui estetica e funzionalità lavorano insieme."
+              />
+            </blockquote>
 
-              <h3 className="font-serif italic text-2xl sm:text-4xl lg:text-[2.6rem] text-[#1A1A1A] leading-snug tracking-tight">
-                "Mi piace costruire progetti grafici in cui estetica e funzionalità lavorano insieme."
-              </h3>
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-10% 0px' }}
+              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+              className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-2"
+            >
+              Dalla prima idea alla composizione finale, curo ogni dettaglio cercando di creare soluzioni visive
+              semplici, riconoscibili e coerenti. Credo nella forza tattile della stampa, nel rigore della gabbia
+              grafica e nel valore della tipografia come voce visiva.
+            </motion.p>
 
-              <p className="text-base sm:text-lg text-[#374151] leading-relaxed font-medium">
-                Dalla prima idea alla composizione finale, curo ogni dettaglio cercando di creare soluzioni visive semplici, riconoscibili e coerenti. Credo nella forza tattile della stampa, nel rigore della gabbia grafica e nel valore della tipografia come voce visiva.
-              </p>
+            {/* Numeri */}
+            <dl className="mt-12 grid grid-cols-2 sm:grid-cols-4 border-t border-ink">
+              {stats.map((s, i) => (
+                <motion.div
+                  key={s.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                  className={`py-5 pr-4 ${i % 2 ? 'pl-4 border-l' : ''} sm:pl-4 sm:first:pl-0 ${i > 0 ? 'sm:border-l' : ''} border-ink/15 ${i > 1 ? 'border-t sm:border-t-0' : ''}`}
+                >
+                  <dd className="font-serif font-light text-5xl sm:text-6xl tracking-tight">
+                    <Counter to={s.n} />
+                  </dd>
+                  <dt className="mt-2 font-mono text-[10px] uppercase tracking-[0.14em] text-ink-soft">{s.label}</dt>
+                </motion.div>
+              ))}
+            </dl>
 
-              {/* Link: Scopri il mio percorso → */}
-              <div className="pt-2 w-full sm:w-auto">
+            <div className="mt-10">
+              <Magnetic>
                 <button
                   id="about-cta-curriculum"
                   onClick={onNavigateCurriculum}
-                  className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#7C3AED] hover:bg-[#6D28D9] text-white font-medium text-sm sm:text-base shadow-lg shadow-purple-200 hover:scale-105 transition-all duration-200 min-h-[44px]"
+                  className="group relative overflow-hidden inline-flex items-center gap-4 rounded-full border border-ink pl-7 pr-2 py-2 min-h-[56px] font-medium"
                 >
-                  <span>Scopri il mio percorso</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-200" />
+                  <span className="absolute inset-0 bg-ink scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]" />
+                  <span className="relative group-hover:text-paper transition-colors duration-500">Scopri il mio percorso</span>
+                  <span className="relative w-10 h-10 rounded-full bg-mag text-paper grid place-items-center">
+                    <ArrowRight className="w-4 h-4 transition-transform duration-500 group-hover:translate-x-1" />
+                  </span>
                 </button>
-              </div>
-
+              </Magnetic>
             </div>
-
           </div>
-
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 };
