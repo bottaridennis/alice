@@ -1,13 +1,38 @@
 @import "tailwindcss";
 
+/* ──────────────────────────────────────────────────────────────
+   DESIGN TOKENS — "Studio di stampa"
+   Carta naturale, inchiostro nero e i tre colori di processo CMY.
+   ────────────────────────────────────────────────────────────── */
 @theme {
-  --font-serif: 'Playfair Display', Georgia, serif;
-  --font-display: 'Syne', sans-serif;
-  --font-sans: 'Poppins', sans-serif;
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-sans: 'Inter Tight', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --color-paper: #F2EFE7;
+  --color-paper-2: #E8E4D9;
+  --color-paper-3: #DDD8CA;
+  --color-ink: #141312;
+  --color-ink-2: #3A3835;
+  --color-ink-soft: #6E6A63;
+  --color-cy: #00A0E3;
+  --color-mag: #E6007E;
+  --color-yel: #FFD400;
+
+  --ease-print: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-spin-slow: spin 18s linear infinite;
 }
 
-html, body, button, input, select, textarea {
-  font-family: var(--font-sans);
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
 }
 
 html, body {
@@ -16,32 +41,81 @@ html, body {
 }
 
 body {
-  background-color: #FDFCFE;
-  color: #1A1A1A;
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-mag);
+  color: var(--color-paper);
 }
 
 .font-serif {
   font-family: var(--font-serif);
+  font-optical-sizing: auto;
+  font-variation-settings: 'SOFT' 50;
 }
 
-.font-display {
-  font-family: var(--font-display);
+/* Custom cursor active → hide native cursor on fine pointers */
+html.has-cursor, html.has-cursor * {
+  cursor: none !important;
 }
 
-/* Subtle print registration and crop mark style */
-.print-mark {
-  background-image: radial-gradient(circle, #7c3aed 1px, transparent 1px);
-  background-size: 16px 16px;
+/* Grana carta: rumore SVG fisso sopra tutto */
+.paper-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* Hide scrollbar globally but allow scrolling */
-*::-webkit-scrollbar {
-  display: none;
+/* Retino a punti (halftone) */
+.halftone {
+  background-image: radial-gradient(circle at center, currentColor 0.9px, transparent 1.3px);
+  background-size: 7px 7px;
 }
 
+.halftone-lg {
+  background-image: radial-gradient(circle at center, currentColor 30%, transparent 32%);
+  background-size: 10px 10px;
+}
+
+/* Griglia di impaginazione (colonne) */
+.layout-grid {
+  background-image: linear-gradient(to right, rgba(20, 19, 18, 0.05) 1px, transparent 1px);
+  background-size: calc(100% / 12) 100%;
+}
+
+/* Testo con solo contorno */
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-ink);
+}
+
+.text-outline-paper {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-paper);
+}
+
+/* Scrollbar sottile e coerente */
 * {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-ink) transparent;
+}
+*::-webkit-scrollbar { width: 6px; height: 6px; }
+*::-webkit-scrollbar-thumb { background: var(--color-ink); }
+*::-webkit-scrollbar-track { background: transparent; }
+
+:focus-visible {
+  outline: 2px solid var(--color-mag);
+  outline-offset: 3px;
 }
 
-
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
