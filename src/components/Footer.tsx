@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
-import { ArrowUp, ArrowUpRight, Copy, Check, Phone } from 'lucide-react';
+import { ArrowUp, ArrowUpRight, Copy, Check } from 'lucide-react';
 import { RESUME_DATA } from '../data/portfolioData';
 import { SplitReveal } from './fx/SplitReveal';
 import { Magnetic } from './fx/Magnetic';
@@ -71,13 +71,6 @@ export const Footer: React.FC<{ onNavigate: (t: NavTarget) => void }> = ({ onNav
                 {copied ? <Check className="w-4 h-4 text-yel" /> : <Copy className="w-4 h-4" />}
                 {copied ? 'Copiata' : 'Copia'}
               </button>
-              <a
-                href={`tel:${RESUME_DATA.phone.replace(/\s/g, '')}`}
-                className="inline-flex items-center gap-2 rounded-full border border-paper/30 px-5 min-h-[52px] font-mono text-[11px] uppercase tracking-[0.14em] hover:border-paper transition-colors"
-              >
-                <Phone className="w-4 h-4" />
-                {RESUME_DATA.phone}
-              </a>
             </div>
           </div>
 

@@ -13,7 +13,6 @@ export const RESUME_DATA = {
   subtitle: 'Grafica e Comunicazione',
   bio: "Sono una giovane professionista di 20 anni, che ha maturato solide competenze in ambito grafico e della comunicazione, grazie all'esperienza lavorativa svolta in progetti e contesti digitali.",
   location: '',
-  phone: '347 8468996',
   email: 'alicemariaritamele@gmail.com',
   portfolioUrl: '',
   profileText: `Sono una giovane professionista di 20 anni, che ha maturato solide competenze in ambito grafico e della comunicazione, grazie all'esperienza lavorativa svolta in progetti e contesti digitali.\n\nCaratteristiche che mi contraddistinguono sono la curiosità, l'attenzione ai dettagli, l'approccio analitico, il problem solving e una spiccata propensione all'apprendimento. Connotata da buone doti relazionali, di ascolto e di comunicazione, sviluppate grazie all'esperienza di animatrice di un gruppo adolescenti che mi ha permesso di potenziare la capacità di gestione del gruppo, l'attitudine al dialogo, capacità che intendo valorizzare in ambito formativo.`,
