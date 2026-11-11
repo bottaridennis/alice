@@ -64,10 +64,14 @@ const Timeline: React.FC = () => {
             <span className="w-1.5 h-1.5 rounded-full bg-ink group-hover:bg-paper transition-colors" />
           </span>
           <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-6">
-            <h4 className="font-serif text-3xl sm:text-4xl tracking-tight transition-[font-style] group-hover:italic">{exp.role}</h4>
+            <h4 className="font-serif text-3xl sm:text-4xl tracking-tight transition-[font-style] group-hover:italic">{exp.company}</h4>
             <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-ink-soft shrink-0">{exp.period}</span>
           </div>
-          <div className="mt-1 text-base font-medium text-ink-2">{exp.company}</div>
+          {exp.role && (
+            <span className="inline-block mt-2 font-mono text-[10px] uppercase tracking-[0.14em] bg-ink text-paper px-2 py-1">
+              {exp.role}
+            </span>
+          )}
           <ul className="mt-4 space-y-2.5">
             {exp.keyActivities.map((a, k) => (
               <li key={k} className="grid grid-cols-[1.5rem_1fr] text-[15px] leading-relaxed text-ink-2">
@@ -161,9 +165,7 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
               transition={{ delay: 0.6, duration: 0.9, ease: EASE }}
               className="mt-8 max-w-2xl text-lg sm:text-xl leading-snug text-ink-2"
             >
-              <span className="font-serif italic text-mag">Graphic Designer</span> — specializzata nella progettazione per la
-              stampa, grafica editoriale d’arte e costruzione di identità visive coerenti. Coniugo rigore metodologico,
-              sensibilità materica per i supporti cartacei e precisione tipografica in ogni fase del lavoro.
+              <span className="font-serif italic text-mag">Graphic Designer</span> — {RESUME_DATA.bio}
             </motion.p>
             <motion.div
               initial={{ opacity: 0 }}
@@ -223,20 +225,22 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
 
         <Section id="cv-profile" n="01" title="Profilo">
           <motion.div {...fadeUp} className="space-y-6">
-            <p className="font-serif font-light text-2xl sm:text-3xl leading-[1.25] tracking-[-0.01em]">
-              Mi piace costruire progetti grafici in cui estetica e funzionalità lavorano insieme in perfetta armonia.
-              Credo che la grafica destinata alla stampa conservi un valore sensoriale insostituibile: il peso e la grana
-              di una carta speciale, la brillantezza di un inchiostro calibrato, la griglia invisibile che guida l’occhio
-              nella lettura di un testo articolato.
-            </p>
-            <p className="text-lg leading-relaxed text-ink-2 max-w-2xl">
-              Il mio percorso unisce sensibilità visiva contemporanea, rigore tecnico nella gestione della prestampa
-              (abbondanze, profili colore) e una costante attenzione alle esigenze dei clienti e delle istituzioni culturali.
-            </p>
+            {RESUME_DATA.profileText.split('\n\n').map((para, i) => (
+              <p
+                key={i}
+                className={
+                  i === 0
+                    ? 'font-serif font-light text-2xl sm:text-3xl leading-[1.25] tracking-[-0.01em]'
+                    : 'text-lg leading-relaxed text-ink-2 max-w-2xl'
+                }
+              >
+                {para}
+              </p>
+            ))}
           </motion.div>
         </Section>
 
-        <Section id="cv-experiences" n="02" title="Esperienze" note="Percorso professionale e progetti svolti in agenzie e tipografie.">
+        <Section id="cv-experiences" n="02" title="Esperienze" note="Esperienze lavorative e stage.">
           <Timeline />
         </Section>
 
@@ -263,7 +267,7 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
           </div>
         </Section>
 
-        <Section id="cv-skills" n="04" title="Competenze" note="Aree di specializzazione e metodologie progettuali.">
+        <Section id="cv-skills" n="04" title="Competenze" note="Competenze maturate tra lavoro, stage e formazione.">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-ink/15 border border-ink/15">
             {RESUME_DATA.skillCategories.map((cat, i) => (
               <motion.div
@@ -296,67 +300,65 @@ export const CurriculumView: React.FC<CurriculumViewProps> = ({ onBackToPortfoli
           </div>
         </Section>
 
-        <Section id="cv-software" n="05" title="Software" note="Applicazioni e tool di lavoro per layout, vettori, video e prestampa.">
+        <Section id="cv-software" n="05" title="Software" note="Strumenti di lavoro per grafica, impaginazione, video ed e-learning.">
           <ul className="border-t border-ink">
-            {RESUME_DATA.softwareTools.map((tool, i) => {
-              const lvl = tool.level === 'Avanzato' ? 3 : tool.level === 'Intermedio' ? 2 : 1;
-              return (
-                <motion.li
-                  key={tool.name}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: i * 0.04, ease: EASE }}
-                  className="group grid grid-cols-[1fr_auto] sm:grid-cols-[1fr_8rem_9rem] items-center gap-4 py-4 border-b border-ink/15"
-                >
-                  <span className="font-serif text-xl sm:text-2xl tracking-tight transition-transform duration-500 group-hover:translate-x-2">
-                    {tool.name}
-                  </span>
-                  <span className="hidden sm:block font-mono text-[10px] uppercase tracking-[0.14em] text-ink-soft">
-                    {tool.category}
-                  </span>
-                  <span className="flex items-center gap-3 justify-end">
-                    <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-soft hidden sm:inline">
-                      {tool.level}
-                    </span>
-                    <span className="flex gap-1" aria-label={`Livello: ${tool.level}`}>
-                      {[1, 2, 3].map((d) => (
-                        <motion.span
-                          key={d}
-                          className={`w-2.5 h-2.5 rounded-full ${d <= lvl ? 'bg-ink group-hover:bg-mag' : 'border border-ink/30'} transition-colors`}
-                          initial={{ scale: 0 }}
-                          whileInView={{ scale: 1 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: 0.2 + i * 0.04 + d * 0.06, type: 'spring', stiffness: 400, damping: 15 }}
-                        />
-                      ))}
-                    </span>
-                  </span>
-                </motion.li>
-              );
-            })}
+            {RESUME_DATA.softwareTools.map((tool, i) => (
+              <motion.li
+                key={tool.name}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.04, ease: EASE }}
+                className="group grid grid-cols-[2rem_1fr_auto] items-center gap-4 py-4 border-b border-ink/15"
+              >
+                <span className="font-mono text-[10px] text-mag">{String(i + 1).padStart(2, '0')}</span>
+                <span className="font-serif text-xl sm:text-2xl tracking-tight transition-transform duration-500 group-hover:translate-x-2">
+                  {tool.name}
+                </span>
+                <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-ink-soft">{tool.category}</span>
+              </motion.li>
+            ))}
           </ul>
         </Section>
 
         <Section id="cv-languages" n="06" title="Lingue">
-          <div className="space-y-8">
-            {RESUME_DATA.languages.map((lang, i) => (
-              <div key={lang.name}>
-                <div className="flex items-baseline justify-between gap-4">
-                  <span className="font-serif text-3xl tracking-tight">{lang.name}</span>
-                  <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-ink-soft">{lang.level}</span>
+          <div className="space-y-10">
+            {RESUME_DATA.languages.map((lang, li) => {
+              const scale = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+              const reached = lang.cefr ? scale.indexOf(lang.cefr) : scale.length - 1;
+              return (
+                <div key={lang.name}>
+                  <div className="flex items-baseline justify-between gap-4">
+                    <span className="font-serif text-3xl tracking-tight">{lang.name}</span>
+                    <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-ink-soft">{lang.level}</span>
+                  </div>
+                  {lang.cefr ? (
+                    <div className="mt-3 grid grid-cols-6 gap-1" aria-label={`Livello QCER ${lang.cefr}`}>
+                      {scale.map((lv, i) => (
+                        <div key={lv}>
+                          <motion.div
+                            className={`h-3 origin-left ${i <= reached ? (li % 2 ? 'bg-cy' : 'bg-mag') : 'bg-paper-2'}`}
+                            initial={{ scaleX: 0 }}
+                            whileInView={{ scaleX: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: 0.1 + i * 0.08, ease: [0.76, 0, 0.24, 1] }}
+                          />
+                          <span className={`block mt-1.5 font-mono text-[10px] ${i === reached ? 'text-ink' : 'text-ink-soft'}`}>{lv}</span>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <motion.div
+                      className="mt-3 h-3 bg-mag origin-left"
+                      initial={{ scaleX: 0 }}
+                      whileInView={{ scaleX: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1.2, delay: 0.1, ease: [0.76, 0, 0.24, 1] }}
+                    />
+                  )}
                 </div>
-                <div className="mt-3 h-3 bg-paper-2 overflow-hidden">
-                  <motion.div
-                    className={`h-full ${i % 2 ? 'bg-cy' : 'bg-mag'}`}
-                    initial={{ width: 0 }}
-                    whileInView={{ width: `${lang.percentage}%` }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1.4, delay: 0.2, ease: [0.76, 0, 0.24, 1] }}
-                  />
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </Section>
       </div>

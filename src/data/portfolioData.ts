@@ -20,9 +20,9 @@ export const RESUME_DATA = {
   experiences: [
     {
       id: 'exp-1',
-      period: '08/2023 — Oggi',
+      period: '08/2025 — Oggi',
       company: 'Edulife S.p.A Impresa Sociale',
-      role: 'Graphic Designer',
+      role: '',
       location: '',
       description: '',
       keyActivities: [
@@ -34,7 +34,7 @@ export const RESUME_DATA = {
     },
     {
       id: 'exp-2',
-      period: '09/2022 — 05/2023',
+      period: '05/2024 — 09/2024',
       company: 'Withub S.p.A',
       role: 'Stage',
       location: '',
@@ -46,7 +46,7 @@ export const RESUME_DATA = {
     },
     {
       id: 'exp-3',
-      period: '02/2022 — 04/2022',
+      period: '02/2023 — 04/2023',
       company: 'Sgaravato srl',
       role: 'Stage',
       location: '',
@@ -80,7 +80,7 @@ export const RESUME_DATA = {
   skillCategories: [
     {
       title: 'Competenze Trasversali',
-      description: 'Capacità organizzative e relazionali sviluppate sul campo.',
+      description: 'Doti relazionali, di ascolto e di comunicazione, rafforzate anche come animatrice di un gruppo di adolescenti.',
       items: [
         'Problem solving e approccio analitico',
         'Propensione all\'apprendimento continuo',
@@ -91,7 +91,7 @@ export const RESUME_DATA = {
     },
     {
       title: 'Digital & AI Tools',
-      description: 'Integrazione di strumenti innovativi nel flusso di lavoro.',
+      description: 'Strumenti di Intelligenza Artificiale e produzione di contenuti digitali ed e-learning.',
       items: [
         'Prompting e Generative AI (ChatGPT, Gemini, Copilot)',
         'Video e Audio AI (Higgsfield, ElevenLabs, Gamma)',
@@ -102,7 +102,7 @@ export const RESUME_DATA = {
     },
     {
       title: 'Grafica e Visual Identity',
-      description: 'Ideazione e sviluppo di progetti per la comunicazione offline e online.',
+      description: 'Identità visive, loghi e impaginazione per la comunicazione offline.',
       items: [
         'Sviluppo di identità visive e progettazione di loghi',
         'Definizione di naming e concept',
@@ -112,18 +112,18 @@ export const RESUME_DATA = {
     }
   ] as SkillCategory[],
   softwareTools: [
-    { name: 'Adobe Illustrator', category: 'Design', level: 'Avanzato', badge: 'Core' },
-    { name: 'Adobe InDesign', category: 'Design', level: 'Avanzato', badge: 'Core' },
-    { name: 'Adobe Photoshop', category: 'Design', level: 'Avanzato', badge: 'Core' },
-    { name: 'Adobe XD', category: 'UI/UX', level: 'Intermedio', badge: 'Digital' },
-    { name: 'Adobe Premiere', category: 'Video', level: 'Intermedio', badge: 'Video' },
-    { name: 'Adobe Character Animator', category: 'Animation', level: 'Base', badge: 'Animation' },
-    { name: 'Articulate 360', category: 'E-learning', level: 'Intermedio', badge: 'E-learning' },
-    { name: 'Camtasia', category: 'Video', level: 'Intermedio', badge: 'Video' },
-    { name: 'Pacchetto Office', category: 'Productivity', level: 'Avanzato', badge: 'Office' }
+    { name: 'Adobe Illustrator', category: 'Design' },
+    { name: 'Adobe InDesign', category: 'Design' },
+    { name: 'Adobe Photoshop', category: 'Design' },
+    { name: 'Adobe XD', category: 'UI/UX' },
+    { name: 'Adobe Premiere', category: 'Video' },
+    { name: 'Adobe Character Animator', category: 'Animation' },
+    { name: 'Articulate 360', category: 'E-learning' },
+    { name: 'Camtasia', category: 'Video' },
+    { name: 'Pacchetto Office', category: 'Productivity' }
   ] as SoftwareTool[],
   languages: [
-    { name: 'Italiano', level: 'Madrelingua', percentage: 100, note: '' },
-    { name: 'Inglese', level: 'B1 - Intermedio', percentage: 60, note: '' }
+    { name: 'Italiano', level: 'Madrelingua' },
+    { name: 'Inglese', level: 'B1 - Intermedio', cefr: 'B1' }
   ] as Language[]
 };

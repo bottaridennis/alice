@@ -217,7 +217,9 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                   {/* Palette */}
                   {project.palette && project.palette.length > 0 && (
                     <div className="mt-8">
-                      <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-ink-soft">Palette</span>
+                      <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-ink-soft">
+                        Palette · colori campionati dalla copertina
+                      </span>
                       <div className="mt-3 grid grid-cols-4 gap-2">
                         {project.palette.map((c, i) => (
                           <motion.div

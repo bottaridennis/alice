@@ -99,8 +99,7 @@ export const AboutPreview: React.FC<AboutPreviewProps> = ({ onNavigateCurriculum
               className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-2"
             >
               Dalla prima idea alla composizione finale, curo ogni dettaglio cercando di creare soluzioni visive
-              semplici, riconoscibili e coerenti. Credo nella forza tattile della stampa, nel rigore della gabbia
-              grafica e nel valore della tipografia come voce visiva.
+              semplici, riconoscibili e coerenti.
             </motion.p>
 
             {/* Numeri */}

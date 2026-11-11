@@ -7,6 +7,7 @@ import { Project } from '../types';
  * - Percorso PDF originale in /public./projects/<slug>/project.pdf
  * - Thumbnail prima pagina ad alta definizione in /public./projects/<slug>/cover.jpg
  * - Tag di dettaglio per ricerca e filtri
+ * - Palette campionata automaticamente dai colori dominanti della copertina
  */
 export const userProjects: Project[] = [
   {
@@ -24,7 +25,7 @@ export const userProjects: Project[] = [
     galleryImages: ['./projects/festival-cinema-africano/cover.jpg'],
     featured: true,
     sizeSpan: 'large',
-    palette: ['#7C3AED', '#F59E0B', '#10B981', '#1E1B4B']
+    palette: ['#FFFFFF', '#F69B3B', '#6F0E16', '#BB2228']
   },
   {
     id: 'oltre-i-confini-editorial',
@@ -32,16 +33,16 @@ export const userProjects: Project[] = [
     category: 'Editorial Design / Magazine Design',
     categories: ['Editorial Design'],
     categorySlug: 'editorial-design',
-    tags: ['Editorial Design', 'Magazine Design', 'Infografica', 'CISL', 'Reportage'],
+    tags: ['Editorial Design', 'Magazine Design', 'Infografica', 'Migrazioni'],
     description: "Progetto editoriale dedicato al tema delle migrazioni in Italia, sviluppato attraverso dati, approfondimenti e contenuti di carattere sociale. L'identità visiva utilizza una griglia editoriale rigorosa, tipografia ad alto contrasto e fotografia documentaristica, costruendo una gerarchia chiara tra titoli, testi e immagini lungo l'intera pubblicazione.",
-    summary: 'Progetto editoriale su griglia modulare, dati statistici e reportage fotografico sul tema delle migrazioni.',
+    summary: 'Progetto editoriale sulle migrazioni in Italia, con griglia rigorosa, dati e fotografia documentaristica.',
     cover: './projects/oltre-i-confini-editorial/cover.jpg',
     coverImage: './projects/oltre-i-confini-editorial/cover.jpg',
     pdf: './projects/oltre-i-confini-editorial/project.pdf',
     galleryImages: ['./projects/oltre-i-confini-editorial/cover.jpg'],
     featured: true,
     sizeSpan: 'wide',
-    palette: ['#047857', '#111827', '#F3F4F6', '#D97706']
+    palette: ['#FFFFFF', '#000000', '#B6B6B6', '#333333']
   },
   {
     id: 'velocita-e-movimento',
@@ -49,15 +50,15 @@ export const userProjects: Project[] = [
     category: 'Poster Design / Exhibition Communication / Cultural Graphic Design',
     categories: ['Poster Design'],
     categorySlug: 'poster-design',
-    tags: ['Poster Design', 'Exhibition Communication', 'Cultural Graphic Design', 'Futurismo', 'Tipografia Sperimentale'],
+    tags: ['Poster Design', 'Exhibition Communication', 'Cultural Graphic Design', 'Futurismo', 'Tipografia Geometrica'],
     description: "Progetto di poster design per una mostra dedicata al Futurismo, sviluppato mettendo al centro i concetti di dinamismo, energia e movimento. La composizione combina texture pittoriche, contrasti cromatici e una tipografia geometrica e strutturata, creando una gerarchia visiva netta tra titolo e informazioni dell'evento.",
-    summary: 'Poster design per mostra sul Futurismo incentrato su energia cinetica, texture pittoriche e rigore geometrico.',
+    summary: 'Poster per una mostra sul Futurismo: dinamismo, texture pittoriche e tipografia geometrica.',
     cover: './projects/velocita-e-movimento/cover.jpg',
     coverImage: './projects/velocita-e-movimento/cover.jpg',
     pdf: './projects/velocita-e-movimento/project.pdf',
     galleryImages: ['./projects/velocita-e-movimento/cover.jpg'],
     sizeSpan: 'tall',
-    palette: ['#DC2626', '#1E293B', '#F8FAFC', '#F59E0B']
+    palette: ['#6F5231', '#2B2F61', '#FEFEFE', '#AC7B39']
   },
   {
     id: 'grande-piramide-egitto',
@@ -67,13 +68,13 @@ export const userProjects: Project[] = [
     categorySlug: 'brand-identity',
     tags: ['Menu Design', 'Print Design', 'Visual Identity', 'Pattern Design', 'Food & Beverage'],
     description: "Progetto di menu design per una pizzeria a tema egizio, sviluppato attraverso una struttura editoriale ordinata e una forte caratterizzazione visiva. La composizione combina gerarchie tipografiche, palette scura con accenti dorati e pattern ispirati ai geroglifici, organizzando un'elevata quantità di informazioni in maniera leggibile e coerente con l'identità del locale.",
-    summary: "Struttura editoriale complessa e identità visiva con finiture dorate e geroglifici per pizzeria a tema egizio.",
+    summary: "Menu per una pizzeria a tema egizio: struttura editoriale ordinata, palette scura con accenti dorati e pattern ispirati ai geroglifici.",
     cover: './projects/grande-piramide-egitto/cover.jpg',
     coverImage: './projects/grande-piramide-egitto/cover.jpg',
     pdf: './projects/grande-piramide-egitto/project.pdf',
     galleryImages: ['./projects/grande-piramide-egitto/cover.jpg'],
     sizeSpan: 'wide',
-    palette: ['#1C1917', '#CA8A04', '#FBBF24', '#78716C']
+    palette: ['#333132', '#FFFFFF', '#9B9A9B', '#626061']
   },
   {
     id: 'oltre-i-confini-banconota',
@@ -81,15 +82,15 @@ export const userProjects: Project[] = [
     category: 'Graphic Design / Currency Design / Vector Illustration',
     categories: ['Brand & Visual Identity'],
     categorySlug: 'brand-identity',
-    tags: ['Graphic Design', 'Currency Design', 'Vector Illustration', 'Pattern di Sicurezza', 'Multiculturalità'],
+    tags: ['Graphic Design', 'Currency Design', 'Vector Illustration', 'Multiculturalità'],
     description: "Progetto di currency design basato sulla reinterpretazione grafica della banconota come supporto di comunicazione visiva. La composizione combina illustrazioni vettoriali modulari, forme geometriche e un sistema cromatico coordinato, costruendo un linguaggio visivo capace di rappresentare diversità, identità e multiculturalità attraverso una struttura coerente e riconoscibile.",
-    summary: 'Reinterpretazione grafica della banconota con illustrazioni vettoriali modulari e pattern geometrici di sicurezza.',
+    summary: 'Reinterpretazione grafica della banconota con illustrazioni vettoriali modulari, forme geometriche e un sistema cromatico coordinato.',
     cover: './projects/oltre-i-confini-banconota/cover.jpg',
     coverImage: './projects/oltre-i-confini-banconota/cover.jpg',
     pdf: './projects/oltre-i-confini-banconota/project.pdf',
     galleryImages: ['./projects/oltre-i-confini-banconota/cover.jpg'],
     sizeSpan: 'large',
-    palette: ['#4338CA', '#06B6D4', '#E0E7FF', '#312E81']
+    palette: ['#FEFEFE', '#D6402D', '#FAD543', '#F48327']
   },
   {
     id: 'happy-xmas-night',
@@ -99,13 +100,13 @@ export const userProjects: Project[] = [
     categorySlug: 'poster-design',
     tags: ['Poster Design', 'Event Communication', 'Visual Communication', 'Nightlife', 'Fotomontaggio'],
     description: "Progetto di visual communication per un evento nightlife a tema natalizio, sviluppato attraverso una composizione ad alto impatto visivo e una palette calda e luminosa. Il layout combina fotomontaggio, tipografia gerarchica e gestione dei contrasti per mettere in evidenza headline, guest, data e informazioni dell'evento.",
-    summary: 'Manifesto per evento nightlife con fotomontaggio dinamico, palette vibrante e gerarchia tipografica netta.',
+    summary: 'Poster per un evento nightlife natalizio con fotomontaggio, palette calda e gerarchia tipografica.',
     cover: './projects/happy-xmas-night/cover.jpg',
     coverImage: './projects/happy-xmas-night/cover.jpg',
     pdf: './projects/happy-xmas-night/project.pdf',
     galleryImages: ['./projects/happy-xmas-night/cover.jpg'],
     sizeSpan: 'regular',
-    palette: ['#B91C1C', '#EA580C', '#FEF08A', '#0F172A']
+    palette: ['#030303', '#F9C60A', '#FEFEFD', '#AE2125']
   },
   {
     id: 'la-maestra-del-vetro',
@@ -113,7 +114,7 @@ export const userProjects: Project[] = [
     category: 'Book Cover Design / Editorial Design / Illustration',
     categories: ['Editorial Design'],
     categorySlug: 'editorial-design',
-    tags: ['Book Cover Design', 'Editorial Design', 'Illustration', 'Copertina Libraria', 'Dorso & Risguardi'],
+    tags: ['Book Cover Design', 'Editorial Design', 'Illustration', 'Copertina Libraria', 'Prima, dorso e quarta'],
     description: "Progetto di progettazione editoriale per una copertina libraria completa, sviluppata su prima, quarta di copertina e dorso. Il visual combina illustrazione, composizione tipografica e una palette cromatica ispirata all'ambiente marino, costruendo un'identità coerente con il tono narrativo del romanzo.",
     summary: 'Progettazione editoriale completa di copertina libraria (prima, dorso e quarta) con illustrazione tematica.',
     cover: './projects/la-maestra-del-vetro/cover.jpg',
@@ -121,7 +122,7 @@ export const userProjects: Project[] = [
     pdf: null,
     galleryImages: ['./projects/la-maestra-del-vetro/cover.jpg'],
     sizeSpan: 'wide',
-    palette: ['#0284C7', '#0369A1', '#E0F2FE', '#0C4A6E']
+    palette: ['#8E8E8E', '#C6C5AC', '#22445F', '#0A1C29']
   },
   {
     id: 'percezione-social-awareness',
@@ -129,15 +130,15 @@ export const userProjects: Project[] = [
     category: 'Poster Design / Social Communication / Visual Concept',
     categories: ['Poster Design'],
     categorySlug: 'poster-design',
-    tags: ['Poster Design', 'Social Communication', 'Visual Concept', 'Inclusione Lavorativa', 'CISL'],
+    tags: ['Poster Design', 'Social Communication', 'Visual Concept', 'Inclusione Lavorativa'],
     description: "Progetto di comunicazione visiva a carattere sociale dedicato alla percezione del fenomeno migratorio nel contesto lavorativo. Il concept utilizza forme essenziali, contrasto figura-sfondo e gerarchia tipografica per rappresentare graficamente i temi dell'inclusione e della diversità attraverso un messaggio immediato e riconoscibile.",
-    summary: "Poster di comunicazione sociale con contrasto figura-sfondo e sintesi grafica sul tema dell'inclusione lavorativa.",
+    summary: "Comunicazione sociale sulla percezione del fenomeno migratorio nel lavoro, con contrasto figura-sfondo.",
     cover: './projects/percezione-social-awareness/cover.jpg',
     coverImage: './projects/percezione-social-awareness/cover.jpg',
     pdf: './projects/percezione-social-awareness/project.pdf',
     galleryImages: ['./projects/percezione-social-awareness/cover.jpg'],
     sizeSpan: 'tall',
-    palette: ['#2563EB', '#1D4ED8', '#F1F5F9', '#0F172A']
+    palette: ['#231F20', '#FFFFFF', '#9B9A9B', '#565456']
   },
   {
     id: 'otium-art-newspaper',
@@ -145,15 +146,15 @@ export const userProjects: Project[] = [
     category: 'Editorial Design / Newspaper Layout / Cultural Publication',
     categories: ['Editorial Design', 'Typography & Lettering'],
     categorySlug: 'editorial-design',
-    tags: ['Editorial Design', 'Newspaper Layout', 'Cultural Publication', 'Arte & Critica', 'Griglia a Colonne'],
+    tags: ['Editorial Design', 'Newspaper Layout', 'Cultural Publication', 'Arte & Cultura', 'Griglia a Colonne'],
     description: "Progetto di impaginazione editoriale in stile newspaper dedicato all'arte e alla divulgazione culturale. La composizione utilizza griglie a colonne, gerarchie tipografiche, citazioni in evidenza e un'alternanza calibrata tra testo e immagini, costruendo una pagina ricca di contenuti ma ordinata e leggibile.",
-    summary: "Layout editoriale in stile newspaper con griglie a colonne serrate, citazioni in evidenza e cura tipografica.",
+    summary: "Impaginazione in stile newspaper dedicata all'arte, con griglie a colonne e citazioni in evidenza.",
     cover: './projects/otium-art-newspaper/cover.jpg',
     coverImage: './projects/otium-art-newspaper/cover.jpg',
     pdf: './projects/otium-art-newspaper/project.pdf',
     galleryImages: ['./projects/otium-art-newspaper/cover.jpg'],
     sizeSpan: 'large',
-    palette: ['#27272A', '#E4E4E7', '#7C3AED', '#52525B']
+    palette: ['#FEFEFE', '#CECFCF', '#3F6DA2', '#83AFBA']
   },
   {
     id: 'rockwell-type-specimen',
@@ -161,15 +162,15 @@ export const userProjects: Project[] = [
     category: 'Typography / Type Specimen / Poster Design',
     categories: ['Typography & Lettering', 'Poster Design'],
     categorySlug: 'typography',
-    tags: ['Typography', 'Type Specimen', 'Poster Design', 'Slab Serif', 'Monolineare', 'Anatomia del Carattere'],
+    tags: ['Typography', 'Type Specimen', 'Poster Design', 'Slab Serif', 'Monolineare'],
     description: "Progetto di type specimen dedicato al carattere tipografico Rockwell, sviluppato per raccontarne origine, struttura e principali caratteristiche formali. La composizione mette in risalto costruzione monolineare, grazie slab serif, proporzioni e set di glifi attraverso una gerarchia tipografica dinamica e un uso controllato del colore.",
-    summary: 'Tavola di type specimen dedicata alla struttura monolineare, alle grazie slab serif e ai glifi di Rockwell.',
+    summary: 'Type specimen del carattere Rockwell: origine, costruzione monolineare, grazie slab serif e set di glifi.',
     cover: './projects/rockwell-type-specimen/cover.jpg',
     coverImage: './projects/rockwell-type-specimen/cover.jpg',
     pdf: './projects/rockwell-type-specimen/project.pdf',
     galleryImages: ['./projects/rockwell-type-specimen/cover.jpg'],
     sizeSpan: 'tall',
-    palette: ['#0284C7', '#1E293B', '#F8FAFC', '#64748B']
+    palette: ['#38383A', '#FEFEFE', '#8A8A8C', '#C6C6C6']
   },
   {
     id: 'photo-stories',
@@ -179,13 +180,13 @@ export const userProjects: Project[] = [
     categorySlug: 'editorial-design',
     tags: ['Editorial Design', 'Photo Book', 'Layout Design', 'Fotografia Editoriale', 'Narrazione Visiva'],
     description: "Progetto di impaginazione editoriale per un libretto fotografico multipagina, sviluppato attraverso un sistema grafico coerente e flessibile. Il layout alterna immagini a pieno formato, composizioni modulari e blocchi testuali, lavorando su ritmo, proporzioni e gerarchia visiva per valorizzare la narrazione fotografica.",
-    summary: 'Libretto fotografico multipagina con alternanza di immagini a piena pagina, ritmi visivi e gabbia editoriale dinamica.',
+    summary: 'Libretto fotografico multipagina che alterna immagini a pieno formato, composizioni modulari e blocchi di testo.',
     cover: './projects/photo-stories/cover.jpg',
     coverImage: './projects/photo-stories/cover.jpg',
     pdf: './projects/photo-stories/project.pdf',
     galleryImages: ['./projects/photo-stories/cover.jpg'],
     sizeSpan: 'wide',
-    palette: ['#18181B', '#A1A1AA', '#FAFAFA', '#6D28D9']
+    palette: ['#FFFFFF', '#06080D', '#939697', '#BDBFC0']
   },
   {
     id: 'ottobre-1917',
@@ -195,13 +196,13 @@ export const userProjects: Project[] = [
     categorySlug: 'poster-design',
     tags: ['Poster Design', 'Cultural Communication', 'Historical Graphic Design', 'Rivoluzione Russa', 'Composizione Radiale'],
     description: "Progetto di poster design a tema storico-culturale dedicato alla Rivoluzione Russa. Il visual richiama l'estetica della propaganda sovietica attraverso una palette calda e fortemente contrastata, illustrazioni dal carattere monumentale e una composizione radiale che enfatizza tensione, energia e mobilitazione.",
-    summary: 'Poster storico-culturale con richiami all’avanguardia costruttivista sovietica, contrasti netti e struttura radiale.',
+    summary: "Poster storico-culturale che richiama l'estetica della propaganda sovietica, con palette contrastata e composizione radiale.",
     cover: './projects/ottobre-1917/cover.jpg',
     coverImage: './projects/ottobre-1917/cover.jpg',
     pdf: './projects/ottobre-1917/project.pdf',
     galleryImages: ['./projects/ottobre-1917/cover.jpg'],
     sizeSpan: 'regular',
-    palette: ['#DC2626', '#991B1B', '#F59E0B', '#1C1917']
+    palette: ['#F5DB9F', '#231F21', '#E32126', '#640C0F']
   },
   {
     id: 'buon-natale-lettering',
@@ -211,12 +212,12 @@ export const userProjects: Project[] = [
     categorySlug: 'lettering',
     tags: ['Lettering', 'Poster Design', 'Seasonal Communication', 'Calligrafia', 'Custom Typography'],
     description: "Progetto di lettering illustrato a tema natalizio, costruito integrando il messaggio tipografico all'interno della forma di una decorazione. Il visual punta su calligrafia personalizzata, equilibrio compositivo e contrasto cromatico, trasformando il testo nell'elemento grafico protagonista.",
-    summary: 'Lettering calligrafico personalizzato sagomato a decorazione natalizia con forte equilibrio tipografico e cromatico.',
+    summary: 'Lettering con calligrafia personalizzata integrato nella forma di una decorazione natalizia.',
     cover: './projects/buon-natale-lettering/cover.jpg',
     coverImage: './projects/buon-natale-lettering/cover.jpg',
     pdf: './projects/buon-natale-lettering/project.pdf',
     galleryImages: ['./projects/buon-natale-lettering/cover.jpg'],
     sizeSpan: 'tall',
-    palette: ['#059669', '#DC2626', '#FBBF24', '#FFFFFF']
+    palette: ['#2F673A', '#FFFFFF', '#DEB028', '#CEDBD1']
   }
 ];
