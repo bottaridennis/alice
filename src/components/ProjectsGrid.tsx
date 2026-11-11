@@ -146,20 +146,6 @@ const ProjectCard: React.FC<{
           <span className="absolute top-3 left-3 font-mono text-[10px] uppercase tracking-[0.16em] bg-paper/90 backdrop-blur px-2 py-1">
             Tav. {pad(index + 1)}
           </span>
-          {/* Strip palette con i colori reali del progetto */}
-          {project.palette && (
-            <div className="absolute bottom-0 inset-x-0 flex translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]">
-              {project.palette.map((c, i) => (
-                <span
-                  key={c + i}
-                  className="flex-1 h-9 flex items-end px-2 pb-1 font-mono text-[9px] uppercase"
-                  style={{ background: c, color: isLight(c) ? '#141312' : '#F2EFE7', transitionDelay: `${i * 40}ms` }}
-                >
-                  {c}
-                </span>
-              ))}
-            </div>
-          )}
         </motion.div>
 
         <div className="mt-4 grid grid-cols-[1fr_auto] gap-x-4 items-start border-t border-ink/15 pt-3">
@@ -183,12 +169,6 @@ const ProjectCard: React.FC<{
     </motion.article>
   );
 };
-
-function isLight(hex: string) {
-  const h = hex.replace('#', '');
-  const r = parseInt(h.slice(0, 2), 16), g = parseInt(h.slice(2, 4), 16), b = parseInt(h.slice(4, 6), 16);
-  return (r * 299 + g * 587 + b * 114) / 1000 > 150;
-}
 
 /* ─────────────────────────── VISTA INDICE ─────────────────────────── */
 

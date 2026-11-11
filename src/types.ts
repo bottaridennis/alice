@@ -25,7 +25,6 @@ export interface Project {
     finishes?: string;
   };
   typography?: string;
-  palette?: string[];
   featured?: boolean;
   sizeSpan?: 'tall' | 'wide' | 'large' | 'regular';
 }

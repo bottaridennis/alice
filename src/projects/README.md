@@ -11,7 +11,7 @@ Questa cartella è il punto centrale dove gestire e posizionare tutti i progetti
    - I progetti aggiunti in questo array compariranno automaticamente in cima al portfolio!
 
 2. **`projectTemplate.ts`**:
-   - Modello di riferimento con tutti i campi tipizzati (titolo, cliente, specifiche di stampa, carta Fedrigoni/Favini, nobilitazioni, palette colori, immagini).
+   - Modello di riferimento con tutti i campi tipizzati (titolo, categorie, tag, descrizione, copertina, PDF).
 
 3. **`initialProjects.ts`**:
    - I progetti di partenza già presenti nel portfolio.
@@ -43,7 +43,6 @@ Questa cartella è il punto centrale dove gestire e posizionare tutti i progetti
     finishes: 'es. Lamina a caldo'
   },
   typography: 'es. Neue Haas Grotesk',
-  palette: ['#7C3AED', '#FFFFFF', '#1A1A1A'],
   featured: true, // true se deve apparire anche nella Hero in evidenza
   sizeSpan: 'regular' // 'regular' | 'tall' | 'wide' | 'large'
 }

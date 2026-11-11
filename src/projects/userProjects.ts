@@ -7,7 +7,6 @@ import { Project } from '../types';
  * - Percorso PDF originale in /public./projects/<slug>/project.pdf
  * - Thumbnail prima pagina ad alta definizione in /public./projects/<slug>/cover.jpg
  * - Tag di dettaglio per ricerca e filtri
- * - Palette campionata automaticamente dai colori dominanti della copertina
  */
 export const userProjects: Project[] = [
   {
@@ -24,8 +23,7 @@ export const userProjects: Project[] = [
     pdf: './projects/festival-cinema-africano/project.pdf',
     galleryImages: ['./projects/festival-cinema-africano/cover.jpg'],
     featured: true,
-    sizeSpan: 'large',
-    palette: ['#FFFFFF', '#F69B3B', '#6F0E16', '#BB2228']
+    sizeSpan: 'large'
   },
   {
     id: 'oltre-i-confini-editorial',
@@ -41,8 +39,7 @@ export const userProjects: Project[] = [
     pdf: './projects/oltre-i-confini-editorial/project.pdf',
     galleryImages: ['./projects/oltre-i-confini-editorial/cover.jpg'],
     featured: true,
-    sizeSpan: 'wide',
-    palette: ['#FFFFFF', '#000000', '#B6B6B6', '#333333']
+    sizeSpan: 'wide'
   },
   {
     id: 'velocita-e-movimento',
@@ -57,8 +54,7 @@ export const userProjects: Project[] = [
     coverImage: './projects/velocita-e-movimento/cover.jpg',
     pdf: './projects/velocita-e-movimento/project.pdf',
     galleryImages: ['./projects/velocita-e-movimento/cover.jpg'],
-    sizeSpan: 'tall',
-    palette: ['#6F5231', '#2B2F61', '#FEFEFE', '#AC7B39']
+    sizeSpan: 'tall'
   },
   {
     id: 'grande-piramide-egitto',
@@ -73,8 +69,7 @@ export const userProjects: Project[] = [
     coverImage: './projects/grande-piramide-egitto/cover.jpg',
     pdf: './projects/grande-piramide-egitto/project.pdf',
     galleryImages: ['./projects/grande-piramide-egitto/cover.jpg'],
-    sizeSpan: 'wide',
-    palette: ['#333132', '#FFFFFF', '#9B9A9B', '#626061']
+    sizeSpan: 'wide'
   },
   {
     id: 'oltre-i-confini-banconota',
@@ -89,8 +84,7 @@ export const userProjects: Project[] = [
     coverImage: './projects/oltre-i-confini-banconota/cover.jpg',
     pdf: './projects/oltre-i-confini-banconota/project.pdf',
     galleryImages: ['./projects/oltre-i-confini-banconota/cover.jpg'],
-    sizeSpan: 'large',
-    palette: ['#FEFEFE', '#D6402D', '#FAD543', '#F48327']
+    sizeSpan: 'large'
   },
   {
     id: 'happy-xmas-night',
@@ -105,8 +99,7 @@ export const userProjects: Project[] = [
     coverImage: './projects/happy-xmas-night/cover.jpg',
     pdf: './projects/happy-xmas-night/project.pdf',
     galleryImages: ['./projects/happy-xmas-night/cover.jpg'],
-    sizeSpan: 'regular',
-    palette: ['#030303', '#F9C60A', '#FEFEFD', '#AE2125']
+    sizeSpan: 'regular'
   },
   {
     id: 'la-maestra-del-vetro',
@@ -121,8 +114,7 @@ export const userProjects: Project[] = [
     coverImage: './projects/la-maestra-del-vetro/cover.jpg',
     pdf: null,
     galleryImages: ['./projects/la-maestra-del-vetro/cover.jpg'],
-    sizeSpan: 'wide',
-    palette: ['#8E8E8E', '#C6C5AC', '#22445F', '#0A1C29']
+    sizeSpan: 'wide'
   },
   {
     id: 'percezione-social-awareness',
@@ -137,8 +129,7 @@ export const userProjects: Project[] = [
     coverImage: './projects/percezione-social-awareness/cover.jpg',
     pdf: './projects/percezione-social-awareness/project.pdf',
     galleryImages: ['./projects/percezione-social-awareness/cover.jpg'],
-    sizeSpan: 'tall',
-    palette: ['#231F20', '#FFFFFF', '#9B9A9B', '#565456']
+    sizeSpan: 'tall'
   },
   {
     id: 'otium-art-newspaper',
@@ -153,8 +144,7 @@ export const userProjects: Project[] = [
     coverImage: './projects/otium-art-newspaper/cover.jpg',
     pdf: './projects/otium-art-newspaper/project.pdf',
     galleryImages: ['./projects/otium-art-newspaper/cover.jpg'],
-    sizeSpan: 'large',
-    palette: ['#FEFEFE', '#CECFCF', '#3F6DA2', '#83AFBA']
+    sizeSpan: 'large'
   },
   {
     id: 'rockwell-type-specimen',
@@ -169,8 +159,7 @@ export const userProjects: Project[] = [
     coverImage: './projects/rockwell-type-specimen/cover.jpg',
     pdf: './projects/rockwell-type-specimen/project.pdf',
     galleryImages: ['./projects/rockwell-type-specimen/cover.jpg'],
-    sizeSpan: 'tall',
-    palette: ['#38383A', '#FEFEFE', '#8A8A8C', '#C6C6C6']
+    sizeSpan: 'tall'
   },
   {
     id: 'photo-stories',
@@ -185,8 +174,7 @@ export const userProjects: Project[] = [
     coverImage: './projects/photo-stories/cover.jpg',
     pdf: './projects/photo-stories/project.pdf',
     galleryImages: ['./projects/photo-stories/cover.jpg'],
-    sizeSpan: 'wide',
-    palette: ['#FFFFFF', '#06080D', '#939697', '#BDBFC0']
+    sizeSpan: 'wide'
   },
   {
     id: 'ottobre-1917',
@@ -201,8 +189,7 @@ export const userProjects: Project[] = [
     coverImage: './projects/ottobre-1917/cover.jpg',
     pdf: './projects/ottobre-1917/project.pdf',
     galleryImages: ['./projects/ottobre-1917/cover.jpg'],
-    sizeSpan: 'regular',
-    palette: ['#F5DB9F', '#231F21', '#E32126', '#640C0F']
+    sizeSpan: 'regular'
   },
   {
     id: 'buon-natale-lettering',
@@ -217,7 +204,6 @@ export const userProjects: Project[] = [
     coverImage: './projects/buon-natale-lettering/cover.jpg',
     pdf: './projects/buon-natale-lettering/project.pdf',
     galleryImages: ['./projects/buon-natale-lettering/cover.jpg'],
-    sizeSpan: 'tall',
-    palette: ['#2F673A', '#FFFFFF', '#DEB028', '#CEDBD1']
+    sizeSpan: 'tall'
   }
 ];
