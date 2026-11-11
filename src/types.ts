@@ -25,7 +25,6 @@ export interface Project {
     finishes?: string;
   };
   typography?: string;
-  palette?: string[];
   featured?: boolean;
   sizeSpan?: 'tall' | 'wide' | 'large' | 'regular';
 }
@@ -60,13 +59,12 @@ export interface SkillCategory {
 export interface SoftwareTool {
   name: string;
   category: string;
-  level: string;
-  badge: string;
 }
 
 export interface Language {
   name: string;
+  /** livello come riportato nel CV */
   level: string;
-  percentage: number;
-  note: string;
+  /** livello QCER (A1–C2), assente per la madrelingua */
+  cefr?: 'A1' | 'A2' | 'B1' | 'B2' | 'C1' | 'C2';
 }

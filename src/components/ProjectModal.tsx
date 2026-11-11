@@ -214,26 +214,6 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
                     ))}
                   </dl>
 
-                  {/* Palette */}
-                  {project.palette && project.palette.length > 0 && (
-                    <div className="mt-8">
-                      <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-ink-soft">Palette</span>
-                      <div className="mt-3 grid grid-cols-4 gap-2">
-                        {project.palette.map((c, i) => (
-                          <motion.div
-                            key={c + i}
-                            initial={{ scaleY: 0 }}
-                            animate={{ scaleY: 1 }}
-                            transition={{ delay: 0.9 + i * 0.07, duration: 0.6, ease: EASE }}
-                            className="origin-bottom"
-                          >
-                            <div className="aspect-square border border-ink/10" style={{ background: c }} />
-                            <span className="block mt-1.5 font-mono text-[10px] uppercase">{c}</span>
-                          </motion.div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
 
                   {project.pdf && (
                     <a

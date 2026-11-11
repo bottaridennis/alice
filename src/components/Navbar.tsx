@@ -116,9 +116,9 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-mag opacity-60" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-mag" />
                 </span>
-                Disponibile
+                Verona
               </span>
-              <span className="text-ink-soft">VR {time}</span>
+              <span className="text-ink-soft">{time}</span>
             </div>
 
             {/* Toggle mobile */}

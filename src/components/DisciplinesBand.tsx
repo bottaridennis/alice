@@ -1,8 +1,9 @@
 import React from 'react';
 import { Marquee } from './fx/Marquee';
+import { RESUME_DATA } from '../data/portfolioData';
 
 const DISCIPLINES = ['Editorial Design', 'Poster Design', 'Brand & Visual Identity', 'Typography & Lettering'];
-const TOOLS = ['InDesign', 'Illustrator', 'Photoshop', 'Premiere', 'Adobe XD', 'Articulate 360', 'Prestampa', 'Impaginazione'];
+const TOOLS = RESUME_DATA.softwareTools.map((t) => t.name);
 
 /** Due nastri incrociati come fascette di carta: discipline e strumenti. */
 export const DisciplinesBand: React.FC = () => (

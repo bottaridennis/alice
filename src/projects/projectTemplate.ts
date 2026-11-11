@@ -19,7 +19,6 @@ export const projectTemplate: Project = {
   coverImage: '/projects/nome-univoco-progetto/cover.jpg',
   pdf: '/projects/nome-univoco-progetto/project.pdf',
   galleryImages: ['/projects/nome-univoco-progetto/cover.jpg'],
-  palette: ['#7C3AED', '#A855F7', '#E9D5FF', '#1E1B24'],
   featured: false,
   sizeSpan: 'regular' // 'regular' | 'tall' | 'wide' | 'large'
 };

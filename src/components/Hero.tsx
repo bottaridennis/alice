@@ -77,11 +77,6 @@ const Sheet: React.FC<{
         </div>
         <div className="flex items-end justify-between pt-[4%] font-mono text-[8px] sm:text-[9px] uppercase tracking-[0.14em] text-ink-soft">
           <span className="truncate pr-2">{project.categories[0]}</span>
-          <span className="flex gap-[2px] shrink-0">
-            {(project.palette ?? []).slice(0, 4).map((c) => (
-              <span key={c} className="w-2 h-2" style={{ background: c }} />
-            ))}
-          </span>
         </div>
       </motion.button>
     </motion.div>
